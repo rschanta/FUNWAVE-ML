@@ -1,0 +1,197 @@
+ -------------- LOG FILE -----------------
+ input_00005                                                                     
+  --------------input start --------------
+                                          
+ -------------- PARALLEL -----------------
+ PX   = 16 PY   =  2
+                                          
+ -------------- GRID INFO -----------------
+ Mglob=    1024 Nglob=       3
+ DX=        1.00 DY=        1.00
+ DEPTH_TYPE:SLOPE                                             
+DEPTH_FLAT        5.00
+ SLP=        0.10
+ Xslp=      800.00
+                                          
+ -------------- TIME INFO -----------------
+         PLOT_START_TIME Default:  0.0 s
+                             StationOutputBuffer not specified, use default:1000
+ TOTAL_TIME=        5.00
+ PLOT_INTV=         1.00
+ SCREEN_INTV=        1.00
+                                          
+ -------------- HOT START -----------------
+                                          
+ -------------- STILL WATER INFO -----------------
+       WaterLevel =      0.00000
+                                          
+ -------------- WAVEMAKER -----------------
+ WAVEMAKER:WK_REG                                            
+                       Yc_WK defalt: 0.0
+                 Time_ramp Default:  0.0
+               Ywidth_WK Default:  LARGE
+ Xc_WK   =      250.00
+ Yc_WK   =        0.00
+ Tperiod =        6.00
+ AMP_WK  =        0.20
+ DEP_WK  =        5.00
+ Theta_WK=        0.00
+ Time_ramp=        0.00
+  Delta_WK=        3.00
+ Ywidth_WK=   999999.00
+          EqualEnergy NOT USED in frequency domain
+                                          
+ -------------- PERIODIC BC -----------------
+  PERIODIC: F
+                                          
+ -------------- SPONGE -----------------
+                   DIRECT_SPONGE IS USED
+                 FRICTION_SPONGE IS USED
+ FRICTION_SPONGE CDsponge=        1.00
+                 R_sponge Default:  0.85
+                  A_sponge Default:  5.0
+ Sponge_west_width =        0.00
+ Sponge_east_width =        0.00
+ Sponge_south_width=        0.00
+ Sponge_north_width=        0.00
+ R_sponge          =        0.85
+ A_sponge          =        5.00
+              No WavemakerCurrentBalance
+                                          
+ -------- OBSTACLE and BREAKWATER -----------------
+ OBSTACLE_FILE:   NO
+    BREAKWATER_FILE:   NO
+     BreakWaterAbsorbCoef Default:  10.0
+                                          
+ -------------- PHYSICS -----------------
+         DISPERSION Default:  DISPERSION
+        Gamma1 Default:  1.0: DISPERSION
+              Gamma2 Default:  1.0: Full nonlinear
+               Beta_ref Default:  -0.531
+                      Gamma3 Default:  1.0: NOT fully linear
+  Summary of Physics
+ Gamma1 =         1.00
+ Gamma2 =         1.00
+Beta_ref=        -0.53
+ Gamma3 =         1.00
+ VISCOSITY_BREAKING IS USED
+               SWE_ETA_DEP Default:  0.8
+             Friction_Matrix Default:  constant Cd
+  Cd_fixed (if you used fixed Cd) =        0.00
+                                          
+ -------------- NUMERICS -----------------
+       Time_Scheme Default:  Runge_Kutta
+ TIME_SCHEME:Runge_Kutta                                       
+  CONSTRUCTION                              NOT DEFINED, USE HLL
+ CONSTRUCTION:HLLC                                              
+  HIGH_ORDER                     NOT DEFINED, USE FOURTH-ORDER
+ HIGH_ORDER:FOURTH                                            
+ CFL=        0.40
+  FroudeCap=        3.00
+             MinDepthFrc Default:  0.1 m
+          USE MIN(MinDepthFrc, MinDepth)
+ MinDepth=    0.100000
+ MinDepthFrc=    0.100000
+                               Dont record wave arrival time
+                                          
+ --------- WAVE BREAKING -----------------
+                      ROLLER_EFFECT:  NO
+            SHOW_BREAKING Default:  TRUE
+ Cbrk1 =    0.650000
+ Cbrk2 =    0.350000
+            WAVEMAKER_Cbrk Default:  1.0
+  WAVEMAKER_Cbrk =         1.000000
+           WAVEMAKER_VIS Default:  FALSE
+                                          
+ -------- WAVE-AVERAGED PROPERTY -----------------
+                     C_smg Default:  0.0
+ T_INTV_mean =    3.000000
+ STEADY_TIME =    3.000000
+ C_smg =    0.000000
+                    nu_bkg Default:  0.0
+                                          
+ -------------- OUTPUT INFO -----------------
+ RESULT_FOLDER:/lustre/scratch/rschanta/make_FW3/outputs-raw/out_
+ FIELD_IO_TYPE = BINARY                                                                          
+         OUTPUT_RES NOT FOUND, OUTPUT_RES=1: full resolution
+     OUTPUT_RES         1
+      EtaBlowVal Default:  100xmax_depth
+      OUT_DEPTH T
+          OUT_U T
+          OUT_V T
+        OUT_ETA T
+       OUT_Hmax F
+       OUT_Hmin F
+       OUT_Umax F
+      OUT_MFmax F
+     OUT_VORmax F
+       OUT_MASK T
+      OUT_MASK9 F
+      OUT_Umean F
+      OUT_Vmean F
+    OUT_ETAmean F
+ OUT_WaveHeight T
+        OUT_SXL F
+        OUT_SXR F
+        OUT_SYL F
+        OUT_SYR F
+    OUT_SourceX F
+    OUT_SourceY F
+          OUT_P F
+          OUT_Q F
+         OUT_Fx F
+         OUT_Fy F
+         OUT_Gx F
+         OUT_Gy F
+        OUT_AGE F
+     OUT_ROLLER F
+   OUT_UNDERTOW F
+         OUT_NU F
+        OUT_TMP F
+       OUT_TIME F
+                                          
+  --------------input end --------------
+                                          
+                                            TIDAL_BC not defined, Default: False
+ ----------------- STATISTICS ----------------
+  TIME        DT
+  0.0000E+00  0.0000E+00
+  MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
+  0.0000E+00  0.3006E+06  0.1740E+02  0.0000E+00  0.0000E+00  0.0000E+00
+  MaxTotalU   PhaseS      Froude      WetDryMass
+  0.0000E+00  0.9905E+00  0.0000E+00  0.0000E+00
+   PRINTING FILE NO.     0  TIME/TOTAL:        0.000 /       5.000
+ ----------------- STATISTICS ----------------
+  TIME        DT
+  0.1028E+01  0.5709E-01
+  MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
+ -0.1007E+02  0.3002E+06  0.1740E+02 -0.1416E+00  0.2841E-01  0.4835E-05
+  MaxTotalU   PhaseS      Froude      WetDryMass
+  0.2841E-01  0.7004E+01  0.4056E-02  0.0000E+00
+   PRINTING FILE NO.     1  TIME/TOTAL:        1.028 /       5.000
+ ----------------- STATISTICS ----------------
+  TIME        DT
+  0.2054E+01  0.5679E-01
+  MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
+ -0.2870E+02  0.2993E+06  0.1740E+02 -0.3460E+00  0.1581E+00  0.8856E-05
+  MaxTotalU   PhaseS      Froude      WetDryMass
+  0.1581E+00  0.7004E+01  0.2258E-01  0.0000E+00
+   PRINTING FILE NO.     2  TIME/TOTAL:        2.054 /       5.000
+ ----------------- STATISTICS ----------------
+  TIME        DT
+  0.3013E+01  0.5616E-01
+  MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
+ -0.3650E+02  0.2989E+06  0.1740E+02 -0.2977E+00  0.2939E+00  0.7187E-05
+  MaxTotalU   PhaseS      Froude      WetDryMass
+  0.2939E+00  0.7004E+01  0.4196E-01  0.0000E+00
+   PRINTING FILE NO.     3  TIME/TOTAL:        3.013 /       5.000
+ ----------------- STATISTICS ----------------
+  TIME        DT
+  0.4020E+01  0.5580E-01
+  MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
+ -0.2658E+02  0.2994E+06  0.1740E+02 -0.2128E+00  0.3099E+00  0.5441E-05
+  MaxTotalU   PhaseS      Froude      WetDryMass
+  0.3099E+00  0.7004E+01  0.4425E-01  0.0000E+00
+   PRINTING FILE NO.     4  TIME/TOTAL:        4.020 /       5.000
+ Simulation takes   0.00000000     seconds
+ Normal Termination!
