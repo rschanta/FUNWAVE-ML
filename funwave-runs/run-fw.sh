@@ -4,7 +4,7 @@
 
 ## RUN NAME
 super_path="/lustre/scratch/rschanta/"
-run_name="trial_3"
+run_name="trial_5"
 count="900"
 
 ## Make log and batch folders
@@ -98,7 +98,8 @@ vpkg_require matlab
 args="'${super_path}','${run_name}'"
 run_compress_out \$args
 
-rm -rf "${super_path}${run_name}/outputs-proc/"
+## Keep for now
+#rm -rf "${super_path}${run_name}/outputs-proc/"
 rm -rf "${super_path}${run_name}/outputs-raw/"
 EOF
 
