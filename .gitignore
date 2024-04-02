@@ -1,4 +1,5 @@
 *.mat
 *.out
 *.mod
+*LOG.txt
 funwave/
