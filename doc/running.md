@@ -87,4 +87,4 @@ intended for short-term storage of large data and isn't owned directly by your g
 
 This process is summarized in the graphic below:
 
-![workflow-graphic](doc/figures/workflow-diagram.JPG "Running FUNWAVE on HPC")
+![workflow-graphic](figures/workflow-diagram.JPG "Running FUNWAVE on HPC")
