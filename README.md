@@ -120,10 +120,88 @@ super_path/
 
 ## Workflow
 
-### Generation of Inputs
+### File Organization within the Work Folder
 This repository is set up to create all necessary input.txt files needed to run a series 
 of FUNWAVE simulations. As previously described, these files get generated to the 
-super_path/run_path/input/ directory. These files are programmatically generated via a 
+super_path/run_path/input/ directory. 
+
+Work defining these inputs happens in the WORK folder. These files are programmatically generated via a 
 MATLAB script ***that shares the same file name as the run name***. For example, we create
-a MATLAB file called 'varying_slopes.m' may contain code that defines 1000 different FUNWAVE
-runs defined by some range of parameters. Locally, this 
+a MATLAB file called 'varying_slopes.m' that may contain code that defines 1000 different FUNWAVE
+runs defined by some range of parameters. Locally, this should be stored
+in a ***subdirectory that shares the same file name as the run name within the funwave-runs directory*** 
+For the example given of a name of 'varying_slopes', we would have something like:
+```
+WORK/
+├── data
+├── functions
+├── funwave
+├── funwave-runs/
+│   └── varying_slopes/
+│       └── varying_slopes.m
+└── README.md
+```
+
+Generically, this is:
+```
+WORK/
+├── data
+├── functions
+├── funwave
+├── funwave-runs/
+│   └── run_name/
+│       └── run_name.m
+└── README.md
+```
+
+### The FWS Structure in MATLAB
+Different FUNWAVE trials are programmatically defined via the **FWS** structure in MATLAB. The FWS structure
+is a generic MATLAB structure that contains all the parameters of an valid `input.txt` file. For example, here
+are the first few lines of a FWS structure made for a 'DEPTH_TYPE=SLOPE' FUNWAVE run:
+
+```
+FWS = struct();
+    %%% Title Info
+        FWS.TITLE = 'input_SLP.txt';
+    %%% Parallel Info
+        FWS.PX = int64(16); 
+        FWS.PY = int64(2);
+    %%% Depth Info
+        FWS.DEPTH_TYPE = 'SLOPE';
+        FWS.DEPTH_FLAT = 5; 
+        FWS.SLP = 0.1;
+        FWS.Xslp = 800; 
+	%%% Associated Files
+        files = struct();
+        FWS.Files= files;
+```
+
+The field names of the FWS structure must exactly match the desired corresponding parameter in the *input.txt*
+file. Note that FUNWAVE is written in FORTRAN, so some care should be taken with data types:
+
+* *Booleans and Strings* - input as a MATLAB string, such as `'SLP'` or `'T'`
+* *Doubles* - input as a standard MATLAB double, such as `5`
+* *Integers* - **must** be explicitly set as an integer since MATLAB defaults to double- such as `int64(16)`. 
+This is mostly a concern for *PX* and *PY* variables.
+
+In order to avoid having to specify every variable of a *input.txt* file, several templates are available 
+for common case. 
+
+#### Associated Files
+```
+FWS = struct();
+        FWS.Files= files;
+```
+Note that the FWS structure also can has a field called "Files". This is not printed to the *input.txt* folder,
+but instead can be used to store any other information desired about the run, which may include bathymetry
+and coupling files.
+
+#### Templates
+In order to avoid having to specify parameters that may not change all that often every time, several
+templates are available as a baseline, from which fields can be modified one-by-one as needed. Current
+templates include:
+* [**FWS_in_SLP**](doc/input/templates/FWS_in_SLP.md): A FUNWAVE run using the `DEP='SLOPE' setting and a regular wavemaker
+* **FWS_in_DATA**: A FUNWAVE run using input bathymetry and a regular wavemaker
+* **FWS_in_COUPLE**: A FUNWAVE run using a coupling file
+
+[functions documentation](doc/functions.md)
