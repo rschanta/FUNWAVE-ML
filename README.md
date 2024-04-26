@@ -200,7 +200,7 @@ and coupling files.
 In order to avoid having to specify parameters that may not change all that often every time, several
 templates are available as a baseline, from which fields can be modified one-by-one as needed. Current
 templates include:
-* [**FWS_in_SLP**](doc/input/templates/FWS_in_SLP.md): A FUNWAVE run using the `DEP='SLOPE' setting and a regular wavemaker
+* [**FWS_in_SLP**](doc/input_templates/FWS_in_SLP.md): A FUNWAVE run using the `DEP='SLOPE' setting and a regular wavemaker
 * **FWS_in_DATA**: A FUNWAVE run using input bathymetry and a regular wavemaker
 * **FWS_in_COUPLE**: A FUNWAVE run using a coupling file
 
