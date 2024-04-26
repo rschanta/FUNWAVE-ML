@@ -4,8 +4,8 @@
 
 ## RUN NAME
 super_path="/lustre/scratch/rschanta/"
-run_name="trial_5"
-count="900"
+run_name="trial_6"
+count="8"
 
 ## Make log and batch folders
 slurm_dir=".\/${run_name}\/slurm_logs\/"

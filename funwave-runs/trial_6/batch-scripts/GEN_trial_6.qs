@@ -3,15 +3,14 @@
 #
 #SBATCH --nodes=1
 #SBATCH --tasks-per-node=32
-#SBATCH --job-name=COPY_trial_5
+#SBATCH --job-name=GEN_trial_6
 #SBATCH --partition=thsu
 #SBATCH --time=7-00:00:00
-#SBATCH --output=./trial_5/slurm_logs/COPY_out.out
-#SBATCH --error=./trial_5/slurm_logs/COPY_err.out
+#SBATCH --output=./trial_6/slurm_logs/GEN_out.out
+#SBATCH --error=./trial_6/slurm_logs/GEN_err.out
 #SBATCH --mail-user='rschanta@udel.edu'
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --export=ALL
-#SBATCH --dependency=afterok:27563969
 #
 #UD_QUIET_JOB_SETUP=YES
 #UD_USE_SRUN_LAUNCHER=YES
@@ -23,5 +22,5 @@
 
 . /work/thsu/rschanta/RTS/functions/utility/bash-utils.sh
 #
-cp "/lustre/scratch/rschanta/trial_5/inputs.mat" "./trial_5/inputs.mat"
-cp "/lustre/scratch/rschanta/trial_5/outputs.mat" "./trial_5/outputs.mat"
+vpkg_require matlab
+run_MATLAB_script "./trial_6/trial_6.m"
