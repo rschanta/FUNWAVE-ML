@@ -88,3 +88,61 @@ intended for short-term storage of large data and isn't owned directly by your g
 This process is summarized in the graphic below:
 
 ![workflow-graphic](figures/workflow-diagram.JPG "Running FUNWAVE on HPC")
+
+## Constructing **run-fw.sh**
+
+The `run-fw.sh` file is set up to be fairly modular, with just a few key input parameters to input at the beginning.
+* *super_path* and *run_name* are defined as before. 
+
+### Inputs
+* ***count***: number of different trials in the run. This should be known ahead of time. This is needed to set the bounds of the SLURM array.
+* ***partition***: desired partition to run on
+* ***tasks-per-node**: the tasks-per-node chosen for FUNWAVE, to match with PX times PY. It is assumed that this is the same
+for all runs.
+* ***Version of FUNWAVE***: the version of FUNWAVE to run. This should match the conventions set forth in the executables section.
+* ***Module of FUNWAVE***: the module (or combination of) modules to run, again matching the convention of the executables section.
+```
+## INPUTS
+# Super_path
+super_path="/lustre/scratch/rschanta/"
+# Run_Name
+run_name="small_tr"
+# Number of trials in the run
+count="900"
+# Partition
+par="thsu"
+# Tasks per Node
+tpn="32"
+# Version of FUNWAVE
+vs="3.6"
+# Module of FUNWAVE
+mod="REG"
+```
+
+### Setup
+The following lines are added to access helper functions:
+
+```
+## LOAD IN BASH UTILITIES
+. "/work/thsu/rschanta/RTS/functions/utility/bash-utils.sh"
+. "/work/thsu/rschanta/RTS/functions/utility/sbatch-slurm-utils.sh"
+```
+
+And the following helper function is used to generate the files for the batch scripts generated
+and all the slurm log files (see helper functions for more details):
+
+```
+## Make log and batch folders
+create_batch_folders $run_name
+
+```
+
+### Running the Sequence
+
+The following 4 sections are then added in sequence to the *run-fw.sh* file. Note, most of this 
+workflow is the same, just repetitive, so the details are in the links below:
+
+1. [**Generation File**](running/gen_inputs.md)
+2. [**Run_File**](running/run_file.md)
+3. [**Compression_File**](running/compression.md)
+4. [**Copy File**](running/copy.md) 

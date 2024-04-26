@@ -17,6 +17,7 @@ code organization
 options for bathymetry, coupling, and general scenarios.
 * [**FUNWAVE Executables**](doc/FW_exec.md): Overview of the different versions of FUNWAVE, which each have a 
 different executable.
+* [**Creating SLURM Scripts**](doc/slurm/slurm_preambles.md)
 * [**Executing all the Trials of a Run**](doc/running.md): Overview of the process used to automatically run
 FUNWAVE runs, from input generation to output file compression/management.
 

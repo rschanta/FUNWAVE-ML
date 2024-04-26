@@ -16,6 +16,8 @@ vs="3.6"
 mod="REG"
 ## Make log and batch folders
 create_batch_folders $run_name
+slurm_dir=".\/${run_name}\/slurm_logs\/"
+batch_dir="./${run_name}/batch-scripts/"
 
 
 
