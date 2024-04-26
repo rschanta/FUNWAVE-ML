@@ -116,6 +116,11 @@ super_path/
         └── eta_XXXXX
 ```
 
+### Path Helper Function
+
+In order to create and keep track of all of these paths convenients without having to rewrite them constantly,
+2 helper functions are defined: 
+
 ---
 
 ## Workflow
@@ -192,10 +197,15 @@ for common case.
 FWS = struct();
         FWS.Files= files;
 ```
-Note that the FWS structure also can has a field called "Files". This is not printed to the *input.txt* folder,
+Note that the FWS structure also can has a field called "Files". This is not printed to the *input.txt* file,
 but instead can be used to store any other information desired about the run, which may include bathymetry
 and coupling files.
 
+#### Using the FWS Structure to generate an input file
+Once the FWS structure has been created, it can be printed via the helper function `print_FW_in()` found at
+`work/functions/FW-tools/FW-print/print_FW_in`. Normally, this should be specified as *super_path/run_path/input_path/input_XXXXX.txt*
+
+This function takes 2 arguments, with the first being the FWS structure and the second being the path. 
 #### Templates
 In order to avoid having to specify parameters that may not change all that often every time, several
 templates are available as a baseline, from which fields can be modified one-by-one as needed. Current
