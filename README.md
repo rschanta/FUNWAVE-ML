@@ -17,7 +17,8 @@ code organization
 options for bathymetry, coupling, and general scenarios.
 * [**FUNWAVE Executables**](doc/FW_exec.md): Overview of the different versions of FUNWAVE, which each have a 
 different executable.
-* 
+* [**Executing all the Trials of a Run**](doc/running.md): Overview of the process used to automatically run
+FUNWAVE runs, from input generation to output file compression/management.
 
 ## Basic Organization
 
@@ -46,3 +47,4 @@ languages used.
 the number of trials goes up, the number of files can quickly reach in the millions/gigabytes
 of data, so ensure adequate memory. In the University of Delaware Caviness HPC system, specify
 a path in the Lustre scratch folder. For example, 'lustre/scratch/user_name/'
+
