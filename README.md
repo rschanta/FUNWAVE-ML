@@ -10,7 +10,7 @@ The following styling conventions will be used throughout:
 * **parameter names/variables** are listed in bold text
 * ***file names*** are listed in bold italicized text 
 * <ins>*directory names*</ins> are italicized and underlined. 
-* *functions/commands* are listed in italicized text
+* `functions/commands` are listed inline code
 
 Specific instances of each of these used in examples are *italicized* rather than bolded.
 	

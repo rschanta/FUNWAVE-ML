@@ -1,5 +1,5 @@
 # Compress File
-The following code snippet is used to compress all of the output structures `out_XXXXX.mat` into a 
+The following code snippet is used to compress all of the output structures ***out_XXXXX.mat*** into a 
 single structure
 ```
 compress_file="${batch_dir}COMP_${run_name}.qs"
@@ -31,4 +31,4 @@ ID_Comp=$(sbatch --parsable $compress_file)
 First, the name of the file is constructed an a simple batch script from a template is created. 
 Then, neccessary dependencies are concatenated. MATLAB is added, as well and the arguments to `compress_out`
 are constructed. The function `run_compress_out` is then run, which is a helper function that runs the 
-`compress_out.m` function.
+`compress_out` function.

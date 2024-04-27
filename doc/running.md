@@ -2,7 +2,7 @@
 
 
 ## Prerequisites
-Up to this point, it is assumed that **run_name.m** file defining the *input.txt* files has been created
+Up to this point, it is assumed that ***run_name.m*** file defining the *input.txt* files has been created
 and that a valid FUNWAVE executable has been made in *work/funwave* as described. Review these sections 
 otherwise
 
@@ -14,8 +14,8 @@ important characteristics
 
 Further documentation can be found at []
 
-Specifically, you will need to know what ***partition*** is available to you, and the relevant specs/limitations
-of the partition. The ***standard*** partition should work if you are an authorized user of Caviness. Knowing
+Specifically, you will need to know what <ins>partition</ins> is available to you, and the relevant specs/limitations
+of the partition. The **standard** partition should work if you are an authorized user of Caviness. Knowing
 limits on task-per-node, memory, and run times are also generally useful.
 
 The VALET system is important to use MATLAB and OpenMPI, which are both needed. In terminal and in batch scripts
@@ -33,10 +33,10 @@ Additionally, you will need to specify a workgroup before anything can be done
 ```
 
 ### Batch Scripting and Bash Scripting
-***Batch Scripting*** is utilized to make the process of running FUNWAVE en masse as automated and fast as possible.
-In Caviness (and many other HPC systems), the ***Slurm Workload Manager*** is used to submit ***jobs*** to the HPC system,
+*Batch Scripting* is utilized to make the process of running FUNWAVE en masse as automated and fast as possible.
+In Caviness (and many other HPC systems), the *Slurm Workload Manager* is used to submit <ins>jobs</ins> to the HPC system,
 which will then be submitted once enough resources are available. Generally speaking, a ***batch script*** is specified by the `.qs`
-file extension, and submitted via the `sbatch` command. Suppose we have a batch script called *run_FW.qs*. We would then run it
+file extension, and submitted via the `sbatch` command. Suppose we have a batch script called ***run_FW.qs***. We would then run it
 in the HPC system by running:
 
 ```
@@ -46,8 +46,8 @@ It should be noted that SLURM batch scripts contain a plethora of settings and a
 These settings can be adjusted as needed, and many settings are explicitly adjusted to optimize the workflow. Check the section 
 about the Slurm Preamble for relevant settings:
 
-***Executing Bash Scripts***- For smaller jobs and collections of commands, generic ***bash scripts*** are used. These scripts
-have an `.sh` file extension and are called via the `bash` command. Suppose we have a bash script called *tidy_up.sh*. We would
+<ins>Executing Bash Scripts</ins>- For smaller jobs and collections of commands, generic <ins>bash scripts</ins> are used. These scripts
+have an `.sh` file extension and are called via the `bash` command. Suppose we have a bash script called ***tidy_up.sh***. We would
 run it as:
 
 ```
@@ -65,24 +65,25 @@ The advantage of this approach is full automation and consistently in setting up
 a single command once the appropriate bash script is made. SLURM conveniently has settings that allow scripts to wait
 on the execution of another script, so tasks can be specified sequentially. 
 
-Additionally, since each trial in a run of FUNWAVE is independent from the other, this becomes an *embarassingly parallel* task
+Additionally, since each trial in a run of FUNWAVE is independent from the other, this becomes an <ins>embarassingly parallel</ins> task
 to run, meaning that we can take advantage of parallel computing capabilities to submit multiple FUNWAVE simulations at the same
 time! However, one should be cautious of this in a shared cluster environment if others are using the HPC system as well.
 
 So in this goal, a bash script is created that creates the following series of batch scripts to execute sequentially:
-1. **Generation File** - Executes the *run_name.m* file that defines the range of input parameters to XXXXX individual 
-input.txt files in *super_path/run_path/inputs*.
 
-2. **Run_File** - Runs each of the input_XXXXX.txt files sequentially, and in parallel if possible. After each trial is 
-executed, the results are compressed down into a single MATLAB structure *out_XXXXX.mat* using the helper function *compress_out_i.m*. (See
-the section on Compression for more details). Additionally, the individual *out_XXXXX* folder is deleted once the compression
+1. ***Generation File*** - Executes the ***run_name.m*** file that defines the range of input parameters to XXXXX individual 
+***input.txt*** files in <ins>*super_path/run_path/inputs*</ins>.
+
+2. ***Run_File*** - Runs each of the ***input_XXXXX.txt*** files sequentially, and in parallel if possible. After each trial is 
+executed, the results are compressed down into a single MATLAB structure ***out_XXXXX.mat*** using the helper function `compress_out_i.m`. (See
+the section on Compression for more details). Additionally, the individual <ins>*out_XXXXX*</ins> folder is deleted once the compression
 is done to save on memory. 
 
-3. **Compression_File**- Condenses all of the *out_XXXXX.mat* structures to a single structure that ultimately contains all the results. Note
+3. ***Compression_File***- Condenses all of the ***out_XXXXX.mat*** structures to a single structure that ultimately contains all the results. Note
 that this is still a work in progress, and the form of this will likely change with time, as large runs are currently limited by data storage and
 greater-than-memory requirements.
 
-4. **Copy File**- (Optional)- In Caviness, it is best to move things out of `lustre/scratch` once we're done, since the lustre system is
+4. ***Copy File***- (Optional)- In Caviness, it is best to move things out of <ins>*lustre/scratch*</ins> once we're done, since the lustre system is
 intended for short-term storage of large data and isn't owned directly by your group.
 
 This process is summarized in the graphic below:
@@ -91,8 +92,7 @@ This process is summarized in the graphic below:
 
 ## Constructing **run-fw.sh**
 
-The `run-fw.sh` file is set up to be fairly modular, with just a few key input parameters to input at the beginning.
-* *super_path* and *run_name* are defined as before. 
+The ***run-fw.sh*** file is set up to be fairly modular, with just a few key input parameters to input at the beginning. ***super_path*** and **run_name** are defined as before. 
 
 ### Inputs
 * **count**: number of different trials in the run. This should be known ahead of time. This is needed to set the bounds of the SLURM array.
@@ -139,7 +139,7 @@ create_batch_folders $run_name
 
 ### Running the Sequence
 
-The following 4 sections are then added in sequence to the *run-fw.sh* file. Note, most of this 
+The following 4 sections are then added in sequence to the ***run-fw.sh*** file. Note, most of this 
 workflow is the same, just repetitive, so the details are in the links below:
 
 1. [**Generation File**](running/gen_inputs.md)

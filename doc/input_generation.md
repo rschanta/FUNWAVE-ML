@@ -2,8 +2,8 @@
 
 ## The FWS Structure in MATLAB
 Different FUNWAVE trials are programmatically defined via the **FWS** structure in MATLAB. The FWS structure
-is a generic MATLAB structure that contains all the parameters of an valid `input.txt` file. For example, here
-are the first few lines of a FWS structure made for a 'DEPTH_TYPE=SLOPE' FUNWAVE run:
+is a generic MATLAB structure that contains all the parameters of an valid ***input.txt*** file. For example, here
+are the first few lines of a FWS structure made for a **DEPTH_TYPE=SLOPE** FUNWAVE run:
 
 ```
 FWS = struct();
@@ -27,8 +27,8 @@ file. Note that FUNWAVE is written in FORTRAN, so some care should be taken with
 
 * *Booleans and Strings* - input as a MATLAB string, such as `'SLP'` or `'T'`
 * *Doubles* - input as a standard MATLAB double, such as `5`
-* *Integers* - **must** be explicitly set as an integer since MATLAB defaults to double- such as `int64(16)`. 
-This is mostly a concern for *PX* and *PY* variables.
+* *Integers* - *must* be explicitly set as an integer since MATLAB defaults to double- such as `int64(16)`. 
+This is mostly a concern for **PX** and **PY** variables.
 
 In order to avoid having to specify every variable of a *input.txt* file, several templates are available 
 for common case. 
@@ -38,13 +38,13 @@ for common case.
 FWS = struct();
         FWS.Files= files;
 ```
-Note that the FWS structure also can has a field called "Files". This is not printed to the *input.txt* file,
+Note that the FWS structure also can has a field called **Files**. This is not printed to the <ins>*input.txt*</ins> file,
 but instead can be used to store any other information desired about the run, which may include bathymetry
 and coupling files.
 
 ### Using the FWS Structure to generate an input file
 Once the FWS structure has been created, it can be printed via the helper function `print_FW_in()` found at
-`work/functions/FW-tools/FW-print/print_FW_in`. Normally, this should be specified as *super_path/run_path/input_path/input_XXXXX.txt*
+<ins>*work/functions/FW-tools/FW-print/print_FW_in*</ins>. Normally, this should be specified as *super_path/run_path/input_path/input_XXXXX.txt*
 
 This function takes 2 arguments, with the first being the FWS structure and the second being the path. 
 ### Templates

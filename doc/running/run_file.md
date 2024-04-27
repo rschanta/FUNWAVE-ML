@@ -43,19 +43,19 @@ IDP=$(run_batch "$p_file")
 ```
 
 Here, the name of the file is generated and a parallel batch script is generated using the 
-template `create_batch_ad` as found in the `sbatch-slurm-utils.sh` script.
+template `create_batch_ad` as found in the ***sbatch-slurm-utils.sh*** script.
 
 Then, the necessary lines are concatenated onto the template. Here, we need to get MATLAB
-via VALET as well as openmpi. We also need to specify the path to the FUNWAVE executable for `fun_ex`.
-We need the directory where all the inputs are stored `super_path/run_name/inputs/`
+via VALET as well as openmpi. We also need to specify the path to the FUNWAVE executable for **fun_ex**.
+We need the directory where all the inputs are stored <ins>*super_path/run_name/inputs/*</ins>
 
-Then, the specific input file number is constructed from the `SLURM_ARRAY_TASK_ID` 
+Then, the specific input file number is constructed from the **SLURM_ARRAY_TASK_ID** 
 (see section on slurm arrays for further explanation).
 
 FUNWAVE is then run using the `UD_MPIRUN` command.
 
 Next, the `compress_out_i` helper function is used to compress all of the outputs from the FUNWAVE trial
-into a single matlab structure, saving the file in `outputs-proc`. The `outputs-raw` directory is then deleted
+into a single matlab structure, saving the file in <ins>*outputs-proc*</ins>. The <ins>*outputs-raw*</ins> directory is then deleted
 to save memory.
 
 Finally, the batch script is run and the ID is gotten as before.
