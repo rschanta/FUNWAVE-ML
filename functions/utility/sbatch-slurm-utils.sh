@@ -146,7 +146,7 @@ echo "$FILE_CONTENT" > "$1"
 # CREATE A BATCH SCRIPT WITH AN ARRAY AND A DEPENDENCY
 #########################################################
 
-function create_batch_ad {
+function create_batch_ade {
 ## Specify Arguments
 file_path=$1
 job_name=$2
@@ -169,6 +169,7 @@ FILE_CONTENT=$(cat <<EOF
 #SBATCH --mail-user='rschanta@udel.edu'
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --export=ALL
+#SBATCH --dependency=afterok:${dep}
 #SBATCH --array=${arr}
 #
 #UD_QUIET_JOB_SETUP=YES

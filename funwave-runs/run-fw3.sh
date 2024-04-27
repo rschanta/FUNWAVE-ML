@@ -4,8 +4,8 @@
 
 ## INPUTS
 super_path="/lustre/scratch/rschanta/"
-run_name="small_tr"
-count="900"
+run_name="trial_7"
+count="4"
 # Partition
 par="thsu"
 # Tasks per Node
@@ -27,11 +27,12 @@ batch_dir="./${run_name}/batch-scripts/"
 # Create a batch script and set relevant parameters
 g_file="${batch_dir}GEN_${run_name}.qs"
 create_batch $g_file "GEN_${run_name}" $par $tpn
-	set_slurm "output" "${slurm_dir}GEN_out.out" $generation_file
-	set_slurm "error" "${slurm_dir}GEN_err.out" $generation_file
+	set_slurm "output" "${slurm_dir}GEN_out.out" $g_file
+	set_slurm "error" "${slurm_dir}GEN_err.out" $g_file
 
 
 cat <<EOF >> $g_file
+. "/work/thsu/rschanta/RTS/functions/utility/bash-utils.sh"
 vpkg_require matlab
 run_MATLAB_script "./${run_name}/${run_name}.m"
 EOF
@@ -44,7 +45,7 @@ IDG=$(run_batch "$g_file")
 ###################################################
 p_file="${batch_dir}RUN_${run_name}.qs"
 arr="1-${count}"
-create_batch_ad $p_file "RUN_${run_name}" $par $tpn $IDG $arr
+create_batch_ade $p_file "RUN_${run_name}" $par $tpn $IDG $arr
 	set_slurm "output" "${slurm_dir}RUN_out_%a.out" $p_file
 	set_slurm "error" "${slurm_dir}RUN_err_%a.out" $p_file
 
@@ -52,8 +53,10 @@ create_batch_ad $p_file "RUN_${run_name}" $par $tpn $IDG $arr
 
 ## BODY OF FILE
 cat <<EOF >> $p_file
+. "/work/thsu/rschanta/RTS/functions/utility/bash-utils.sh"
 . /opt/shared/slurm/templates/libexec/openmpi.sh
 vpkg_require openmpi
+vpkg_require matlab
 
 ## FUNWAVE Executable Path
 fun_ex="/work/thsu/rschanta/RTS/funwave/v3.6/exec/FW-REG"
@@ -70,7 +73,7 @@ input_file="\${in_dir}input_\${NUM}.txt"
 args="'${super_path}','${run_name}',\${NUM}"
 run_compress_out_i \$args
 
-rm -rf "${super_path}${run_name}/outputs-raw/out_\$(printf "%05d" \$SLURM_ARRAY_TASK_ID)/"
+#rm -rf "${super_path}${run_name}/outputs-raw/out_\$(printf "%05d" \$SLURM_ARRAY_TASK_ID)/"
 
 EOF
 
@@ -88,11 +91,12 @@ create_batch_script $compress_file
 	set_slurm "error" "${slurm_dir}COMP_err.out" $compress_file
 	set_slurm "tasks-per-node" "32" $compress_file
 	remove_slurm "array" $compress_file
-	set_slurm "dependency" "afterok:$ID_Run" $compress_file
+	set_slurm "dependency" "afterok:$IDP" $compress_file
 
 
 ## BODY OF FILE
 cat <<EOF >> $compress_file
+. "/work/thsu/rschanta/RTS/functions/utility/bash-utils.sh"
 vpkg_require matlab
 
 ## Compress outputs from all runs to a single structure

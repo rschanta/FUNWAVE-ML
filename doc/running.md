@@ -2,8 +2,8 @@
 
 
 ## Prerequisites
-Up to this point, it is assumed that *run_name.m* file defining the *input.txt* files has been created
-and that a valid FUNWAVE executable has been made in *work/funwave* as described. Review these sections 
+Up to this point, it is assumed that <span style="color:Green">**run_name.m**</span> file defining the *input.txt* files has been created
+and that a valid FUNWAVE executable has been made in <span style="color:Blue">*work/funwave*</span> as described. Review these sections 
 otherwise
 
 ### Specific to Caviness HPC at the University of Delaware
@@ -95,12 +95,12 @@ The `run-fw.sh` file is set up to be fairly modular, with just a few key input p
 * *super_path* and *run_name* are defined as before. 
 
 ### Inputs
-* ***count***: number of different trials in the run. This should be known ahead of time. This is needed to set the bounds of the SLURM array.
-* ***partition***: desired partition to run on
-* ***tasks-per-node**: the tasks-per-node chosen for FUNWAVE, to match with PX times PY. It is assumed that this is the same
+* <span style="color:Red">**count**</span>: number of different trials in the run. This should be known ahead of time. This is needed to set the bounds of the SLURM array.
+* <span style="color:Red">**partition**</span>: desired partition to run on
+* <span style="color:Red">**tasks-per-node**</span>: the tasks-per-node chosen for FUNWAVE, to match with PX times PY. It is assumed that this is the same
 for all runs.
-* ***Version of FUNWAVE***: the version of FUNWAVE to run. This should match the conventions set forth in the executables section.
-* ***Module of FUNWAVE***: the module (or combination of) modules to run, again matching the convention of the executables section.
+* <span style="color:Red">**vs (Version of FUNWAVE)**</span>: the version of FUNWAVE to run. This should match the conventions set forth in the executables section.
+* <span style="color:Red">**mod (Module of FUNWAVE)**</span>: the module (or combination of) modules to run, again matching the convention of the executables section.
 ```
 ## INPUTS
 # Super_path
