@@ -45,7 +45,7 @@ function run_compress_out_i {
 	slurm_array_number=$3
 		
 ## Path to and name of function
-	path="/work/thsu/rschanta/RTS/functions/FW-tools/FW-compress"
+	path="/work/thsu/rschanta/RTS/functions/FW-tools/output-compression/"
 	func="compress_out_i"
 	
 ## Construct Trial Number
@@ -67,7 +67,7 @@ function run_compress_out {
 ## Arguments
 	args=$1
 ## Path to and name of function
-	path="/work/thsu/rschanta/RTS/functions/FW-tools/FW-compress"
+	path="/work/thsu/rschanta/RTS/functions/FW-tools/output-compression/"
 	func="compress_out"
 ## Run function
 	matlab -nodisplay -r "cd('"$path"'); "$func"("$args");exit"
