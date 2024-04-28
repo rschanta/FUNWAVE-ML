@@ -35,12 +35,20 @@ function run_compress_out_i {
 	# Runs the 'compress_out_i' function to compress the outputs
 	# of an individual FUNWAVE wave to a single structure
 	
-	# args = '"super_path","run_name","tri_no"'
-	
 	path="/work/thsu/rschanta/RTS/functions/FW-tools/FW-compress"
 	func="compress_out_i"
-	args=$1
-	matlab -nodisplay -r "cd('"$path"'); "$func"("$args");exit"
+	# Arguments
+		super_path=$1
+		run_name=$2
+		slurm_array_number=$3
+	
+	# Construct Trial Number
+		tri_no=$(printf "%05d" $slurm_array_number)
+	# Construct arguments to matlab function
+		args="'${super_path}','${run_name}',${tri_no}"
+	
+	# Run function
+		matlab -nodisplay -r "cd('"$path"'); "$func"("$args");exit"
 }
 
 function run_compress_out {
@@ -150,5 +158,20 @@ function remove_slurm {
 	batch_file=$2
 	
 	sed -i "/"$setting"/d" "$batch_file"
+}
+
+function get_input_dir {
+	# Constructs the path for the input file of the given number
+	
+	super_path=$1
+	run_name=$2
+	slurm_array_number=$3
+	
+	# Construct path to input directory
+		in_dir="${super_path}${run_name}/inputs/"
+		tri_no=$(printf "%05d" $slurm_array_number)
+	# Construct and echo input_file name
+		input_file="${in_dir}input_${tri_no}.txt"
+		echo "${input_file}"
 }
 

@@ -32,6 +32,12 @@ FUNWAVE runs, from input generation to output file compression/management.
 * [**Using Bathymetry**](doc/bathy/make_bathy.md): Instructions on how to pass through bathymetry data for this workflow
 * [**Using Coupling Files**](doc/coupling/make_coupling.md)
 
+## Useful Functions and Scripts
+* [**FUNWAVE Tools*](doc/running.md): Helper functions for creating FUNWAVE inputs and processing outputs. May be useful
+outside of the context of this project.
+* [**Caviness Specific Functionality**](doc/running.md): Explanation of various helper functions constructed to assist in 
+working with the *Caviness* HPC system at the University of Delaware
+
 ## Basic Organization
 
 The FUNWAVE simulations are divided into **runs** and **trials**. Each *run* corresponds to some 

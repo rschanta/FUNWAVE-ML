@@ -12,6 +12,27 @@ mkdir "./${run_name}/batch-scripts/"
 }
 
 #########################################################
+# GET FOLDER FOR SLURM LOGS AND BATCH SCRIPTS
+#########################################################
+function get_slurm_dir {
+	run_name=$1
+    local slurm_dir=".\/${run_name}\/slurm_logs\/"
+    echo "$slurm_dir"
+}
+
+function get_batch_dir {
+	run_name=$1
+    local batch_dir="./${run_name}/batch-scripts/"
+    echo "$batch_dir"
+}
+
+function get_batch_path {
+	run_name=$1
+    local batch_dir="./${run_name}/batch-scripts/"
+    echo "$batch_dir"
+}
+
+#########################################################
 # CREATE A BASIC BATCH SCRIPT
 #########################################################
 
