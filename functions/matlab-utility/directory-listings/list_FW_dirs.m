@@ -3,7 +3,7 @@ list_FW_dirs
     - returns a structure with all the paths associated with a FUNWAVE run
 %}
 function paths = list_FW_dirs(super_path,run_name)
-%% Argument
+%% Arguments
 %{
     - super_path: 
     - run_name

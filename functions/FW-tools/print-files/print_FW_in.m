@@ -7,8 +7,9 @@ function print_FW_in(FWS,path)
 %% Arguments
 %{
     - FWS: FWS structure to print out
-    - path: path to print too, including file name
+    - path: path to print to, including file name
 %}
+
 %% Open the file
     fid = fopen(path, 'w');
 

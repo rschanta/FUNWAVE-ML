@@ -4,7 +4,7 @@ mk_FW_dir
       them to a structure (same as list_FW_dirs)
 %}
 function paths = mk_FW_dir(super_path,run_name)
-%% Argument
+%% Arguments
 %{
     - super_path: 
     - run_name
