@@ -4,8 +4,8 @@
 # Basic Info
 	super_path="/lustre/scratch/rschanta/"
 	work_dir="/work/thsu/rschanta/RTS/"
-	run_name="trial_8"
-	count="4"
+	run_name="trial_9"
+	count="100"
 # Partition
 	par="thsu"
 # Tasks per Node
@@ -28,9 +28,9 @@
 
 
 ## Make log and batch folders, get their names
-create_batch_folders $run_name
-slurm_dir=$(get_slurm_dir "$run_name")
-batch_dir=$(get_batch_dir "$run_name")
+	create_batch_folders $run_name
+	slurm_dir=$(get_slurm_dir "$run_name")
+	batch_dir=$(get_batch_dir "$run_name")
 
 
 
@@ -89,9 +89,6 @@ cat <<EOF >> $file_name
 
 ## Get input file name
 	input_file=\$(get_input_dir "$super_path" "$run_name" "\$SLURM_ARRAY_TASK_ID")
-	echo "Before Input File"
-	echo "\$input_file"
-	echo "After Input File"
 
 ## Run FUNWAVE
 	\${UD_MPIRUN} "\$fun_ex" "\$input_file"
@@ -126,12 +123,12 @@ cat <<EOF >> $file_name
 	vpkg_require matlab
 
 ## Compress outputs from all runs to a single structure
-args="'${super_path}','${run_name}'"
-run_compress_out \$args
+	args="'${super_path}','${run_name}'"
+	run_compress_out \$args
 
 ## Keep for now
-#rm -rf "${super_path}${run_name}/outputs-proc/"
-rm -rf "${super_path}${run_name}/outputs-raw/"
+	#rm -rf "${super_path}${run_name}/outputs-proc/"
+	rm -rf "${super_path}${run_name}/outputs-raw/"
 EOF
 
 ID_Comp=$(sbatch --parsable $file_name)
@@ -143,15 +140,15 @@ ID_Comp=$(sbatch --parsable $file_name)
 	fileID="COPY"
 	file_name="${batch_dir}${fileID}_${run_name}.qs"
 # Create a batch script with a dependency
-	create_batch_dep $file_name $par $tpn $IDP $dep $arr
+	create_batch_dep $file_name $par $tpn $ID_Comp $dep $arr
 # Set names in batch script
 	set_slurm_names $file_name $fileID $slurm_dir $run_name $email
 
 
 ## BODY OF FILE
 cat <<EOF >> $file_name
-cp "${super_path}${run_name}/inputs.mat" "./${run_name}/inputs.mat"
-cp "${super_path}${run_name}/outputs.mat" "./${run_name}/outputs.mat"
+	cp "${super_path}${run_name}/inputs.mat" "./${run_name}/inputs.mat"
+	cp "${super_path}${run_name}/outputs.mat" "./${run_name}/outputs.mat"
 EOF
 
 ID_Copy=$(sbatch --parsable $file_name)

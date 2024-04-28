@@ -255,7 +255,7 @@ function set_slurm {
 }
 
 #########################################################
-# set_slurm
+# remove_slurm
 #	- remove some slurm flag from a pre-existing batch
 #	  file.
 #   -example:

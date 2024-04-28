@@ -11,7 +11,7 @@
 #SBATCH --mail-user=rschanta@udel.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --export=ALL
-#SBATCH --dependency=afterok:27590079
+#SBATCH --dependency=afterok:27590096
 #SBATCH --array=1-4
 #
 #UD_QUIET_JOB_SETUP=YES
@@ -34,9 +34,6 @@
 
 ## Get input file name
 	input_file=$(get_input_dir "/lustre/scratch/rschanta/" "trial_8" "$SLURM_ARRAY_TASK_ID")
-	echo "Before Input File"
-	echo "$input_file"
-	echo "After Input File"
 
 ## Run FUNWAVE
 	${UD_MPIRUN} "$fun_ex" "$input_file"

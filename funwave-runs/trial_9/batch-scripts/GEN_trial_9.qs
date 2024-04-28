@@ -3,11 +3,11 @@
 #
 #SBATCH --nodes=1
 #SBATCH --tasks-per-node=32
-#SBATCH --job-name=GEN_trial_8
+#SBATCH --job-name=GEN_trial_9
 #SBATCH --partition=thsu
 #SBATCH --time=7-00:00:00
-#SBATCH --output=./trial_8/slurm_logs/GEN_out.out
-#SBATCH --error=./trial_8/slurm_logs/GEN_err.out
+#SBATCH --output=./trial_9/slurm_logs/GEN_out.out
+#SBATCH --error=./trial_9/slurm_logs/GEN_err.out
 #SBATCH --mail-user=rschanta@udel.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --export=ALL
@@ -20,3 +20,9 @@
 #UD_SHOW_MPI_DEBUGGING=YES
 #
 #
+## Load in utilities and VALET
+	. "/work/thsu/rschanta/RTS/functions/utility/bash-utils.sh"
+	vpkg_require matlab
+
+## Run Generation Script
+	run_MATLAB_script "./trial_9/trial_9.m"

@@ -1,5 +1,17 @@
-%%
+%{
+compress_out_i
+    - compresses all the outputs from a given FUNWAVE run from the series
+      of time-stepping files to a single structure with fields for all the
+      variables of interest (eta, u, v, etc.
+%}
 function results = compress_out_i(super_path,run_name,tri_no)
+%% Arguments
+%{
+    - super_path: super_path for run
+    - run_name: run_name of run
+    - tri_no: trial number as an integer/double
+%}
+
 %% Load in helper functions
     addpath(genpath('/work/thsu/rschanta/RTS/functions/'));
 %% Get all important paths

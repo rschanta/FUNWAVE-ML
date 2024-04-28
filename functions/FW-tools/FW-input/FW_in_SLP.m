@@ -1,3 +1,8 @@
+%{
+FW_in_SLP
+    - creates a default FWS structure for the `DEPTH_TYPE=SLOPE` variety
+      for a regular monochromatic wave.
+%}
 function FWS = FW_in_SLP()
     FWS = struct();
     %%% Title Info

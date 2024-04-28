@@ -3,14 +3,15 @@
 #
 #SBATCH --nodes=1
 #SBATCH --tasks-per-node=32
-#SBATCH --job-name=GEN_trial_8
+#SBATCH --job-name=COPY_trial_9
 #SBATCH --partition=thsu
 #SBATCH --time=7-00:00:00
-#SBATCH --output=./trial_8/slurm_logs/GEN_out.out
-#SBATCH --error=./trial_8/slurm_logs/GEN_err.out
+#SBATCH --output=./trial_9/slurm_logs/COPY_out.out
+#SBATCH --error=./trial_9/slurm_logs/COPY_err.out
 #SBATCH --mail-user=rschanta@udel.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --export=ALL
+#SBATCH --dependency=afterok:27592825
 #
 #UD_QUIET_JOB_SETUP=YES
 #UD_USE_SRUN_LAUNCHER=YES
@@ -20,9 +21,5 @@
 #UD_SHOW_MPI_DEBUGGING=YES
 #
 #
-## Load in utilities and VALET
-	. "/work/thsu/rschanta/RTS/functions/utility/bash-utils.sh"
-	vpkg_require matlab
-
-## Run Generation Script
-	run_MATLAB_script "./trial_8/trial_8.m"
+	cp "/lustre/scratch/rschanta/trial_9/inputs.mat" "./trial_9/inputs.mat"
+	cp "/lustre/scratch/rschanta/trial_9/outputs.mat" "./trial_9/outputs.mat"

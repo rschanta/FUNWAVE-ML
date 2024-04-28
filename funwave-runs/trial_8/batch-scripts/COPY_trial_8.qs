@@ -11,7 +11,7 @@
 #SBATCH --mail-user=rschanta@udel.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --export=ALL
-#SBATCH --dependency=afterok:27590080
+#SBATCH --dependency=afterok:27590097
 #
 #UD_QUIET_JOB_SETUP=YES
 #UD_USE_SRUN_LAUNCHER=YES
@@ -21,5 +21,5 @@
 #UD_SHOW_MPI_DEBUGGING=YES
 #
 #
-cp "/lustre/scratch/rschanta/trial_8/inputs.mat" "./trial_8/inputs.mat"
-cp "/lustre/scratch/rschanta/trial_8/outputs.mat" "./trial_8/outputs.mat"
+	cp "/lustre/scratch/rschanta/trial_8/inputs.mat" "./trial_8/inputs.mat"
+	cp "/lustre/scratch/rschanta/trial_8/outputs.mat" "./trial_8/outputs.mat"
