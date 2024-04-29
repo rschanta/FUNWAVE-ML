@@ -1,5 +1,7 @@
 %{
-  Function to cutout elements of an array  
+cut
+    - prints a FUNWAVE coupling file using boundary values for horizontal
+      velocities and eta at some times
 %}
 function cutout = cut(array,bounds,col,no_cols)
     % Make sure array is no_cols
@@ -9,3 +11,4 @@ function cutout = cut(array,bounds,col,no_cols)
         [~, end_i] = min(abs(array(:,col) - bounds(2)));
     % Index out
     cutout = array(beg_i:end_i,:);
+end

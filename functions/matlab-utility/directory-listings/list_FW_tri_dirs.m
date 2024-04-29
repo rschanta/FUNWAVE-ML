@@ -19,6 +19,10 @@ function tpaths = list_FW_tri_dirs(tri,paths)
     % Path to the input_XXXXX.txt file
         tpaths.input = fullfile(paths.inputs,['input_',tpaths.no,'.txt']);
     % Path to out_XXXXX folder (RESULT_FOLDER) to put into FUNWAVE 
-    % input.txt file
+        % input.txt file
         tpaths.RESULT_FOLDER = fullfile(paths.output_raw,['out_',tpaths.no,'/']);
+    % Path to bathy_XXXXX.txt file
+        tpaths.bathy = fullfile(paths.bathy,['bathy_',tpaths.no,'.txt']);
+    % Path to coupling_XXXXX.txt file
+        tpaths.coupling = fullfile(paths.coupling_path,['coupling_',tpaths.no,'.txt']);
 end

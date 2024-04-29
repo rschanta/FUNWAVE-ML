@@ -22,8 +22,6 @@
 # SETUP
 ###################################################
 ## Load in Bash Utilities
-#. "${work_dir}functions/utility/bash-utils.sh"
-#. "${work_dir}functions/utility/sbatch-slurm-utils2.sh"
 
 . "${work_dir}functions/bash-utility/slurm-bash.sh"
 . "${work_dir}functions/bash-utility/matlab-bash.sh"
@@ -52,7 +50,6 @@
 
 cat <<EOF >> $file_name
 ## Load in utilities and VALET
-#	. "${work_dir}functions/utility/bash-utils.sh"
 . "${work_dir}functions/bash-utility/slurm-bash.sh"
 . "${work_dir}functions/bash-utility/matlab-bash.sh"
 . "${work_dir}functions/bash-utility/misc-bash.sh"
@@ -84,7 +81,6 @@ IDG=$(run_batch "$file_name")
 ## BODY OF FILE
 cat <<EOF >> $file_name
 ## Load in utilities and VALET
-#	. "${work_dir}functions/utility/bash-utils.sh"
 . "${work_dir}functions/bash-utility/slurm-bash.sh"
 . "${work_dir}functions/bash-utility/matlab-bash.sh"
 . "${work_dir}functions/bash-utility/misc-bash.sh"
@@ -128,7 +124,6 @@ IDP=$(run_batch "$file_name")
 ## BODY OF FILE
 cat <<EOF >> $file_name
 ## Load in utilities and VALET
-#	. "${work_dir}functions/utility/bash-utils.sh"
 . "${work_dir}functions/bash-utility/slurm-bash.sh"
 . "${work_dir}functions/bash-utility/matlab-bash.sh"
 . "${work_dir}functions/bash-utility/misc-bash.sh"

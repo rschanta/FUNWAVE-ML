@@ -18,7 +18,7 @@ function print_FW_in(FWS,path)
     for j = 1:numel(fields)
         % Get name of field, make sure it's not 'Files'
             param = fields{j};
-            if ~strcmp(param,"Files")
+            if ~strcmpi(param,"files")
                 % Get value of parameter and make sure ok for Fortran
                     value = FWS.(param);
                     value = valid_Double(value);
