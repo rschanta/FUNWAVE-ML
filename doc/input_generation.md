@@ -40,7 +40,8 @@ FWS = struct();
 ```
 Note that the FWS structure also can has a field called **Files**. This is not printed to the <ins>*input.txt*</ins> file,
 but instead can be used to store any other information desired about the run, which may include bathymetry
-and coupling files.
+and coupling files. This can be used as place for storing non-string values or other parameters you don't want
+printed to the FUNWAVE input.txt file.
 
 ### Using the FWS Structure to generate an input file
 Once the FWS structure has been created, it can be printed via the helper function `print_FW_in()` found at

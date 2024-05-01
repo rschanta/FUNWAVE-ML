@@ -11,7 +11,7 @@
 #SBATCH --mail-user=rschanta@udel.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --export=ALL
-#SBATCH --dependency=afterok:27604728
+#SBATCH --dependency=afterok:27604866
 #SBATCH --array=1-4
 #
 #UD_QUIET_JOB_SETUP=YES
@@ -42,6 +42,4 @@
 
 ## Compress outputs from run to single structure
 	run_compress_out_i /lustre/scratch/rschanta/ trial_11 "$SLURM_ARRAY_TASK_ID" "/work/thsu/rschanta/RTS/"
-
-#rm -rf "/lustre/scratch/rschanta/trial_11/outputs-raw/out_$(printf "%05d" $SLURM_ARRAY_TASK_ID)/"
 

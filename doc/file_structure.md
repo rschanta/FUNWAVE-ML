@@ -20,6 +20,9 @@ of data needed for a run. (Note- this is not in the repo since this is potential
 and problem-dependent)
 * <ins>*functions*</ins>- Helper functions used throughout this workflow. 
 See the [functions documentation](./doc/functions.md) for more detail
+* <ins>*funwave*</ins>- Directory containing FUNWAVE source code and executables.
+* <ins>*funwave-runs*</ins>- Directory containing subdirectories for each FUNWAVE run, where the inputs
+are defined and executed. Batch scripts and logs are generated here, and long-term data should be stored here.
 
 ## Directories Created
 
@@ -50,45 +53,46 @@ The resulting directory structure, assuming all these files exist, is:
 
 ```
 super_path/
-├── run_PATH/
-│   └── bathy/
-│       ├── bathy_00001.txt
-│       ├── bathy_00002.txt
-│       └── bathy_XXXXX.txt
-├── coupling/
-│   ├── coupling_00001.txt
-│   ├── coupling_00002.txt
-│   └── coupling_XXXXX.txt
-├── input/
-│   ├── input_00001.txt
-│   ├── input_00002.txt
-│   └── input_XXXXX.txt
-├── outputs-proc/
-│   ├── out_00001.mat
-│   ├── out_00002.mat
-│   └── out_XXXXX.mat
-└── outputs-raw/
-    ├── out_00001/
-    │   ├── eta_00001
-    │   └── eta_XXXXX
-    ├── out_00002/
-    │   ├── eta_00001
-    │   └── eta_XXXXX
-    └── out_XXXXX/
-        ├── eta_00001
-        └── eta_XXXXX
+└── run_PATH/
+    ├── bathy/
+    │   ├── bathy_00001.txt
+    │   ├── bathy_00002.txt
+    │   └── bathy_XXXXX.txt
+    ├── coupling/
+    │   ├── coupling_00001.txt
+    │   ├── coupling_00002.txt
+    │   └── coupling_XXXXX.txt
+    ├── input/
+    │   ├── input_00001.txt
+    │   ├── input_00002.txt
+    │   └── input_XXXXX.txt
+    ├── outputs-proc/
+    │   ├── out_00001.mat
+    │   ├── out_00002.mat
+    │   └── out_XXXXX.mat
+    └── outputs-raw/
+        ├── out_00001/
+        │   ├── eta_00001
+        │   └── eta_XXXXX
+        ├── out_00002/
+        │   ├── eta_00001
+        │   └── eta_XXXXX
+        └── out_XXXXX/
+            ├── eta_00001
+            └── eta_XXXXX
 ```
 
 ## Path Helper Function
 
 In order to create and keep track of all of these paths convenients without having to rewrite them constantly,
-the helper function `list_FW_dirs` that takes in the **super_path**
-and **run_name** variables to output a structure **paths** with fields
-corresponding fields for all of these paths (note- dashes are replaced by underscores)
+the helper function [`list_FW_dirs`](../functions/matlab-utility/directory-listings/list_FW_dirs.m) that takes 
+in the **super_path** and **run_name** variables to output a structure **paths** with fields corresponding fields 
+for all of these paths (note- dashes are replaced by underscores)
 
 ```
 	function paths = list_FW_dirs(super_path,run_name)
 ```
+
 
 
 ## File Organization within the Work Folder

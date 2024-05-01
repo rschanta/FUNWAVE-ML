@@ -2,30 +2,36 @@
 The following code snippet is used to compress all of the output structures ***out_XXXXX.mat*** into a 
 single structure
 ```
-compress_file="${batch_dir}COMP_${run_name}.qs"
-create_batch_script $compress_file
-	set_slurm "job-name" "COMP_${run_name}" $compress_file
-	set_slurm "partition" "thsu" $compress_file
-	set_slurm "output" "${slurm_dir}COMP_out.out" $compress_file
-	set_slurm "error" "${slurm_dir}COMP_err.out" $compress_file
-	set_slurm "tasks-per-node" "32" $compress_file
-	remove_slurm "array" $compress_file
-	set_slurm "dependency" "afterok:$ID_Run" $compress_file
+###################################################
+# COMPRESS ALL TO SINGLE STRUCTURE AND CLEAN
+###################################################
+# Batch script name
+	fileID="COMP"
+	file_name="${batch_dir}${fileID}_${run_name}.qs"
+# Create a batch script with a dependency
+	create_batch_dep $file_name $par $tpn $ID_Ska $dep $arr
+# Set names in batch script
+	set_slurm_names $file_name $fileID $slurm_dir $run_name $email
+	
 
 
 ## BODY OF FILE
-cat <<EOF >> $compress_file
-vpkg_require matlab
+cat <<EOF >> $file_name
+## Load in utilities and VALET
+. "${work_dir}functions/bash-utility/slurm-bash.sh"
+. "${work_dir}functions/bash-utility/matlab-bash.sh"
+. "${work_dir}functions/bash-utility/misc-bash.sh"
+	vpkg_require matlab
 
 ## Compress outputs from all runs to a single structure
-args="'${super_path}','${run_name}'"
-run_compress_out \$args
+	run_compress_out $super_path $run_name $work_dir
 
-## Delete outputs-raw folder
-rm -rf "${super_path}${run_name}/outputs-raw/"
+## Keep for now
+	#rm -rf "${super_path}${run_name}/outputs-proc/"
+	rm -rf "${super_path}${run_name}/outputs-raw/"
 EOF
 
-ID_Comp=$(sbatch --parsable $compress_file)
+ID_Comp=$(sbatch --parsable $file_name)
 ```
 
 First, the name of the file is constructed an a simple batch script from a template is created. 

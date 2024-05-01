@@ -122,7 +122,7 @@ NUM=$(printf "%05d" $SLURM_ARRAY_TASK_ID)
 ${UD_MPIRUN} "funwave/v3.6/exec/FW-REG" "input_${NUM}.txt"
 ```
 
-## UD and Project Specifiec Workflows
+## UD and Project Specific Workflows
 To access key functionality such as *OpenMPI* and *MATLAB*, add the following additional flags after
 the general slurm preamble:
 

@@ -104,8 +104,6 @@ cat <<EOF >> $file_name
 ## Compress outputs from run to single structure
 	run_compress_out_i ${super_path} ${run_name} "\$SLURM_ARRAY_TASK_ID" "$work_dir"
 
-#rm -rf "${super_path}${run_name}/outputs-raw/out_\$(printf "%05d" \$SLURM_ARRAY_TASK_ID)/"
-
 EOF
 
 IDP=$(run_batch "$file_name")

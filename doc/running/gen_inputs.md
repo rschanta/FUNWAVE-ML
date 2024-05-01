@@ -6,22 +6,29 @@ The following code snippet as part of ***run-fw.sh*** is used to generate the in
 ###################################################
 # GENERATE INPUT FILES
 ###################################################
-# Batch File Name
-g_file="${batch_dir}GEN_${run_name}.qs"
+# Batch script name
+	fileID="GEN" #identifier for script
+	file_name="${batch_dir}${fileID}_${run_name}.qs"
+# Create a basic batch script
+	create_batch_basic $file_name $par $tpn
+# Set names in batch script
+	set_slurm_names $file_name $fileID $slurm_dir $run_name $email
 
-# Create Default Batch Template, change parameters accordingly
-create_batch $g_file "GEN_${run_name}" $par $tpn
-	set_slurm "output" "${slurm_dir}GEN_out.out" $generation_file
-	set_slurm "error" "${slurm_dir}GEN_err.out" $generation_file
 
-# Add on necessary lines
-cat <<EOF >> $g_file
-vpkg_require matlab
-run_MATLAB_script "./${run_name}/${run_name}.m"
+
+cat <<EOF >> $file_name
+## Load in utilities and VALET
+. "${work_dir}functions/bash-utility/slurm-bash.sh"
+. "${work_dir}functions/bash-utility/matlab-bash.sh"
+. "${work_dir}functions/bash-utility/misc-bash.sh"
+	vpkg_require matlab
+
+## Run Generation Script
+	run_MATLAB_script "./${run_name}/${run_name}.m" "$w"
 EOF
 
 # Run the script
-IDG=$(run_batch "$g_file")
+IDG=$(run_batch "$file_name")
 ```
 
 Here, the name of the file is generated and a default batch script is generated using the basic 

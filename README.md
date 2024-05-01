@@ -11,8 +11,6 @@ The following styling conventions will be used throughout:
 * ***file names*** are listed in bold italicized text 
 * <ins>*directory names*</ins> are italicized and underlined. 
 * `functions/commands` are listed inline code
-
-Specific instances of each of these used in examples are *italicized* rather than bolded.
 	
 ## Sections
 
@@ -24,16 +22,17 @@ code organization
 options for bathymetry, coupling, and general scenarios.
 * [**FUNWAVE Executables**](doc/FW_exec.md): Overview of the different versions of FUNWAVE, which each have a 
 different executable.
-* [**Creating SLURM Scripts**](doc/slurm/slurm_preambles.md)
+* [**Creating SLURM Scripts**](doc/slurm/slurm_preambles.md): An introduction to using the SLURM workload manager,
+with a focus on use in the University of Delaware HPC system.
 * [**Executing all the Trials of a Run**](doc/running.md): Overview of the process used to automatically run
 FUNWAVE runs, from input generation to output file compression/management.
 
 ## Other Workflows
-* [**Using Bathymetry**](doc/bathy/make_bathy.md): Instructions on how to pass through bathymetry data for this workflow
-* [**Using Coupling Files**](doc/coupling/make_coupling.md)
+* [**Using Bathymetry**](doc/bathy/make_bathy.md): Instructions on how to pass through bathymetry data for this workflow.
+* [**Using Coupling Files**](doc/coupling/make_coupling.md): Instructions on how to pass through coupling data for this workflow.
 
 ## Useful Functions and Scripts
-* [**FUNWAVE Tools*](doc/running.md): Helper functions for creating FUNWAVE inputs and processing outputs. May be useful
+* [**FUNWAVE Tools**](doc/running.md): Helper functions for creating FUNWAVE inputs and processing outputs. May be useful
 outside of the context of this project.
 * [**Caviness Specific Functionality**](doc/running.md): Explanation of various helper functions constructed to assist in 
 working with the *Caviness* HPC system at the University of Delaware

@@ -2,28 +2,26 @@
 The following code snippet is used to copy over the output compressed arrays to the work 
 directory.
 
-```
+``` bash
 ###################################################
 # COPY RESULTS TO WORK DIRECTORY
 ###################################################
-copy_file="${batch_dir}COPY_${run_name}.qs"
-create_batch_script $copy_file
-	set_slurm "job-name" "COPY_${run_name}" $copy_file
-	set_slurm "partition" "thsu" $copy_file
-	set_slurm "output" "${slurm_dir}COPY_out.out" $copy_file
-	set_slurm "error" "${slurm_dir}COPY_err.out" $copy_file
-	set_slurm "tasks-per-node" "32" $copy_file
-	remove_slurm "array" $copy_file
-	set_slurm "dependency" "afterok:$ID_Comp" $copy_file
+# Batch script name
+	fileID="COPY"
+	file_name="${batch_dir}${fileID}_${run_name}.qs"
+# Create a batch script with a dependency
+	create_batch_dep $file_name $par $tpn $ID_Comp $dep $arr
+# Set names in batch script
+	set_slurm_names $file_name $fileID $slurm_dir $run_name $email
 
 
 ## BODY OF FILE
-cat <<EOF >> $copy_file
-cp "${super_path}${run_name}/inputs.mat" "./${run_name}/inputs.mat"
-cp "${super_path}${run_name}/outputs.mat" "./${run_name}/outputs.mat"
+cat <<EOF >> $file_name
+	cp "${super_path}${run_name}/inputs.mat" "./${run_name}/inputs.mat"
+	cp "${super_path}${run_name}/outputs.mat" "./${run_name}/outputs.mat"
 EOF
 
-ID_Copy=$(sbatch --parsable $copy_file)
+ID_Copy=$(sbatch --parsable $file_name)
 ```
 
 Here, a simple batch script with a dependency is made as before, the files are simply copied over
