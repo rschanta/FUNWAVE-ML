@@ -50,10 +50,13 @@ Once the FWS structure has been created, it can be printed via the helper functi
 This function takes 2 arguments, with the first being the FWS structure and the second being the path. 
 ### Templates
 In order to avoid having to specify parameters that may not change all that often every time, several
-templates are available as a baseline, from which fields can be modified one-by-one as needed. Current
+[templates](./input_templates/) are available as a baseline, from which fields can be modified one-by-one as needed. Current
 templates include:
-* [**FWS_in_SLP**](input_templates/FWS_in_SLP.md): A FUNWAVE run using the `DEP='SLOPE' setting and a regular wavemaker
-* **FWS_in_DATA**: A FUNWAVE run using input bathymetry and a regular wavemaker
-* **FWS_in_COUPLE**: A FUNWAVE run using a coupling file
+
+| **Template Name** | **input.txt file** | **FWS Structure** | **Description** |
+| -------- | ------- | -------- | ------- |
+|FWS_in_SLP | [input_SLP.txt](input_templates/FWS_in_SLP.txt) | [`FWS_in_SLP()`](../functions/FW-tools/input-templates/FWS_in_SLP.m) |  A run using the `DEP='SLOPE'` setting and a regular wavemaker|
+|FWS_in_DATA | [input_DATA.txt](input_templates/FWS_in_SLP.md) |[`FWS_in_DATA()`](../functions/FW-tools/input-templates/FWS_in_DATA.m) |  A run using input bathymetry and a regular wavemaker|
+|FWS_in_COUPLE | [input_COUPLE.txt](input_templates/FWS_in_SLP.md) | [`FWS_in_COUPLE()`](../functions/FW-tools/input-templates/FWS_in_COUPLE.m) |  A run using a coupling file and input bathymetry|
 
 [functions documentation](doc/functions.md)
