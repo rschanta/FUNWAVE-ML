@@ -1,5 +1,5 @@
 %{
-list_FW_dirs
+list_FW__tri_dirs
     - returns a structure with all the paths associated with a FUNWAVE 
       trial within a run, (input_XXXXX.txt, out_XXXXX/RESULT_FOLDER) and 
       name of the input file (`input_XXXXX`)
@@ -20,9 +20,9 @@ function tpaths = list_FW_tri_dirs(tri,paths)
         tpaths.input = fullfile(paths.inputs,['input_',tpaths.no,'.txt']);
     % Path to out_XXXXX folder (RESULT_FOLDER) to put into FUNWAVE 
         % input.txt file
-        tpaths.RESULT_FOLDER = fullfile(paths.output_raw,['out_',tpaths.no,'/']);
+        tpaths.RESULT_FOLDER = fullfile(paths.outputs_raw,['out_',tpaths.no,'/']);
     % Path to bathy_XXXXX.txt file
         tpaths.bathy = fullfile(paths.bathy,['bathy_',tpaths.no,'.txt']);
     % Path to coupling_XXXXX.txt file
-        tpaths.coupling = fullfile(paths.coupling_path,['coupling_',tpaths.no,'.txt']);
+        tpaths.coupling = fullfile(paths.coupling,['coupling_',tpaths.no,'.txt']);
 end

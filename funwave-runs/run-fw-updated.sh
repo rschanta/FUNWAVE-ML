@@ -4,7 +4,7 @@
 # Basic Info
 	super_path="/lustre/scratch/rschanta/"
 	work_dir="/work/thsu/rschanta/RTS/"
-	run_name="trial_10"
+	run_name="trial_11"
 	count="4"
 # Partition
 	par="thsu"
@@ -26,6 +26,9 @@
 . "${work_dir}functions/bash-utility/slurm-bash.sh"
 . "${work_dir}functions/bash-utility/matlab-bash.sh"
 . "${work_dir}functions/bash-utility/misc-bash.sh"
+
+## Directory for functions
+w="${work_dir}functions"
 
 
 ## Make log and batch folders, get their names
@@ -56,7 +59,7 @@ cat <<EOF >> $file_name
 	vpkg_require matlab
 
 ## Run Generation Script
-	run_MATLAB_script "./${run_name}/${run_name}.m"
+	run_MATLAB_script2 "./${run_name}/${run_name}.m" "$w"
 EOF
 
 # Run the script
@@ -99,7 +102,7 @@ cat <<EOF >> $file_name
 	\${UD_MPIRUN} "\$fun_ex" "\$input_file"
 
 ## Compress outputs from run to single structure
-	run_compress_out_i ${super_path} ${run_name} "\$SLURM_ARRAY_TASK_ID"
+	run_compress_out_i2 ${super_path} ${run_name} "\$SLURM_ARRAY_TASK_ID" "$w"
 
 #rm -rf "${super_path}${run_name}/outputs-raw/out_\$(printf "%05d" \$SLURM_ARRAY_TASK_ID)/"
 
@@ -109,10 +112,10 @@ IDP=$(run_batch "$file_name")
 
 
 ###################################################
-# COMPRESS ALL TO SINGLE STRUCTURE AND CLEAN
+# CALCULATE SKEW AND ASYMMETRY
 ###################################################
 # Batch script name
-	fileID="COMP"
+	fileID="SKA"
 	file_name="${batch_dir}${fileID}_${run_name}.qs"
 # Create a batch script with a dependency
 	create_batch_dep $file_name $par $tpn $IDP $dep $arr
@@ -129,9 +132,38 @@ cat <<EOF >> $file_name
 . "${work_dir}functions/bash-utility/misc-bash.sh"
 	vpkg_require matlab
 
+## Calculate skew and asymmetry
+	run_calc_ska $super_path $run_name "$w"
+
+
+EOF
+
+ID_Ska=$(sbatch --parsable $file_name)
+
+###################################################
+# COMPRESS ALL TO SINGLE STRUCTURE AND CLEAN
+###################################################
+# Batch script name
+	fileID="COMP"
+	file_name="${batch_dir}${fileID}_${run_name}.qs"
+# Create a batch script with a dependency
+	create_batch_dep $file_name $par $tpn $ID_Ska $dep $arr
+# Set names in batch script
+	set_slurm_names $file_name $fileID $slurm_dir $run_name $email
+	
+
+
+## BODY OF FILE
+cat <<EOF >> $file_name
+## Load in utilities and VALET
+. "${work_dir}functions/bash-utility/slurm-bash.sh"
+. "${work_dir}functions/bash-utility/matlab-bash.sh"
+. "${work_dir}functions/bash-utility/misc-bash.sh"
+	vpkg_require matlab
+
 ## Compress outputs from all runs to a single structure
 	args="'${super_path}','${run_name}'"
-	run_compress_out \$args
+	run_compress_out2 \$args ${run_name} "$w"
 
 ## Keep for now
 	#rm -rf "${super_path}${run_name}/outputs-proc/"

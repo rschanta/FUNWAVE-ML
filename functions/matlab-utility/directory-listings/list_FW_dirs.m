@@ -18,7 +18,12 @@ function paths = list_FW_dirs(super_path,run_name)
     paths.run_name = fullfile(super_path,run_name);
 
     % Base for a given output subdirectory
-    paths.out_raw_i = fullfile(paths.output_raw,'out_');
-    % Structure of input summaries
-    paths.input_sum_path = fullfile(paths.run,'inputs.mat');
+    paths.out_raw_i = fullfile(paths.outputs_raw,'out_');
+    % Input summaries
+        % structure .mat
+            paths.inputs_s = fullfile(paths.run_name,'inputs-s.mat');
+        % table .mat
+            paths.inputs_t = fullfile(paths.run_name,'inputs-t.txt');
+        % parquet .parquet
+            paths.inputs_p = fullfile(paths.run_name,'inputs-p.parquet');
 end

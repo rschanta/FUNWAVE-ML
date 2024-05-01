@@ -26,7 +26,7 @@ function print_FW_coupling(data,path)
     fprintf(fID, 'EAST\n\t-1\t\t1\n');
     fprintf(fID, 'WEST\n\t5\t\t1\n');
     fprintf(fID, 'SOUTH\n\t-1\t\t1\n');
-    fprintf(fID, 'NORTH\n\t-1\t\t0\n');
+    fprintf(fID, 'NORTH\n\t-1\t\t1\n');
 
 %% Loop through each time step to print
     for step = 1:num_steps
