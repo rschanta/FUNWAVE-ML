@@ -59,7 +59,7 @@ cat <<EOF >> $file_name
 	vpkg_require matlab
 
 ## Run Generation Script
-	run_MATLAB_script2 "./${run_name}/${run_name}.m" "$w"
+	run_MATLAB_script "./${run_name}/${run_name}.m" "$w"
 EOF
 
 # Run the script
@@ -102,7 +102,7 @@ cat <<EOF >> $file_name
 	\${UD_MPIRUN} "\$fun_ex" "\$input_file"
 
 ## Compress outputs from run to single structure
-	run_compress_out_i2 ${super_path} ${run_name} "\$SLURM_ARRAY_TASK_ID" "$w"
+	run_compress_out_i ${super_path} ${run_name} "\$SLURM_ARRAY_TASK_ID" "$work_dir"
 
 #rm -rf "${super_path}${run_name}/outputs-raw/out_\$(printf "%05d" \$SLURM_ARRAY_TASK_ID)/"
 
@@ -133,7 +133,7 @@ cat <<EOF >> $file_name
 	vpkg_require matlab
 
 ## Calculate skew and asymmetry
-	run_calc_ska $super_path $run_name "$w"
+	run_calc_ska $super_path $run_name $work_dir
 
 
 EOF
@@ -162,8 +162,7 @@ cat <<EOF >> $file_name
 	vpkg_require matlab
 
 ## Compress outputs from all runs to a single structure
-	args="'${super_path}','${run_name}'"
-	run_compress_out2 \$args ${run_name} "$w"
+	run_compress_out $super_path $run_name $work_dir
 
 ## Keep for now
 	#rm -rf "${super_path}${run_name}/outputs-proc/"

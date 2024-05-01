@@ -1,157 +1,150 @@
- -------------- LOG FILE -----------------
- input_00002                                                                     
-  --------------input start --------------
-                                          
- -------------- PARALLEL -----------------
- PX   = 16 PY   =  2
-                                          
- -------------- GRID INFO -----------------
- Mglob=    1024 Nglob=       3
- DX=        0.61 DY=        0.61
- DEPTH_TYPE:SLOPE                                             
-DEPTH_FLAT        5.00
- SLP=        0.05
- Xslp=      523.63
-                                          
- -------------- TIME INFO -----------------
+-- Open MPI job setup complete (on r00n04):
+--  mpi job startup      = /opt/shared/openmpi/3.1.0/bin/mpirun
+--  nhosts               = 1
+--  nproc                = 32
+--  nproc-per-node       = 32
+--  cpus-per-proc        = 1
+
+-- Open MPI environment flags:
+--  OMPI_MCA_btl_base_exclude=tcp
+--  OMPI_MCA_rmaps_base_display_map=true
+--  OMPI_MCA_orte_hetero_nodes=true
+--  OMPI_MCA_hwloc_base_binding_policy=core
+--  OMPI_MCA_rmaps_base_mapping_policy=core
+
+/work/thsu/rschanta/RTS/funwave/v3.6/exec/FW-REG
+ Data for JOB [8542,1] offset 0 Total slots allocated 32
+
+ ========================   JOB MAP   ========================
+
+ Data for node: r00n04	Num slots: 32	Max slots: 0	Num procs: 32
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 0 Bound: socket 0[core 0[hwt 0]]:[B/././././././././././././././././.][./././././././././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 1 Bound: socket 0[core 1[hwt 0]]:[./B/./././././././././././././././.][./././././././././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 2 Bound: socket 0[core 2[hwt 0]]:[././B/././././././././././././././.][./././././././././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 3 Bound: socket 0[core 3[hwt 0]]:[./././B/./././././././././././././.][./././././././././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 4 Bound: socket 0[core 4[hwt 0]]:[././././B/././././././././././././.][./././././././././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 5 Bound: socket 0[core 5[hwt 0]]:[./././././B/./././././././././././.][./././././././././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 6 Bound: socket 0[core 6[hwt 0]]:[././././././B/././././././././././.][./././././././././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 7 Bound: socket 0[core 7[hwt 0]]:[./././././././B/./././././././././.][./././././././././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 8 Bound: socket 0[core 8[hwt 0]]:[././././././././B/././././././././.][./././././././././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 9 Bound: socket 0[core 9[hwt 0]]:[./././././././././B/./././././././.][./././././././././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 10 Bound: socket 0[core 10[hwt 0]]:[././././././././././B/././././././.][./././././././././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 11 Bound: socket 0[core 11[hwt 0]]:[./././././././././././B/./././././.][./././././././././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 12 Bound: socket 0[core 12[hwt 0]]:[././././././././././././B/././././.][./././././././././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 13 Bound: socket 0[core 13[hwt 0]]:[./././././././././././././B/./././.][./././././././././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 14 Bound: socket 0[core 14[hwt 0]]:[././././././././././././././B/././.][./././././././././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 15 Bound: socket 0[core 15[hwt 0]]:[./././././././././././././././B/./.][./././././././././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 16 Bound: socket 0[core 16[hwt 0]]:[././././././././././././././././B/.][./././././././././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 17 Bound: socket 0[core 17[hwt 0]]:[./././././././././././././././././B][./././././././././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 18 Bound: socket 1[core 18[hwt 0]]:[./././././././././././././././././.][B/././././././././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 19 Bound: socket 1[core 19[hwt 0]]:[./././././././././././././././././.][./B/./././././././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 20 Bound: socket 1[core 20[hwt 0]]:[./././././././././././././././././.][././B/././././././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 21 Bound: socket 1[core 21[hwt 0]]:[./././././././././././././././././.][./././B/./././././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 22 Bound: socket 1[core 22[hwt 0]]:[./././././././././././././././././.][././././B/././././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 23 Bound: socket 1[core 23[hwt 0]]:[./././././././././././././././././.][./././././B/./././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 24 Bound: socket 1[core 24[hwt 0]]:[./././././././././././././././././.][././././././B/././././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 25 Bound: socket 1[core 25[hwt 0]]:[./././././././././././././././././.][./././././././B/./././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 26 Bound: socket 1[core 26[hwt 0]]:[./././././././././././././././././.][././././././././B/././././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 27 Bound: socket 1[core 27[hwt 0]]:[./././././././././././././././././.][./././././././././B/./././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 28 Bound: socket 1[core 28[hwt 0]]:[./././././././././././././././././.][././././././././././B/././.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 29 Bound: socket 1[core 29[hwt 0]]:[./././././././././././././././././.][./././././././././././B/./.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 30 Bound: socket 1[core 30[hwt 0]]:[./././././././././././././././././.][././././././././././././B/.]
+ 	Process OMPI jobid: [8542,1] App: 0 Process rank: 31 Bound: socket 1[core 31[hwt 0]]:[./././././././././././././././././.][./././././././././././././B]
+
+ =============================================================
+ BATHY_CORRECTION DOES NOT EXIST. USE DEFAULT VALUE
+ PLOT_START_TIME DOES NOT EXIST. USE DEFAULT VALUE
          PLOT_START_TIME Default:  0.0 s
+ StationOutputBuffer DOES NOT EXIST. USE DEFAULT VALUE
                              StationOutputBuffer not specified, use default:1000
- TOTAL_TIME=      100.00
- PLOT_INTV=         1.00
- SCREEN_INTV=        1.00
-                                          
- -------------- HOT START -----------------
-                                          
- -------------- STILL WATER INFO -----------------
-       WaterLevel =      0.00000
-                                          
- -------------- WAVEMAKER -----------------
- WAVEMAKER:WK_REG                                            
+ INI_UVZ DOES NOT EXIST. USE DEFAULT VALUE
+ WaterLevel DOES NOT EXIST. USE DEFAULT VALUE
+ Yc_WK DOES NOT EXIST. USE DEFAULT VALUE
                        Yc_WK defalt: 0.0
+ Time_ramp DOES NOT EXIST. USE DEFAULT VALUE
                  Time_ramp Default:  0.0
+ Ywidth_WK DOES NOT EXIST. USE DEFAULT VALUE
                Ywidth_WK Default:  LARGE
- Xc_WK   =       27.60
- Yc_WK   =        0.00
- Tperiod =        8.00
- AMP_WK  =        0.50
- DEP_WK  =        5.00
- Theta_WK=        0.00
- Time_ramp=        0.00
-  Delta_WK=        3.00
- Ywidth_WK=   999999.00
-          EqualEnergy NOT USED in frequency domain
-                                          
- -------------- PERIODIC BC -----------------
-  PERIODIC: F
-                                          
- -------------- SPONGE -----------------
+ ETA_LIMITER DOES NOT EXIST. USE DEFAULT VALUE
+ EqualEnergy DOES NOT EXIST. USE DEFAULT VALUE
                    DIRECT_SPONGE IS USED
                  FRICTION_SPONGE IS USED
- FRICTION_SPONGE CDsponge=        1.00
+ R_sponge DOES NOT EXIST. USE DEFAULT VALUE
                  R_sponge Default:  0.85
+ A_sponge DOES NOT EXIST. USE DEFAULT VALUE
                   A_sponge Default:  5.0
- Sponge_west_width =       27.60
- Sponge_east_width =        0.00
- Sponge_south_width=        0.00
- Sponge_north_width=        0.00
- R_sponge          =        0.85
- A_sponge          =        5.00
-              No WavemakerCurrentBalance
-                                          
- -------- OBSTACLE and BREAKWATER -----------------
- OBSTACLE_FILE:   NO
-    BREAKWATER_FILE:   NO
+ WaveMakerCd DOES NOT EXIST. USE DEFAULT VALUE
+ OBSTACLE_FILE DOES NOT EXIST. USE DEFAULT VALUE
+ BREAKWATER_FILE DOES NOT EXIST. USE DEFAULT VALUE
+ BreakWaterAbsorbCoef DOES NOT EXIST. USE DEFAULT VALUE
      BreakWaterAbsorbCoef Default:  10.0
-                                          
- -------------- PHYSICS -----------------
+ DISPERSION DOES NOT EXIST. USE DEFAULT VALUE
          DISPERSION Default:  DISPERSION
+ Gamma1 DOES NOT EXIST. USE DEFAULT VALUE
         Gamma1 Default:  1.0: DISPERSION
+ Gamma2 DOES NOT EXIST. USE DEFAULT VALUE
               Gamma2 Default:  1.0: Full nonlinear
+ Beta_ref DOES NOT EXIST. USE DEFAULT VALUE
                Beta_ref Default:  -0.531
+ Gamma3 DOES NOT EXIST. USE DEFAULT VALUE
                       Gamma3 Default:  1.0: NOT fully linear
-  Summary of Physics
- Gamma1 =         1.00
- Gamma2 =         1.00
-Beta_ref=        -0.53
- Gamma3 =         1.00
- VISCOSITY_BREAKING IS USED
+ SWE_ETA_DEP DOES NOT EXIST. USE DEFAULT VALUE
                SWE_ETA_DEP Default:  0.8
+ FRICTION_MATRIX DOES NOT EXIST. USE DEFAULT VALUE
              Friction_Matrix Default:  constant Cd
-  Cd_fixed (if you used fixed Cd) =        0.00
-                                          
- -------------- NUMERICS -----------------
+ Time_Scheme DOES NOT EXIST. USE DEFAULT VALUE
        Time_Scheme Default:  Runge_Kutta
- TIME_SCHEME:Runge_Kutta                                       
-  CONSTRUCTION                              NOT DEFINED, USE HLL
- CONSTRUCTION:HLLC                                              
+ CONSTRUCTION DOES NOT EXIST. USE DEFAULT VALUE
+ HIGH_ORDER DOES NOT EXIST. USE DEFAULT VALUE
   HIGH_ORDER                     NOT DEFINED, USE FOURTH-ORDER
- HIGH_ORDER:FOURTH                                            
- CFL=        0.50
-  FroudeCap=        3.00
+ DT_fixed DOES NOT EXIST. USE DEFAULT VALUE
+ MinDepthFrc DOES NOT EXIST. USE DEFAULT VALUE
              MinDepthFrc Default:  0.1 m
-          USE MIN(MinDepthFrc, MinDepth)
- MinDepth=    0.100000
- MinDepthFrc=    0.100000
+ OUT_Time DOES NOT EXIST. USE DEFAULT VALUE
                                Dont record wave arrival time
-                                          
- --------- WAVE BREAKING -----------------
+ ROLLER_EFFECT DOES NOT EXIST. USE DEFAULT VALUE
                       ROLLER_EFFECT:  NO
+ SHOW_BREAKING DOES NOT EXIST. USE DEFAULT VALUE
             SHOW_BREAKING Default:  TRUE
- Cbrk1 =    0.650000
- Cbrk2 =    0.350000
+ WAVEMAKER_Cbrk DOES NOT EXIST. USE DEFAULT VALUE
             WAVEMAKER_Cbrk Default:  1.0
-  WAVEMAKER_Cbrk =         1.000000
+ WAVEMAKER_VIS DOES NOT EXIST. USE DEFAULT VALUE
            WAVEMAKER_VIS Default:  FALSE
-                                          
- -------- WAVE-AVERAGED PROPERTY -----------------
+ C_smg DOES NOT EXIST. USE DEFAULT VALUE
                      C_smg Default:  0.0
- T_INTV_mean =    3.000000
- STEADY_TIME =    3.000000
- C_smg =    0.000000
+ nu_bkg DOES NOT EXIST. USE DEFAULT VALUE
                     nu_bkg Default:  0.0
-                                          
- -------------- OUTPUT INFO -----------------
- RESULT_FOLDER:/lustre/scratch/rschanta/trial_11/outputs-raw/out_
- FIELD_IO_TYPE = BINARY                                                                          
+ NumberStations DOES NOT EXIST. USE DEFAULT VALUE
+ OUTPUT_RES DOES NOT EXIST. USE DEFAULT VALUE
          OUTPUT_RES NOT FOUND, OUTPUT_RES=1: full resolution
-     OUTPUT_RES         1
+ Hmax DOES NOT EXIST. USE DEFAULT VALUE
+ Hmin DOES NOT EXIST. USE DEFAULT VALUE
+ Umax DOES NOT EXIST. USE DEFAULT VALUE
+ MFmax DOES NOT EXIST. USE DEFAULT VALUE
+ VORmax DOES NOT EXIST. USE DEFAULT VALUE
+ MASK9 DOES NOT EXIST. USE DEFAULT VALUE
+ Umean DOES NOT EXIST. USE DEFAULT VALUE
+ Vmean DOES NOT EXIST. USE DEFAULT VALUE
+ ETAmean DOES NOT EXIST. USE DEFAULT VALUE
+ SXL DOES NOT EXIST. USE DEFAULT VALUE
+ SXR DOES NOT EXIST. USE DEFAULT VALUE
+ SYL DOES NOT EXIST. USE DEFAULT VALUE
+ SYR DOES NOT EXIST. USE DEFAULT VALUE
+ SourceX DOES NOT EXIST. USE DEFAULT VALUE
+ SourceY DOES NOT EXIST. USE DEFAULT VALUE
+ P DOES NOT EXIST. USE DEFAULT VALUE
+ Q DOES NOT EXIST. USE DEFAULT VALUE
+ Fx DOES NOT EXIST. USE DEFAULT VALUE
+ Fy DOES NOT EXIST. USE DEFAULT VALUE
+ Gx DOES NOT EXIST. USE DEFAULT VALUE
+ Gy DOES NOT EXIST. USE DEFAULT VALUE
+ AGE DOES NOT EXIST. USE DEFAULT VALUE
+ ROLLER DOES NOT EXIST. USE DEFAULT VALUE
+ UNDERTOW DOES NOT EXIST. USE DEFAULT VALUE
+ OUT_NU DOES NOT EXIST. USE DEFAULT VALUE
+ TMP DOES NOT EXIST. USE DEFAULT VALUE
       EtaBlowVal Default:  100xmax_depth
-      OUT_DEPTH T
-          OUT_U T
-          OUT_V T
-        OUT_ETA T
-       OUT_Hmax F
-       OUT_Hmin F
-       OUT_Umax F
-      OUT_MFmax F
-     OUT_VORmax F
-       OUT_MASK T
-      OUT_MASK9 F
-      OUT_Umean F
-      OUT_Vmean F
-    OUT_ETAmean F
- OUT_WaveHeight T
-        OUT_SXL F
-        OUT_SXR F
-        OUT_SYL F
-        OUT_SYR F
-    OUT_SourceX F
-    OUT_SourceY F
-          OUT_P F
-          OUT_Q F
-         OUT_Fx F
-         OUT_Fy F
-         OUT_Gx F
-         OUT_Gy F
-        OUT_AGE F
-     OUT_ROLLER F
-   OUT_UNDERTOW F
-         OUT_NU F
-        OUT_TMP F
-       OUT_TIME F
-                                          
-  --------------input end --------------
-                                          
+ TIDAL_BC DOES NOT EXIST. USE DEFAULT VALUE
                                             TIDAL_BC not defined, Default: False
  ----------------- STATISTICS ----------------
   TIME        DT
@@ -985,5 +978,15 @@ Beta_ref=        -0.53
   MaxTotalU   PhaseS      Froude      WetDryMass
   0.2289E+01  0.7614E+01  0.3006E+00  0.0000E+00
    PRINTING FILE NO.    99  TIME/TOTAL:       99.004 /     100.000
- Simulation takes   12.0000000     seconds
+ Simulation takes   10.0000000     seconds
  Normal Termination!
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019b (9.7.0.1190202) 64-bit (glnxa64)
+                              August 21, 2019
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 

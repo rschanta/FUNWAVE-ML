@@ -11,7 +11,7 @@
 #SBATCH --mail-user=rschanta@udel.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --export=ALL
-#SBATCH --dependency=afterok:27604654
+#SBATCH --dependency=afterok:27604729
 #
 #UD_QUIET_JOB_SETUP=YES
 #UD_USE_SRUN_LAUNCHER=YES
@@ -28,6 +28,6 @@
 	vpkg_require matlab
 
 ## Calculate skew and asymmetry
-	run_calc_ska /lustre/scratch/rschanta/ trial_11 "/work/thsu/rschanta/RTS/functions"
+	run_calc_ska /lustre/scratch/rschanta/ trial_11 /work/thsu/rschanta/RTS/
 
 

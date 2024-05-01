@@ -27,4 +27,4 @@
 	vpkg_require matlab
 
 ## Run Generation Script
-	run_MATLAB_script2 "./trial_11/trial_11.m" "/work/thsu/rschanta/RTS/functions"
+	run_MATLAB_script "./trial_11/trial_11.m" "/work/thsu/rschanta/RTS/functions"

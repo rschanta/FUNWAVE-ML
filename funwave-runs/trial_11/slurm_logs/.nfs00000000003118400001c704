@@ -1,0 +1,26 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019b (9.7.0.1190202) 64-bit (glnxa64)
+                              August 21, 2019
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+[Warning: Directory already exists.] 
+[> In mk_FW_dir (line 15)
+  In trial_11 (line 12)
+  In run (line 91)] 
+[Warning: Directory already exists.] 
+[> In mk_FW_dir (line 19)
+  In trial_11 (line 12)
+  In run (line 91)] 
+[Warning: Directory already exists.] 
+[> In mk_FW_dir (line 21)
+  In trial_11 (line 12)
+  In run (line 91)] 
+[Warning: Directory already exists.] 
+[> In mk_FW_dir (line 23)
+  In trial_11 (line 12)
+  In run (line 91)] 

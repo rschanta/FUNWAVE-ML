@@ -11,7 +11,7 @@
 #SBATCH --mail-user=rschanta@udel.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --export=ALL
-#SBATCH --dependency=afterok:27604655
+#SBATCH --dependency=afterok:27604730
 #
 #UD_QUIET_JOB_SETUP=YES
 #UD_USE_SRUN_LAUNCHER=YES
@@ -28,8 +28,7 @@
 	vpkg_require matlab
 
 ## Compress outputs from all runs to a single structure
-	args="'/lustre/scratch/rschanta/','trial_11'"
-	run_compress_out2 $args trial_11 "/work/thsu/rschanta/RTS/functions"
+	run_compress_out /lustre/scratch/rschanta/ trial_11 /work/thsu/rschanta/RTS/
 
 ## Keep for now
 	#rm -rf "/lustre/scratch/rschanta/trial_11/outputs-proc/"
