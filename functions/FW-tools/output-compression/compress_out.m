@@ -1,5 +1,16 @@
+%{
+compress_out
+    - compresses all the trials from a given FUNWAVE run to a single trial,
+    memory permitting
+%}
+
 function compress_out(super_path,run_name)
-%% Load in helper functions
+%% Arguments
+%{
+    - super_path: super_path for run
+    - run_name: run_name of run
+%}
+
 %% Get all important paths
     paths = list_FW_dirs(super_path,run_name);
 %% Loop through  output_processed directory

@@ -1,3 +1,8 @@
+%{
+FW_in_COUPLE
+    - creates a default FWS structure for the `DEPTH_TYPE=DATA` variety
+      and 'COUPLING_FILE' being used for a hydrodynamic inputs
+%}
 function FWS = FW_in_COUPLE()
     FWS = struct();
     %%% Title Info

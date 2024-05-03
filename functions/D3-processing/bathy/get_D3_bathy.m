@@ -20,11 +20,11 @@ function bathy = get_D3_bathy(df,DX)
     %%% Bathymetry from Bed before
         bathy = df.raw_data.bed_before;
 
-%% Cut bathymetry to between leftmost gauge and dry beach
+%%% Cut bathymetry to between leftmost gauge and dry beach
     bathy = cut_bathy(bathy, WG, MWL);
 
-%% Interpolate bathymetry to DX grid spacing
+%%% Interpolate bathymetry to DX grid spacing
     bathy = interp2DX(bathy,DX,MWL);
-%% Arrange to Nglob by Mglob grid
+%%% Arrange to Nglob by Mglob grid
     bathy = [bathy(:,2)'; bathy(:,2)'; bathy(:,2)'];
 end

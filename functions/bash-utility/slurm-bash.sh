@@ -111,7 +111,7 @@ FILE_CONTENT=$(cat <<EOF
 #SBATCH --mail-user='rschanta@udel.edu'
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --export=ALL
-#SBATCH --dependency=afterok:${dep}
+#SBATCH --dependency=afterany:${dep}
 #
 #UD_QUIET_JOB_SETUP=YES
 #UD_USE_SRUN_LAUNCHER=YES
@@ -158,7 +158,6 @@ FILE_CONTENT=$(cat <<EOF
 #SBATCH --mail-user='rschanta@udel.edu'
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --export=ALL
-#SBATCH --dependency=afterok:${dep}
 #SBATCH --array=${arr}
 #
 #UD_QUIET_JOB_SETUP=YES
@@ -206,7 +205,7 @@ FILE_CONTENT=$(cat <<EOF
 #SBATCH --mail-user='rschanta@udel.edu'
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --export=ALL
-#SBATCH --dependency=afterok:${dep}
+#SBATCH --dependency=afterany:${dep}
 #SBATCH --array=${arr}
 #
 #UD_QUIET_JOB_SETUP=YES

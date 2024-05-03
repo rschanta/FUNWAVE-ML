@@ -1,3 +1,8 @@
+%{
+FW_in_DATA
+    - creates a default FWS structure for the `DEPTH_TYPE=DATA` variety
+      for a regular monochromatic wave, using some bathymetry
+%}
 function FWS = FW_in_DATA(bathy)
     FWS = struct();
     %%% Title Info

@@ -7,7 +7,7 @@ function paths = mk_FW_dir(super_path,run_name)
 %% Arguments
 %{
     - super_path: 
-    - run_name
+    - run_name:
 %}
 
 %% Create paths and save names to structure

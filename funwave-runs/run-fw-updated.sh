@@ -4,10 +4,10 @@
 # Basic Info
 	super_path="/lustre/scratch/rschanta/"
 	work_dir="/work/thsu/rschanta/RTS/"
-	run_name="trial_11"
-	count="4"
+	run_name="model_run_2"
+	count="1000"
 # Partition
-	par="thsu"
+	par="standard"
 # Tasks per Node
 	tpn="32"
 # Version of FUNWAVE

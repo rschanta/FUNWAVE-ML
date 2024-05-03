@@ -8,7 +8,13 @@ save_inputs
 %}
 
 function save_inputs(paths,input_struct)
-    
+%% Arguments
+%{
+    - paths (structure): paths structure as made from list_FW_dirs
+    - input_struct (structure): structure containing structures of FWS 
+      structure of the form 'input_XXXXX'
+%}
+   
     %% Convert to table
         % Initialize table
             FWS_tab = table();

@@ -11,25 +11,28 @@ make_unique_X
 %}
 
 function [X_out,Y_out] = make_unique_X(X,Y)
+%% Arguments
 %{
     - X (1D array)
     - Y (1D array) must have same dimension as X
 %}
-    % Find unique values in X array
-    uniqueValues = unique(X);
-    
-    % Initialize the cleaned array
-    unique_array = [];
-    
-    % Iterate through unique values and add the first occurrence to cleaned array
-    for i = 1:length(uniqueValues)
-        idx = find(X == uniqueValues(i), 1, 'first');
-        rowToAdd = [X(idx), Y(idx)];
-        % Add the first occurrence of each unique value to the cleaned array
-        unique_array = [unique_array; rowToAdd];
-    end
 
-    % Separate outputs
-        X_out = unique_array(:,1);
-        Y_out = unique_array(:,2);
+ 
+%%% Find unique values in X array
+uniqueValues = unique(X);
+
+%%% Initialize the cleaned array
+unique_array = [];
+
+% Iterate through unique values and add the first occurrence to cleaned array
+for i = 1:length(uniqueValues)
+    idx = find(X == uniqueValues(i), 1, 'first');
+    rowToAdd = [X(idx), Y(idx)];
+    % Add the first occurrence of each unique value to the cleaned array
+    unique_array = [unique_array; rowToAdd];
+end
+
+%%% Separate outputs
+    X_out = unique_array(:,1);
+    Y_out = unique_array(:,2);
 end

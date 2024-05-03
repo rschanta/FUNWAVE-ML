@@ -11,9 +11,10 @@ function bathy_cut = cut_bathy(bathy,WG, MWL)
     - MWL: (1 x M array): MWL x locations from Dune3 dataset, where
         NaN values correspond to on-land values
 %}
-    %% Find where the NaN occurs (note- MWL must be column for isnan)
-        [dry_WG_i, ~] = find(isnan(MWL'), 1, 'first');
-        dry_WG_x = WG(dry_WG_i);
-    %% Cut bathymetry to be between leftmost wave gauge and dry beach
-        bathy_cut = cut(bathy,[WG(1),dry_WG_x],1,2);
+
+%% Find where the NaN occurs (note- MWL must be column for isnan)
+    [dry_WG_i, ~] = find(isnan(MWL'), 1, 'first');
+    dry_WG_x = WG(dry_WG_i);
+%% Cut bathymetry to be between leftmost wave gauge and dry beach
+    bathy_cut = cut(bathy,[WG(1),dry_WG_x],1,2);
 end

@@ -37,10 +37,9 @@ function run_MATLAB_function {
 
 
 #########################################################
-# run_compress_out_i2
+# run_compress_out_i
 #	- the 'compress_out_i' function to compress the outputs
-#	  to compress the outputs of an individual FUNWAVE run
-#	  to a single structure
+#	  of an individual FUNWAVE run to a single structure
 #########################################################
 function run_compress_out_i {
 
@@ -64,10 +63,37 @@ function run_compress_out_i {
 	matlab -nodisplay -nosplash -r "addpath(genpath('"$f_path"')); "$func"("$args");exit"
 }
 
+#########################################################
+# run_compress_out_ska_i
+#	- the 'compress_out__ska_i' function to compress the 
+#     outputs of an individual FUNWAVE run, including the
+#     calculated skew and asymmetry
+#########################################################
+function run_compress_out_ska_i {
+
+## Arguments
+	super_path=$1
+	run_name=$2
+	slurm_array_number=$3
+	work=$4
+		
+## Path to functions
+	f_path="${work}functions/"
+## Path to and name of function
+	func="compress_out_ska_i"
+	
+## Construct Trial Number
+	tri_no=$(printf "%05d" $slurm_array_number)
+## Construct arguments to matlab function
+	args="'${super_path}','${run_name}',${tri_no}"
+
+## Run function
+	matlab -nodisplay -nosplash -r "addpath(genpath('"$f_path"')); "$func"("$args");exit"
+}
 
 
 #########################################################
-# run_compress_out2
+# run_compress_out
 #	- the 'compress_out' function to compress the outputs
 #	  to compress the outputs of all FUNWAVE runs from a
 #	  given run to a single structure, memory permitting

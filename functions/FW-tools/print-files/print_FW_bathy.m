@@ -6,7 +6,7 @@ function print_FW_bathy(data,path)
 %% Arguments
 %{
     - data: (array) array Nglob x Mglob for bathymetry depths
-    - path: path to print to, including file name
+    - path: (string) path to print to, including file name
 %}
     disp('Started printing bathymetry file')
     writematrix(data,path)
