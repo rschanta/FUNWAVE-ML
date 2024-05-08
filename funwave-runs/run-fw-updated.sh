@@ -2,6 +2,7 @@
 # INPUTS
 ###################################################
 # Basic Info
+	# Edit
 	super_path="/lustre/scratch/rschanta/"
 	work_dir="/work/thsu/rschanta/RTS/"
 	run_name="model_run_2"

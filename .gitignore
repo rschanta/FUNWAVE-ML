@@ -5,3 +5,5 @@
 data/
 funwave/
 *exec
+funwave-runs/OLD-RUNS/
+testbed/

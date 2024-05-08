@@ -20,15 +20,15 @@ Run script for model run 2
         FWS.TOTAL_TIME = 600;
         FWS.Mglob = int64(500);
         FWS.Nglob = int64(3);
-        FWS.CFL = 0.35;
-        FWS.PLOT_INTV = 0.02;
+        FWS.CFL = 0.5;
+        FWS.PLOT_INTV = 0.05;
 
     
 %% List of variables to loop through
-    r_S = linspace(0.05,0.1,10); % SLOPE
+    r_S = linspace(0.04,0.1,10); % SLOPE
     r_T = linspace(4,12,10);      % PERIOD
     r_A = linspace(0.25,0.5,10);  % AMPLITUDE
-    r_H = 4;
+    r_H = [4 5 6 7];
     % Iteration Counter and Storage
     tri = 1; all_inputs = struct();
 

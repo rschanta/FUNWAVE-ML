@@ -36,7 +36,7 @@ function results = compress_out_ska_i(super_path,run_name,tri_no)
     results.u = compress_var(res_path,'u_',Mglob,Nglob);
     results.v = compress_var(res_path,'v_',Mglob,Nglob);
 %% Calculate skew and asymmetry right away
-    ska = array_ska(results.eta,start_i);
+    ska = array_ska(results.eta,1);
     results.skew = ska.skew;
     results.asy = ska.asy;
 %% Save out

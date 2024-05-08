@@ -1,0 +1,108 @@
+## Load in utilities and VALET
+. "/work/thsu/rschanta/RTS/functions/bash-utility/slurm-bash.sh"
+. "/work/thsu/rschanta/RTS/functions/bash-utility/matlab-bash.sh"
+. "/work/thsu/rschanta/RTS/functions/bash-utility/misc-bash.sh"
+	vpkg_require matlab
+
+## Run Generation Script
+	run_MATLAB_script "./debug/debug.m" "/work/thsu/rschanta/RTS/functions"
+EOF
+
+# Run the script
+IDG=
+
+###################################################
+# RUN FUNWAVE INPUTS IN PARALLEL, COMPRESS
+###################################################
+# Batch script name
+	fileID="RUN" #identifier for script
+	file_name="GEN_debug.qs"
+# Create a batch script with an array and a dependency
+	arr="1-4"
+	create_batch_arr_dep GEN_debug.qs standard 32    
+# Set names in batch script
+	set_slurm_names GEN_debug.qs GEN  debug rschanta@udel.edu
+	set_slurm "output" "RUN_out_%a.out" GEN_debug.qs
+	set_slurm "error" "RUN_err_%a.out" GEN_debug.qs
+
+
+
+## BODY OF FILE
+cat <<EOF >> GEN_debug.qs
+## Load in utilities and VALET
+. "/work/thsu/rschanta/RTS/functions/bash-utility/slurm-bash.sh"
+. "/work/thsu/rschanta/RTS/functions/bash-utility/matlab-bash.sh"
+. "/work/thsu/rschanta/RTS/functions/bash-utility/misc-bash.sh"
+	. /opt/shared/slurm/templates/libexec/openmpi.sh
+	vpkg_require openmpi
+	vpkg_require matlab
+
+## FUNWAVE Executable Path
+	fun_ex="/work/thsu/rschanta/RTS/funwave/v3.6/exec/FW-REG"
+	echo "$fun_ex"
+
+## Get input file name
+	input_file=$(get_input_dir "/lustre/scratch/rschanta/" "debug" "$SLURM_ARRAY_TASK_ID")
+
+## Run FUNWAVE
+	${UD_MPIRUN} "$fun_ex" "$input_file"
+
+## Compress outputs from run to single structure
+	run_compress_out_ska_i /lustre/scratch/rschanta/ debug "$SLURM_ARRAY_TASK_ID" "/work/thsu/rschanta/RTS/"
+
+EOF
+
+IDP=
+
+
+
+###################################################
+# COMPRESS ALL TO SINGLE STRUCTURE AND CLEAN
+###################################################
+# Batch script name
+	fileID="COMP"
+	file_name="GEN_debug.qs"
+# Create a batch script with a dependency
+	create_batch_dep GEN_debug.qs standard 32   
+# Set names in batch script
+	set_slurm_names GEN_debug.qs GEN  debug rschanta@udel.edu
+	
+
+
+## BODY OF FILE
+cat <<EOF >> GEN_debug.qs
+## Load in utilities and VALET
+. "/work/thsu/rschanta/RTS/functions/bash-utility/slurm-bash.sh"
+. "/work/thsu/rschanta/RTS/functions/bash-utility/matlab-bash.sh"
+. "/work/thsu/rschanta/RTS/functions/bash-utility/misc-bash.sh"
+	vpkg_require matlab
+
+## Compress outputs from all runs to a single structure
+	run_compress_out /lustre/scratch/rschanta/ debug /work/thsu/rschanta/RTS/
+
+## Keep for now
+	#rm -rf "/lustre/scratch/rschanta/debug/outputs-proc/"
+	rm -rf "/lustre/scratch/rschanta/debug/outputs-raw/"
+EOF
+
+ID_Comp=
+
+###################################################
+# COPY RESULTS TO WORK DIRECTORY
+###################################################
+# Batch script name
+	fileID="COPY"
+	file_name="GEN_debug.qs"
+# Create a batch script with a dependency
+	create_batch_dep GEN_debug.qs standard 32   
+# Set names in batch script
+	set_slurm_names GEN_debug.qs GEN  debug rschanta@udel.edu
+
+
+## BODY OF FILE
+cat <<EOF >> GEN_debug.qs
+	cp "/lustre/scratch/rschanta/debug/inputs.mat" "./debug/inputs.mat"
+	cp "/lustre/scratch/rschanta/debug/outputs.mat" "./debug/outputs.mat"
+EOF
+
+ID_Copy=

@@ -1,10 +1,8 @@
 %{
-RUN SCRIPT
-
-Run script for model run 2
+    DEBUG Script
+        This is a small FUNWAVE run of 4 trials at 50 seconds (1 second
+        sampling) just for the purpose of debugging
 %}
-
-
 
 %% Path inputs
     super_path = '/lustre/scratch/rschanta/';
@@ -17,18 +15,18 @@ Run script for model run 2
     
 %% Make a FW input structure and set common parameters
     FWS = FW_in_SLP();
-        FWS.TOTAL_TIME = 600;
-        FWS.Mglob = int64(500);
+        FWS.TOTAL_TIME = 50;
+        FWS.Mglob = int64(1024);
         FWS.Nglob = int64(3);
-        FWS.CFL = 0.35;
-        FWS.PLOT_INTV = 0.02;
+        FWS.CFL = 0.5;
+        FWS.PLOT_INTV = 1;
 
     
 %% List of variables to loop through
-    r_S = linspace(0.05,0.1,10); % SLOPE
-    r_T = linspace(4,12,10);      % PERIOD
-    r_A = linspace(0.25,0.5,10);  % AMPLITUDE
-    r_H = 4;
+    r_S = linspace(0.05,0.1,2); % SLOPE
+    r_T = linspace(4,8,1);      % PERIOD
+    r_A = linspace(0.25,0.5,2);  % AMPLITUDE
+    r_H = 5;
     % Iteration Counter and Storage
     tri = 1; all_inputs = struct();
 
@@ -36,7 +34,6 @@ Run script for model run 2
 for s = r_S; for t = r_T; for a = r_A; for h = r_H
     %%% GET PATHS FOR TRIAL
         tpaths = list_FW_tri_dirs(tri,paths);
-
     %%% SET LOOP VARIABLES
             input = FWS;
             input.TITLE = tpaths.input_name;
@@ -46,15 +43,14 @@ for s = r_S; for t = r_T; for a = r_A; for h = r_H
             input.RESULT_FOLDER = tpaths.RESULT_FOLDER;
 
     %%% SET OTHER PARAMETERS DEPENDENT ON LOOP VARIABLES
-        % Package up loop variables and create parameters
-            q.S = s; q.T = t; q.a = a; q.H = h;
-            cv = create_params(q,input);
+            q.S = s; q.T = t; q.a = a; q.H = h; q.Mglob = input.Mglob;
+            cv = create_params(q);
         % Set parameters
             input.DX = cv.DX;
             input.DY = cv.DX;
             input.Sponge_west_width = cv.SW;
             input.Xslp = cv.Xslp;
-            input.Xc_WK = cv.WK;
+            input.Xc_WK = cv.SW;
             input.DEP_WK = h;
             input.DEPTH_FLAT = h;
 
@@ -68,43 +64,28 @@ tri = tri + 1;
 end;end;end;end;
 
 %% Save all inputs to one larger structure, table, and parquet
-    %save(paths.input_sum_path,'-struct', 'all_inputs', '-v7.3')
     save_inputs(paths,all_inputs);
+
+
 %% Create Parameters Helper
-function cv =  create_params(s,input)
+function cv =  create_params(q)
     %%% Calculate wave number k and kh
-        h = s.H;
-        [k, L] = dispersion(s.T,h);
-        kh = k*h;
+        h = q.H;
+        W = LinDisp(q.T,'T',q.H);
+        kh = W.k*h;
 
     %%% FUNWAVE Stability Requirements
             %%% Stability Requirement 1: height/DX > 15
                 DX_min = h/15;
             %%% Stability Requirement 2: 60 points per wavelength
-                DX_max = L/60;
+                DX_max = W.L/60;
             %%% Choose in the middle
-                DX = mean([DX_min DX_max]);
+                cv.DX = mean([DX_min DX_max]);
             %%% Resulting Xslp
-                Mglob = double(input.Mglob);
-                Xslp = Mglob*DX-h/s.S;
+                Mglob = double(q.Mglob);
+                cv.Xslp = Mglob*cv.DX-h/q.S;
             %%% Set Sponge Width for stability
-                SW = 0.52*L;
+                cv.SW = 0.52*W.L;
             %%% Set Wavemaker position for stability
-                WK = 1.1*L;
-
-        
-    %%% output relevant variables
-        cv.DX = DX;
-        cv.Xslp = Xslp;
-        cv.L = L;
-        cv.SW = SW;
-        cv.WK = WK;
-
-end
-
-function [k, L] = dispersion(T,h)
-    sigma = 2*pi/T;
-    g = 9.81;
-    k = -fzero(@(k) sigma^2-g*k*tanh(k*h),0); 
-    L = 2*pi/k;
+                cv.WK = 1.1*W.L;
 end

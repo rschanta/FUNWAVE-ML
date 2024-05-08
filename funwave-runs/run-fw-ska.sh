@@ -10,8 +10,8 @@
 # Basic Info
 	super_path="/lustre/scratch/rschanta/"
 	work_dir="/work/thsu/rschanta/RTS/"
-	run_name="model_run_3_test"
-	count="4"
+	run_name="Dune_3_5_8"
+	count="2"
 # Partition
 	par="standard"
 # Tasks per Node
