@@ -8,3 +8,4 @@ funwave/
 funwave-runs/OLD-RUNS/
 testbed/
 *slurm_logs*
+*OLD_RUNS*
