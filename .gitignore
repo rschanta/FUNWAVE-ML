@@ -7,3 +7,4 @@ funwave/
 *exec
 funwave-runs/OLD-RUNS/
 testbed/
+*slurm_logs*

@@ -138,3 +138,26 @@ function run_calc_ska {
 ## Run function
 	matlab -nodisplay -nosplash -r "addpath(genpath('"$f_path"')); "$func"("$args");exit"
 }
+
+#########################################################
+# run_comp_ska
+#	- the 'comp_ska' function to compress the skew and 
+#	  asymmetry from each trial in the run, outputting
+#     two structures 'skew' and 'asy'
+#########################################################
+function run_comp_ska {
+## Arguments
+	super_path=$1
+	run_name=$2
+	work=$3
+	
+## Path to functions
+	f_path="${work}functions/"
+	func="comp_ska"
+			
+## Construct arguments
+	args="'${super_path}','${run_name}'"
+
+## Run function
+	matlab -nodisplay -nosplash -r "addpath(genpath('"$f_path"')); "$func"("$args");exit"
+}

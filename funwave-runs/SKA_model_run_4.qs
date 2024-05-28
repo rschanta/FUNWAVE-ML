@@ -1,0 +1,14 @@
+## Load in utilities and VALET
+. "/work/thsu/rschanta/RTS/functions/bash-utility/slurm-bash.sh"
+. "/work/thsu/rschanta/RTS/functions/bash-utility/matlab-bash.sh"
+. "/work/thsu/rschanta/RTS/functions/bash-utility/misc-bash.sh"
+	vpkg_require matlab
+
+## Calculate skew and asymmetry
+	run_comp_ska /lustre/scratch/rschanta/ model_run_4 /work/thsu/rschanta/RTS/
+
+
+EOF
+
+ID_Ska=
+

@@ -60,6 +60,7 @@ for s = r_S; for t = r_T; for a = r_A; for h = r_H
 
     %%% PRINT INPUT AND STORE TO STRUCTURE
         % Print input file
+            disp(['Generated Trial:',num2str(tri)]);
             print_FW_in(input,tpaths.input)   
         % Save to input structure
             all_inputs.(tpaths.input_name) = input;
@@ -69,7 +70,9 @@ end;end;end;end;
 
 %% Save all inputs to one larger structure, table, and parquet
     %save(paths.input_sum_path,'-struct', 'all_inputs', '-v7.3')
+    disp('Starting to save');
     save_inputs(paths,all_inputs);
+    disp('Save Big Input Summary');
 %% Create Parameters Helper
 function cv =  create_params(s,input)
     %%% Calculate wave number k and kh

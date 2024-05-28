@@ -11,7 +11,7 @@
 #SBATCH --mail-user=rschanta@udel.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --export=ALL
-#SBATCH --dependency=afterany:27620448
+#SBATCH --dependency=afterany:27620480
 #SBATCH --array=1-2
 #
 #UD_QUIET_JOB_SETUP=YES
@@ -31,7 +31,7 @@
 	vpkg_require matlab
 
 ## FUNWAVE Executable Path
-	fun_ex="/work/thsu/rschanta/RTS/funwave/v3.6/exec/FW-REG"
+	fun_ex="/work/thsu/rschanta/RTS/funwave/v3.6/exec/FW-COUP"
 	echo "$fun_ex"
 
 ## Get input file name

@@ -24,7 +24,7 @@ function print_FW_coupling(data,path)
     fprintf(fID, 'coupling data\n');
     fprintf(fID, 'boundary info: num of points, start point\n');
     fprintf(fID, 'EAST\n\t-1\t\t1\n');
-    fprintf(fID, 'WEST\n\t5\t\t1\n');
+    fprintf(fID, 'WEST\n\t1\t\t1\n');
     fprintf(fID, 'SOUTH\n\t-1\t\t1\n');
     fprintf(fID, 'NORTH\n\t-1\t\t1\n');
 
