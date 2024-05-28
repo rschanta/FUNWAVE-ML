@@ -108,7 +108,7 @@ cat <<EOF >> $file_name
 	\${UD_MPIRUN} "\$fun_ex" "\$input_file"
 
 ## Compress outputs from run to single structure
-	run_compress_out_ska_i ${super_path} ${run_name} "\$SLURM_ARRAY_TASK_ID" "$work_dir"
+	run_compress_out_ska_i ${super_path} ${run_name} "\$SLURM_ARRAY_TASK_ID" "$w"
 
 EOF
 

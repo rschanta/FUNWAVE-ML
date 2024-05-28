@@ -6,7 +6,7 @@
 function run_MATLAB_script {
 ## Arguments
     path=$1
-	work=$2
+	w=$2
 	
 # Runs a MATLAB script specified 'file_name.mat' in Caviness
 	matlab -nodisplay -nosplash -nodesktop -r "addpath(genpath('"$2"'));run('"$1"');exit;"
@@ -30,7 +30,7 @@ function run_MATLAB_function {
 ## Arguments
 	func=$1
 	args=$2
-	work=$3
+	w=$3
 ## cd to path where function is, execute function under arguments
 	matlab -nodisplay -nosplash -r "addpath(genpath('"$4"')); "$func"("$args");exit"
 }
@@ -42,25 +42,20 @@ function run_MATLAB_function {
 #	  of an individual FUNWAVE run to a single structure
 #########################################################
 function run_compress_out_i {
-
 ## Arguments
 	super_path=$1
 	run_name=$2
 	slurm_array_number=$3
-	work=$4
-		
-## Path to functions
-	f_path="${work}functions/"
+	w=$4
 ## Path to and name of function
 	func="compress_out_i"
-	
 ## Construct Trial Number
 	tri_no=$(printf "%05d" $slurm_array_number)
 ## Construct arguments to matlab function
 	args="'${super_path}','${run_name}',${tri_no}"
 
 ## Run function
-	matlab -nodisplay -nosplash -r "addpath(genpath('"$f_path"')); "$func"("$args");exit"
+	matlab -nodisplay -nosplash -r "addpath(genpath('"$w"')); "$func"("$args");exit"
 }
 
 #########################################################
@@ -75,11 +70,8 @@ function run_compress_out_ska_i {
 	super_path=$1
 	run_name=$2
 	slurm_array_number=$3
-	work=$4
-		
-## Path to functions
-	f_path="${work}functions/"
-## Path to and name of function
+	w=$4
+## Name of function
 	func="compress_out_ska_i"
 	
 ## Construct Trial Number
@@ -88,7 +80,7 @@ function run_compress_out_ska_i {
 	args="'${super_path}','${run_name}',${tri_no}"
 
 ## Run function
-	matlab -nodisplay -nosplash -r "addpath(genpath('"$f_path"')); "$func"("$args");exit"
+	matlab -nodisplay -nosplash -r "addpath(genpath('"$w"')); "$func"("$args");exit"
 }
 
 
@@ -102,10 +94,8 @@ function run_compress_out {
 ## Arguments
 	super_path=$1
 	run_name=$2
-	work=$3
+	w=$3
 	
-## Path to functions
-	f_path="${work}functions/"
 ## Path to and name of function
 	func="compress_out"
 	
@@ -113,7 +103,7 @@ function run_compress_out {
 	args="'${super_path}','${run_name}'"
 	
 ## Run function
-	matlab -nodisplay -nosplash -r "addpath(genpath('"$f_path"')); "$func"("$args");exit"
+	matlab -nodisplay -nosplash -r "addpath(genpath('"$w"')); "$func"("$args");exit"
 }
 
 #########################################################
@@ -126,17 +116,14 @@ function run_calc_ska {
 ## Arguments
 	super_path=$1
 	run_name=$2
-	work=$3
-	
-## Path to functions
-	f_path="${work}functions/"
-	func="calc_ska"
-			
+	w=$3
+## Function name
+	func="calc_ska"		
 ## Construct arguments
 	args="'${super_path}','${run_name}'"
 
 ## Run function
-	matlab -nodisplay -nosplash -r "addpath(genpath('"$f_path"')); "$func"("$args");exit"
+	matlab -nodisplay -nosplash -r "addpath(genpath('"$w"')); "$func"("$args");exit"
 }
 
 #########################################################
@@ -149,15 +136,32 @@ function run_comp_ska {
 ## Arguments
 	super_path=$1
 	run_name=$2
-	work=$3
-	
-## Path to functions
-	f_path="${work}functions/"
+	w=$3	
+## Name of function
 	func="comp_ska"
-			
 ## Construct arguments
 	args="'${super_path}','${run_name}'"
 
 ## Run function
-	matlab -nodisplay -nosplash -r "addpath(genpath('"$f_path"')); "$func"("$args");exit"
+	matlab -nodisplay -nosplash -r "addpath(genpath('"$w"')); "$func"("$args");exit"
+}
+
+#########################################################
+# run_comp_ska
+#	- the 'comp_ska' function to compress the skew and 
+#	  asymmetry from each trial in the run, outputting
+#     two structures 'skew' and 'asy'
+#########################################################
+function run_compress_ska {
+## Arguments
+	super_path=$1
+	run_name=$2
+	w=$3	
+## Name of function
+	func="compress_ska"
+## Construct arguments
+	args="'${super_path}','${run_name}'"
+
+## Run function
+	matlab -nodisplay -nosplash -r "addpath(genpath('"$w"')); "$func"("$args");exit"
 }

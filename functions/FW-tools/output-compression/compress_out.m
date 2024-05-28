@@ -10,7 +10,6 @@ function compress_out(super_path,run_name)
     - super_path: super_path for run
     - run_name: run_name of run
 %}
-
 %% Get all important paths
     paths = list_FW_dirs(super_path,run_name);
 %% Loop through  output_processed directory
@@ -23,7 +22,6 @@ function compress_out(super_path,run_name)
         all_ouputs.(file_name) = load(filepath);
 
     end
-    
 %% Save Outputs
     outputs_name = fullfile(paths.run_name,'outputs.mat');
     save(outputs_name,'-struct', 'all_ouputs', '-v7.3')
