@@ -3,7 +3,8 @@
 *.mod
 *LOG.txt
 data/
-funwave/
+funwave/v*
+funwave/beta/
 *exec
 funwave-runs/OLD-RUNS/
 testbed/
