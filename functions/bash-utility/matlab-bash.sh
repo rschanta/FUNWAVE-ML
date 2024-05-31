@@ -147,7 +147,7 @@ function run_comp_ska {
 }
 
 #########################################################
-# run_comp_ska
+# run_compress_ska
 #	- the 'comp_ska' function to compress the skew and 
 #	  asymmetry from each trial in the run, outputting
 #     two structures 'skew' and 'asy'

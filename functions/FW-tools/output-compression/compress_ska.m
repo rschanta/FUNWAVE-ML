@@ -20,6 +20,7 @@ function compress_ska(super_path,run_name)
             % Get 
             filepath = fullfile(paths.outputs_proc, ska_files(i).name);
             [~, file_name, ~] = fileparts(filepath);
+            disp(filepath)
             all_ouputs.(file_name) = load(filepath);
     
         end

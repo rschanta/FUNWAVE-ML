@@ -4,8 +4,8 @@
 # Basic Info
 	super_path="/lustre/scratch/rschanta/"
 	work_dir="/work/thsu/rschanta/RTS/"
-	run_name="Run5_28"
-	count="4"
+	run_name="model_run_5"
+	count="3000"
 # Partition
 	par="standard"
 # Tasks per Node

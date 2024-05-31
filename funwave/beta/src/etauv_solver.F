@@ -52,18 +52,6 @@
 !-------------------------------------------------------------------------------------
 SUBROUTINE ESTIMATE_HUV(ISTEP)
      USE GLOBAL
-# if defined (VESSEL)
-     USE VESSEL_MODULE
-# endif
-# if defined (SUBGRID)
-     USE SUBGRID_MODULE
-# endif
-# if defined (SEDIMENT)
-     USE SEDIMENT_MODULE
-# endif
-# if defined (PRECIPITATION)
-     USE PRECIPITATION_MODULE
-# endif
 
      IMPLICIT NONE
      INTEGER,INTENT(IN)::ISTEP
@@ -218,10 +206,7 @@ SUBROUTINE ESTIMATE_HUV(ISTEP)
 # if defined (CARTESIAN)
         R1(I,J)=-1.0_SP/DXg*(F_right*n_right+F_left*n_left) &
                    -1.0_SP/DYg*(F_top*n_top+F_bottom*n_bottom)
-# if defined (VESSEL)
-        R1(I,J)=R1(I,J) +VesselFluxGradient(I,J)
-# endif
-  ! end vessel
+
 
 # else
         R1(I,J)=-1.0_SP/DX(I,J)*(F_right*n_right+F_left*n_left) &
@@ -246,23 +231,7 @@ SUBROUTINE ESTIMATE_HUV(ISTEP)
 ! evaluate vertical velocity at surface O(mu^2), fyshi 07/07/2022
      Wsurf(I,J) = R1(I,J)
 
-# if defined (SUBGRID)     
-     IF(Porosity(I,J).ne.ZERO)THEN
-       R1(I,J)=R1(I,J)/Porosity(I,J)
-     ELSE
-       write(*,*) 'porosity(',I,J,') = 0 ... check model setting!'  
-     ENDIF
-# endif
 
-# if defined (SEDIMENT)
-      IF(SedimentMassSource)THEN
-        R1(I,J)=R1(I,J)+ MassSed(I,J)
-      ENDIF
-# endif
-
-# if defined (PRECIPITATION)
-     R1(I,J)=R1(I,J)+ PrecRateModel(I,J)
-# endif
 
 # if defined (ITERATION)
       Eta(I,J)=ALPHA(ISTEP)*Eta0(I,J)+BETA(ISTEP)*(EtaOld(I,J)+DT*R1(I,J))
@@ -372,19 +341,6 @@ SUBROUTINE GET_Eta_U_V_HU_HV
 ! calculate etar, u and vetar, HU, HV
      H=Eta*Gamma3+Depth
 
-# if defined (SUBGRID)
-
-     CALL UPDATE_SUBGRID
-
-     DO J=1,Nloc
-     DO I=1,Mloc
-     IF(MaskSubgrid(I,J) .eq. 1)THEN
-     H(I,J)=DepAvgSubgrid(I,J)
-     ENDIF ! end subgrid mask
-     ENDDO
-     ENDDO
-
-# endif
 
 
 !   tridiagonal coefficient
@@ -420,18 +376,6 @@ SUBROUTINE GET_Eta_U_V_HU_HV
 
 ! I added coupling condition 10/14/2012
 !  added west_bc wavemaker 09/12/2017
-
-# if defined (COUPLING)
-     IF(IN_DOMAIN_WEST)THEN
-       IF(I.eq.Ibeg)THEN
-         tmp4=tmp4-tmp1*U(I-1,J)
-       ENDIF
-     ELSEIF(IN_DOMAIN_EAST)THEN
-       IF(I.eq.Iend)THEN
-         tmp4=tmp4-tmp3*U(I+1,J)
-       ENDIF
-     ENDIF
-# endif
 
 !  left_bc wavemaker
 # if defined (PARALLEL)
