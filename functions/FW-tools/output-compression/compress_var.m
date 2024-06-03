@@ -8,7 +8,7 @@ function out_array = compress_var(path,var,Mglob,Nglob)
 %% Arguments
 %{
     - path: path to out_XXXXX directory
-    - var:variable to search for (eta, u, etc.)
+    - var: variable to search for as a string (`eta`, `u`, etc.)
     - Mglob: Mglob variable of FUNWAVE
     - Nglob: Nglob variable of FUNWAVE
 %}

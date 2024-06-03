@@ -8,9 +8,9 @@ and organized manner for use in data-intensive applications such as Machine Lear
 The following styling conventions will be used throughout:
 
 * **parameter names/variables** are listed in bold text
-* ***file names*** are listed in bold italicized text 
-* <ins>*directory names*</ins> are italicized and underlined. 
-* `functions/commands` are listed inline code
+* `file.txt` : files are listed in inline code with the file extension
+* `\directories` are in inline code with a preceding `\`
+* `\functions()` are listed inline code with closing parentheses `()` (even bash functions)
 	
 ## Sections
 

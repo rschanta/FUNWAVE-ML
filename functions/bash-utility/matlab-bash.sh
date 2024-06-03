@@ -165,3 +165,22 @@ function run_compress_ska {
 ## Run function
 	matlab -nodisplay -nosplash -r "addpath(genpath('"$w"')); "$func"("$args");exit"
 }
+
+function run_comp_i {
+
+## Arguments
+	super_path=$1
+	run_name=$2
+	slurm_array_number=$3
+	w=$4
+## Name of function
+	func="comp_i"
+	
+## Construct Trial Number
+	tri_no=$(printf "%05d" $slurm_array_number)
+## Construct arguments to matlab function
+	args="'${super_path}','${run_name}',${tri_no}"
+
+## Run function
+	matlab -nodisplay -nosplash -r "addpath(genpath('"$w"')); "$func"("$args");exit"
+}

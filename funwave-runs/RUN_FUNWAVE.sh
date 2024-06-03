@@ -4,8 +4,8 @@
 # Basic Info
 	super_path="/lustre/scratch/rschanta/"
 	work_dir="/work/thsu/rschanta/RTS/"
-	run_name="model_run_5"
-	count="3000"
+	run_name="debug_run_63"
+	count="4"
 # Partition
 	par="standard"
 # Tasks per Node
@@ -78,9 +78,9 @@ EOF
 		## Run FUNWAVE
 			\${UD_MPIRUN} "$fun_ex" "\$input_file"
 		## Compress outputs from run to single structure, calculate skew and asymmetry too
-			run_compress_out_ska_i ${super_path} ${run_name} "\$SLURM_ARRAY_TASK_ID" "$w"
+			run_comp_i ${super_path} ${run_name} "\$SLURM_ARRAY_TASK_ID" "$w"
 		## Delete raw files from run
-			rm_raw_out_i ${super_path} ${run_name} "\$SLURM_ARRAY_TASK_ID"
+			# rm_raw_out_i ${super_path} ${run_name} "\$SLURM_ARRAY_TASK_ID"
 EOF
 ## Run the script and get Job ID
 	IDP=$(run_batch "$file_name")
