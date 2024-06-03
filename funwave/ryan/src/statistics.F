@@ -50,17 +50,17 @@
 !
 !-------------------------------------------------------------------------------------
 SUBROUTINE STATISTICS
-     USE GLOBAL
-     IMPLICIT NONE
+          USE GLOBAL
+          IMPLICIT NONE
 
-     REAL(SP)::MassVolume=ZERO,Energy=ZERO,MaxEta=ZERO,MinEta=ZERO, &
-              MaxU=ZERO,MaxV=ZERO,Fr=ZERO,UTotal=ZERO,UTotalMax=ZERO, &
-	      MaxM=ZERO
-     REAL(SP)::MassVolume0
-     LOGICAL :: FirstCallStatistics = .TRUE.
-     SAVE FirstCallStatistics
+          REAL(SP)::MassVolume=ZERO,Energy=ZERO,MaxEta=ZERO,MinEta=ZERO, &
+                    MaxU=ZERO,MaxV=ZERO,Fr=ZERO,UTotal=ZERO,UTotalMax=ZERO, &
+                    MaxM=ZERO
+          REAL(SP)::MassVolume0
+          LOGICAL :: FirstCallStatistics = .TRUE.
+          SAVE FirstCallStatistics
 # if defined (PARALLEL)
-     REAL(SP)::myvar
+REAL(SP)::myvar
 # endif
 !
 
@@ -114,55 +114,48 @@ SUBROUTINE STATISTICS
      IF(Fr==ZERO)Fr=SQRT(GRAV*MinDepthfrc)
 
 # if defined (PARALLEL)
-     call MPI_ALLREDUCE(MassVolume,myvar,1,MPI_SP,MPI_SUM,MPI_COMM_WORLD,ier)
-     MassVolume = myvar
-     call MPI_ALLREDUCE(Energy,myvar,1,MPI_SP,MPI_SUM,MPI_COMM_WORLD,ier)
-     Energy = myvar
-     call MPI_ALLREDUCE(MaxEta,myvar,1,MPI_SP,MPI_MAX,MPI_COMM_WORLD,ier)
-     MaxEta = myvar
-     call MPI_ALLREDUCE(MinEta,myvar,1,MPI_SP,MPI_MIN,MPI_COMM_WORLD,ier)
-     MinEta = myvar
-     call MPI_ALLREDUCE(MaxU,myvar,1,MPI_SP,MPI_MAX,MPI_COMM_WORLD,ier)
-     MaxU = myvar
-     call MPI_ALLREDUCE(MaxV,myvar,1,MPI_SP,MPI_MAX,MPI_COMM_WORLD,ier)
-     MaxV = myvar
-     call MPI_ALLREDUCE(UTotalMax,myvar,1,MPI_SP,MPI_MAX,MPI_COMM_WORLD,ier)
-     UTotalMax = myvar
-     call MPI_ALLREDUCE(Fr,myvar,1,MPI_SP,MPI_MAX,MPI_COMM_WORLD,ier)
-     Fr = myvar
+          call MPI_ALLREDUCE(MassVolume,myvar,1,MPI_SP,MPI_SUM,MPI_COMM_WORLD,ier)
+          MassVolume = myvar
+          call MPI_ALLREDUCE(Energy,myvar,1,MPI_SP,MPI_SUM,MPI_COMM_WORLD,ier)
+          Energy = myvar
+          call MPI_ALLREDUCE(MaxEta,myvar,1,MPI_SP,MPI_MAX,MPI_COMM_WORLD,ier)
+          MaxEta = myvar
+          call MPI_ALLREDUCE(MinEta,myvar,1,MPI_SP,MPI_MIN,MPI_COMM_WORLD,ier)
+          MinEta = myvar
+          call MPI_ALLREDUCE(MaxU,myvar,1,MPI_SP,MPI_MAX,MPI_COMM_WORLD,ier)
+          MaxU = myvar
+          call MPI_ALLREDUCE(MaxV,myvar,1,MPI_SP,MPI_MAX,MPI_COMM_WORLD,ier)
+          MaxV = myvar
+          call MPI_ALLREDUCE(UTotalMax,myvar,1,MPI_SP,MPI_MAX,MPI_COMM_WORLD,ier)
+          UTotalMax = myvar
+          call MPI_ALLREDUCE(Fr,myvar,1,MPI_SP,MPI_MAX,MPI_COMM_WORLD,ier)
+          Fr = myvar
 # endif
 
 
 # if defined (PARALLEL)
-     if (myid.eq.0) then
+          if (myid.eq.0) then
 # endif
 
 ! print screen
-     WRITE(*,*) '----------------- STATISTICS ----------------'
-     WRITE(*,*) ' TIME        DT'
-     WRITE(*,101) Time, DT
-     WRITE(*,*) ' MassVolume  Energy      MaxEta      MinEta      Max U       Max V '
-     WRITE(*,101)  MassVolume,Energy,MaxEta,MinEta,MaxU,MaxV
-     WRITE(*,*) ' MaxTotalU   PhaseS      Froude      WetDryMass'
+          WRITE(*,*) '----------------- STATISTICS ----------------'
+          WRITE(*,*) ' TIME        DT'
+          WRITE(*,101) Time, DT
+          WRITE(*,*) ' MassVolume  Energy      MaxEta      MinEta      Max U       Max V '
+          WRITE(*,101)  MassVolume,Energy,MaxEta,MinEta,MaxU,MaxV
+          WRITE(*,*) ' MaxTotalU   PhaseS      Froude      WetDryMass'
      WRITE(*,101) UTotalMax, Fr, UTotalMax/Fr, Dmass           
-     IF(TideWest.OR.TideEast.OR.TideSouth.OR.TideNorth)THEN
-       WRITE(*,*) ' TideWest    TideEast      TideSouth    TideNorth'
-       WRITE(*,101) TideWEST_ETA, TideEAST_ETA, TideSOUTH_ETA, TideNORTH_ETA 
-     ENDIF
 ! print log file
-     WRITE(3,*) '----------------- STATISTICS ----------------'
-     WRITE(3,*) ' TIME        DT'
-     WRITE(3,101) Time, DT
-     WRITE(3,*) ' MassVolume  Energy      MaxEta      MinEta      Max U       Max V '
-     WRITE(3,101)  MassVolume,Energy,MaxEta,MinEta,MaxU,MaxV
-     WRITE(3,*) ' MaxTotalU   PhaseS      Froude      WetDryMass'
-     WRITE(3,101)  UTotalMax, Fr, UTotalMax/Fr, Dmass
-     IF(TideWest.OR.TideEast.OR.TideSouth.OR.TideNorth)THEN
-       WRITE(3,*) ' TideWest    TideEast      TideSouth    TideNorth'
-       WRITE(3,101) TideWEST_ETA, TideEAST_ETA, TideSOUTH_ETA, TideNORTH_ETA 
-     ENDIF
+          WRITE(3,*) '----------------- STATISTICS ----------------'
+          WRITE(3,*) ' TIME        DT'
+          WRITE(3,101) Time, DT
+          WRITE(3,*) ' MassVolume  Energy      MaxEta      MinEta      Max U       Max V '
+          WRITE(3,101)  MassVolume,Energy,MaxEta,MinEta,MaxU,MaxV
+          WRITE(3,*) ' MaxTotalU   PhaseS      Froude      WetDryMass'
+          WRITE(3,101)  UTotalMax, Fr, UTotalMax/Fr, Dmass
+
 # if defined (PARALLEL)
-     endif
+          endif
 # endif
 
 101  FORMAT(6E12.4)
