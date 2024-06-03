@@ -12,3 +12,4 @@ testbed/
 *OLD_RUNS*
 *.o
 *.f90
+*funwave/ryan/funwave-work/output*
