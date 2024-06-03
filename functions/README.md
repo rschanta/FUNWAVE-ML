@@ -1,24 +1,30 @@
 # Functions 
+Helper functions used are extensively documented and organized by language and purpose into subdirectories. Documentation for each can be found at:
 
-## Bash Utility Functions
-The following functions are ***Bash functions*** used to create directories, move files, edit text, and perform similar tasks. They can all be found in the `/bash-utility/` directory.
+## bash-utility
+The [bash-utility](./bash-utility/README.md) functions enable bash functionality to help with running functions via the terminal and schedule jobs via SLURM.
+| **Bash Script** | **Description**|
+| -------- | ------- | 
+|`get-bash.sh` |N/A | 
+|`matlab-bash.sh` |N/A | 
+|`misc-bash.sh` |N/A | 
+|`slurm-bash.sh` |N/A | 
 
-| **Function name** | **File** | **Calls** | **Dependencies** | **Purpose**  |
-| -------- | ------- | -------- | ------- | ------- |
-|`create_batch_folders()` | [slurm-bash.sh](bash-utility/slurm-bash.sh) |N/A | N/A | Create folders for batch scripts and slurm logs for a given run |
-|`get_slurm_dir()` | [slurm-bash.sh](bash-utility/slurm-bash.sh) |N/A | N/A | Get the name of the slurm directory created by `create_batch_folders()`|
-|`get_batch_dir()` | [slurm-bash.sh](bash-utility/slurm-bash.sh) | N/A | N/A | Get the name of the batch directory created by `create_batch_folders()`  |
+## FW-tools
+The [FW-tools](./FW-tools/README.md) functions provide functions for the creation of FUNWAVE inputs and compression of FUNWAVE outputs in MATLAB and in text files where relevant.
+| **Subdirectory** | **Description**|
+| -------- | ------- | 
+|`/input-templates` |N/A | 
+|`/output-compression` |N/A | 
+|`/print-files` |N/A | 
 
+## matlab-utility
+The [matlab-utility](./matlab-utility/README.md) functions provide useful tools for utilizing this FUNWAVE workflow while in MATLAB.
+| **Subdirectory** | **Description**|
+| -------- | ------- | 
+|`/animation` |N/A | 
+|`/directory-listings` |N/A | 
+|`/hydrodynamics` |N/A | 
+|`/misc` |N/A | 
 
-### Batch Script Creation
-| **Function name** | **File** | **Calls** | **Dependencies** | **Purpose**  |
-| -------- | ------- | -------- | ------- | ------- |
-|`create_batch_basic()` | [slurm-bash.sh](bash-utility/slurm-bash.sh) |N/A | N/A | Create a basic batch (`.qs`) script |
-|`create_batch_arr_dep()` | [slurm-bash.sh](bash-utility/slurm-bash.sh) |N/A | N/A | Create a batch (`.qs`) script that is a slurm array job and dependent on some other job|
-|`create_batch_dep()` | [slurm-bash.sh](bash-utility/slurm-bash.sh) | N/A | N/A | Create a batch (`.qs`) script that is dependent on some other job  |
-
-### Batch Script Editing
-| **Function name** | **File** | **Calls** | **Dependencies** | **Purpose**  |
-| -------- | ------- | -------- | ------- | ------- |
-|`set_slurm_names()` | [slurm-bash.sh](bash-utility/slurm-bash.sh) |N/A | N/A | Set different flags within a slurm script |
-
+## skew-asymmetry
