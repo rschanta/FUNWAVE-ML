@@ -4,7 +4,7 @@
 # Basic Info
 	super_path="/lustre/scratch/rschanta/"
 	work_dir="/work/thsu/rschanta/RTS/"
-	run_name="debug_run_63"
+	run_name="debug_run_66"
 	count="4"
 # Partition
 	par="standard"
