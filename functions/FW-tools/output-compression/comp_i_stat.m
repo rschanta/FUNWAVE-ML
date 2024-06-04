@@ -42,7 +42,11 @@ function comp_i_stat(super_path,run_name,tri_no,f_list)
         end
         end
     %%% Calculate any statistics and save out
-        calc_stats(results,f_list,tri_no,super_path,run_name)
+        try
+            calc_stats(results,f_list,tri_no,super_path,run_name)
+        catch
+            disp("Could not calculate statistics or none specified.")
+        end
     %%% Save structure
         name = fullfile(paths.outputs_proc,['out_',sprintf('%05d',tri_no),'.mat']);
         save(name,'-struct', 'results', '-v7.3')

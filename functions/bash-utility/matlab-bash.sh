@@ -35,55 +35,6 @@ function run_MATLAB_function {
 	matlab -nodisplay -nosplash -r "addpath(genpath('"$4"')); "$func"("$args");exit"
 }
 
-
-#########################################################
-# run_compress_out_i
-#	- the 'compress_out_i' function to compress the outputs
-#	  of an individual FUNWAVE run to a single structure
-#########################################################
-function run_compress_out_i {
-## Arguments
-	super_path=$1
-	run_name=$2
-	slurm_array_number=$3
-	w=$4
-## Path to and name of function
-	func="compress_out_i"
-## Construct Trial Number
-	tri_no=$(printf "%05d" $slurm_array_number)
-## Construct arguments to matlab function
-	args="'${super_path}','${run_name}',${tri_no}"
-
-## Run function
-	matlab -nodisplay -nosplash -r "addpath(genpath('"$w"')); "$func"("$args");exit"
-}
-
-#########################################################
-# run_compress_out_ska_i
-#	- the 'compress_out__ska_i' function to compress the 
-#     outputs of an individual FUNWAVE run, including the
-#     calculated skew and asymmetry
-#########################################################
-function run_compress_out_ska_i {
-
-## Arguments
-	super_path=$1
-	run_name=$2
-	slurm_array_number=$3
-	w=$4
-## Name of function
-	func="compress_out_ska_i"
-	
-## Construct Trial Number
-	tri_no=$(printf "%05d" $slurm_array_number)
-## Construct arguments to matlab function
-	args="'${super_path}','${run_name}',${tri_no}"
-
-## Run function
-	matlab -nodisplay -nosplash -r "addpath(genpath('"$w"')); "$func"("$args");exit"
-}
-
-
 #########################################################
 # run_compress_out
 #	- the 'compress_out' function to compress the outputs
@@ -106,66 +57,13 @@ function run_compress_out {
 	matlab -nodisplay -nosplash -r "addpath(genpath('"$w"')); "$func"("$args");exit"
 }
 
-#########################################################
-# run_calc_ska
-#	- the 'calc_ska' function to calculate the skew and 
-#	  asymmetry from each trial in the run, outputting
-#     two structures 'skew' and 'asy'
-#########################################################
-function run_calc_ska {
-## Arguments
-	super_path=$1
-	run_name=$2
-	w=$3
-## Function name
-	func="calc_ska"		
-## Construct arguments
-	args="'${super_path}','${run_name}'"
-
-## Run function
-	matlab -nodisplay -nosplash -r "addpath(genpath('"$w"')); "$func"("$args");exit"
-}
 
 #########################################################
-# run_comp_ska
-#	- the 'comp_ska' function to compress the skew and 
-#	  asymmetry from each trial in the run, outputting
-#     two structures 'skew' and 'asy'
+# run_comp_i
+#	- the 'comp_i' function compresses all the outputs
+#     from a given trial to a single MATLAB structure,
+#     and runs the functions listed in $f_list as well
 #########################################################
-function run_comp_ska {
-## Arguments
-	super_path=$1
-	run_name=$2
-	w=$3	
-## Name of function
-	func="comp_ska"
-## Construct arguments
-	args="'${super_path}','${run_name}'"
-
-## Run function
-	matlab -nodisplay -nosplash -r "addpath(genpath('"$w"')); "$func"("$args");exit"
-}
-
-#########################################################
-# run_compress_ska
-#	- the 'comp_ska' function to compress the skew and 
-#	  asymmetry from each trial in the run, outputting
-#     two structures 'skew' and 'asy'
-#########################################################
-function run_compress_ska {
-## Arguments
-	super_path=$1
-	run_name=$2
-	w=$3	
-## Name of function
-	func="compress_ska"
-## Construct arguments
-	args="'${super_path}','${run_name}'"
-
-## Run function
-	matlab -nodisplay -nosplash -r "addpath(genpath('"$w"')); "$func"("$args");exit"
-}
-
 function run_comp_i {
 
 ## Arguments
