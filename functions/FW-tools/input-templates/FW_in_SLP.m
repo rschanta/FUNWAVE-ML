@@ -72,3 +72,4 @@ function FWS = FW_in_SLP()
     %%% Associated Files
         files = struct();
         FWS.Files= files;
+    disp('Created FW_in_SLP template file')

@@ -1,33 +1,43 @@
 %{
 list_FW_dirs
-    - returns a structure with all the paths associated with a FUNWAVE run
+    - returns a structure with all the p associated with a FUNWAVE run
+    - within the super_path directory
 %}
-function paths = list_FW_dirs(super_path,run_name)
-%% Arguments
-%{
-    - super_path: 
-    - run_name
-%}
+function p = list_FW_dirs(super_path,run_name)
+    %% Arguments
+    %{
+        - super_path: 
+        - run_name
+    %}
 %% Construct paths/structure
-    %%% OUTER DIRECTORIES
-        paths.super= super_path;
-        paths.run_name = fullfile(super_path,run_name);
-    %%% INPUTS
-        paths.inputs = fullfile(super_path,run_name,'inputs');
-        paths.inputs_s = fullfile(paths.run_name,'inputs-s.mat');
-        paths.inputs_t = fullfile(paths.run_name,'inputs-t.txt');
-        paths.inputs_p = fullfile(paths.run_name,'inputs-p.parquet');
-    %%% OUTPUTS
-        paths.outputs_raw = fullfile(super_path,run_name,'outputs-raw');
-        paths.outputs_proc = fullfile(super_path,run_name,'outputs-proc');
-        paths.out_raw_i = fullfile(paths.outputs_raw,'out_');
-    %%% OTHER FILES
-        paths.bathy = fullfile(super_path,run_name,'bathy');
-        paths.coupling = fullfile(super_path,run_name,'coupling');
-    %%% OTHER PROCESSED OUTPUTS
-        paths.dep = fullfile(super_path,run_name,'dep.mat');
-        paths.skew = fullfile(super_path,run_name,'skew.mat');
-        paths.asy = fullfile(super_path,run_name,'asy.mat');
-    
-    
-end
+%%% SUPER_PATH
+p.SP= super_path;
+    %%% RUN_NAME
+    p.RN = fullfile(p.SP,run_name);
+        %%% INPUTS: `input.txt` TEXT FILES 
+        p.i = fullfile(p.RN,'inputs');
+            p.i_ = fullfile(p.i,'input_'); 
+        %%% INPUTS: PROCESSED INPUT FILES
+        p.I = fullfile(p.RN,'inputs-proc');
+            p.Is = fullfile(p.I,'In_s.mat');
+            p.It = fullfile(p.I,'In_t.txt');
+            p.Ip = fullfile(p.I,'In_p.parquet');
+        %%% OUTPUTS: DIRECTORY FOR RAW TIME SERIES OUTPUT
+            p.o = fullfile(p.RN,'outputs-raw');
+                p.o_ = fullfile(p.o,'out_');
+        %%% OUTPUTS: DIRECTORY FOR PROCESSED/CONDENSED TIME SERIES OUTPUT
+            p.O = fullfile(p.RN,'outputs-proc');
+                p.O_ = fullfile(p.O,'Out_');
+        %%% BATHYMETRY FILES
+            p.b = fullfile(p.RN,'bathy');
+                p.b_ = fullfile(p.b,'bathy_');
+        %%% COUPLING FILES
+            p.c = fullfile(p.RN,'coupling');
+                p.c_ = fullfile(p.c,'coupling_');
+        %%% OTHER FUNWAVE OUTPUTS
+            p.F = fullfile(p.RN,'other-FW-out');
+                p.Fd = fullfile(p.F,'dep.mat');
+                p.Ft = fullfile(p.F,'time_dt.txt');
+        %%% OTHER STATITISTICS OF INTEREST
+            p.S = fullfile(p.RN,'stats');        
+    end

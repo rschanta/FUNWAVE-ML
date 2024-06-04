@@ -7,12 +7,17 @@ calc_stats
 
 function calc_stats(st,f_list,no,sp,rn)
     % Loop through functions of flist and apply to structure
-    if length(f_list)>0
-        for f = f_list
-            fun = str2func(f{1});
-            fun(st,no,sp,rn);
+    %try
+        if length(f_list)>0
+            for f = f_list
+                disp(['Applying function: ', f])
+                fun = str2func(f{1});
+                fun(st,no,sp,rn);
+            end
+        else
+            disp("No statistics functions defined")
         end
-    else
-        disp("No statistics functions defined")
-    end
+    %catch
+    %    disp("Issue with statistics calculation!")
+    %end
 end

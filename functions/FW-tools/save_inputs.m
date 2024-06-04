@@ -7,7 +7,7 @@ save_inputs
             - A .parquet file of the same information
 %}
 
-function save_inputs(paths,input_struct)
+function save_inputs(p,input_struct)
 %% Arguments
 %{
     - paths (structure): paths structure as made from list_FW_dirs
@@ -21,7 +21,7 @@ function save_inputs(paths,input_struct)
         % Loop through structure to add trial data
         for k = 1:length(fieldnames(input_struct))
             % Construct trial name and get structure, remove 'Files' field
-                tri_name= ['input_',sprintf('%05d',k)];
+                tri_name= append_no('tri_',k);
                 FWS = input_struct.(tri_name);
                 FWS = rmfield(FWS,'Files');
             % Convert to table and append onto
@@ -31,10 +31,13 @@ function save_inputs(paths,input_struct)
 
     %% Save all files
         % Structure .mat
-            save(paths.inputs_s,'-struct', 'input_struct', '-v7.3')
+            save(p.Is,'-struct', 'input_struct', '-v7.3')
+            disp('Successfully saved input structure!')
         % Table .mat
-           writetable(FWS_tab,paths.inputs_t)
+           writetable(FWS_tab,p.It)
+           disp('Successfully saved input table!')
         % Parquet .parquet
-            parquetwrite(paths.inputs_p,FWS_tab)
+            parquetwrite(p.Ip,FWS_tab)
+            disp('Successfully saved input parquet!')
 
 end

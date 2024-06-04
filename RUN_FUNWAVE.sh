@@ -34,7 +34,7 @@
 	create_batch_folders $RN
 	slurm_dir=$(get_slurm_dir "$RN")
 	batch_dir=$(get_batch_dir "$RN")
-
+    echo "File Setup Successful!"
 ###################################################
 # GENERATE INPUT FILES
 ###################################################
@@ -57,7 +57,7 @@
 EOF
 ## Run the script and get Job ID
 	IDG=$(run_batch "$file_name")
-
+    echo "Generation script successfully created!"
 ###################################################
 # RUN FUNWAVE INPUTS IN PARALLEL, CALCULATE 
 # STATISTICS, AND COMPRESS
@@ -91,3 +91,6 @@ EOF
 EOF
 ## Run the script and get Job ID
 	IDP=$(run_batch "$file_name")
+    echo "Run script successfully created!"
+## Display Success
+    echo "Job submitted!"

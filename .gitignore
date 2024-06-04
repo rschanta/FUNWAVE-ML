@@ -13,3 +13,4 @@ testbed/
 *.o
 *.f90
 *funwave/ryan/funwave-work/output*
+token.txt

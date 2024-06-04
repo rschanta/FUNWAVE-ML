@@ -73,3 +73,4 @@ function FWS = FW_in_DATA(bathy)
         files = struct();
         files.bathy = bathy;
         FWS.Files= files;
+        disp('Created FW_in_DATA template file')

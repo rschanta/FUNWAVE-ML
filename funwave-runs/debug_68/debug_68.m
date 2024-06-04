@@ -11,7 +11,8 @@ super_path = '/work/thsu/rschanta/RTS/data/';
     % `run_name` from name of file
         run_name = mfilename;
     % Make directories for the run
-        paths = mk_FW_dir(super_path,run_name);
+        make_FW_dirs(super_path,run_name);
+        p = list_FW_dirs(super_path,run_name);
     
 %% Make a FW input structure and set common parameters
     FWS = FW_in_SLP();
@@ -32,16 +33,16 @@ super_path = '/work/thsu/rschanta/RTS/data/';
 
 %% Loop through variables
 for s = r_S; for t = r_T; for a = r_A; for h = r_H
-    %%% GET PATHS FOR TRIAL
-        tpaths = list_FW_tri_dirs(tri,paths);
 
+    %%% Get paths/names for trial
+        ptr = list_FW_tri_dirs(tri,p);
     %%% SET LOOP VARIABLES
             input = FWS;
-            input.TITLE = tpaths.input_name;
+            input.TITLE = ptr.input_name;
             input.SLP = s;
             input.Tperiod = t;
             input.AMP_WK = a;
-            input.RESULT_FOLDER = tpaths.RESULT_FOLDER;
+            input.RESULT_FOLDER = ptr.RESULT_FOLDER;
 
     %%% SET OTHER PARAMETERS DEPENDENT ON LOOP VARIABLES
         % Package up loop variables and create parameters
@@ -58,19 +59,21 @@ for s = r_S; for t = r_T; for a = r_A; for h = r_H
 
     %%% PRINT INPUT AND STORE TO STRUCTURE
         % Print input file
-            disp(['Generated Trial:',num2str(tri)]);
-            print_FW_in(input,tpaths.input)   
+            disp(['Saving input_',ptr.num_str,'.txt...']);
+            print_FW_in(input,ptr.i_file)  
+            disp(['input_',ptr.num_str,'.txt successfully saved to',ptr.i_file]); 
         % Save to input structure
-            all_inputs.(tpaths.input_name) = input;
+            all_inputs.(ptr.num_str) = input;
          
 tri = tri + 1;
 end;end;end;end;
 
 %% Save all inputs to one larger structure, table, and parquet
-    %save(paths.input_sum_path,'-struct', 'all_inputs', '-v7.3')
-    disp('Starting to save');
-    save_inputs(paths,all_inputs);
-    disp('Save Big Input Summary');
+    disp('Starting to save input summaries...');
+    save_inputs(p,all_inputs);
+    disp('Successfully saved input summaries!');
+
+
 %% Create Parameters Helper
 function cv =  create_params(s,input)
     %%% Calculate wave number k and kh

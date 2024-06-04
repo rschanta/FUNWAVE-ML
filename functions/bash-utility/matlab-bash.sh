@@ -65,7 +65,7 @@ function run_comp_i {
 	slurm_array_number=$1
 	f_list=$2
 ## Name of function
-	func="comp_i_stat"
+	func="compress_i"
 	
 ## Construct Trial Number
 	tri_no=$(printf "%05d" $slurm_array_number)

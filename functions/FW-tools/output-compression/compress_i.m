@@ -10,15 +10,15 @@ comp_i_stat
     
         more variables can be added in the 'Vars' cell array structure
 %}
-function comp_i_stat(super_path,run_name,tri_no,f_list)
+function compress_i(super_path,run_name,tr_num,f_list)
     disp('COMPRESSION OF TIME SERIES OUTPUTS')
     %%% Get paths, trial number as string, and path of input/output
         p = list_FW_dirs(super_path,run_name);
-        tri_no_str = ['input_',sprintf('%05d',tri_no)];
-        res_path = [paths.out_raw_i,sprintf('%05d',tri_no)];
+        p.o_X = append_no(p.o_,tr_num);
+        num_str = tri_no(tr_num);
     %%% Load in input structure for output
-        FW_in = load(paths.inputs_s,tri_no_str);
-        FW_in = FW_in.(tri_no_str);
+        FW_in = load(p.Is,num_str);
+        FW_in = FW_in.(num_str);
     %%% Get Mglob and Nglob
         Mglob = double(FW_in.Mglob);
         Nglob = double(FW_in.Nglob);
@@ -33,8 +33,8 @@ function comp_i_stat(super_path,run_name,tri_no,f_list)
         % Use `compress_var` to get variables into structure
         try
             if FW_in.(VAR)
-                results.(var) = compress_var(res_path,[var,'_'],Mglob,Nglob);
-                disp(['Successfully Compressed Trial: ',sprintf('%05d',tri_no)])
+                results.(var) = compress_var(p.o_X,[var,'_'],Mglob,Nglob);
+                disp(['Successfully Compressed Trial: ',num_str])
             else
                 disp(['Note: ', Vars{j}, ' not set as output'])
             end
@@ -47,15 +47,15 @@ function comp_i_stat(super_path,run_name,tri_no,f_list)
 
     %%% Calculate any statistics and save out
     disp('CALCULATION OF BULK STATISTICS')
-        try
-            calc_stats(results,f_list,tri_no,super_path,run_name)
-            disp(['Successfully Calculated Statistics for Trial: ',sprintf('%05d',tri_no)])
-        catch
-            disp('Could not calculate statistics or none specified.')
-        end
+        %try
+            calc_stats(results,f_list,tr_num,super_path,run_name)
+            disp(['Successfully Calculated Statistics for Trial: ',num_str])
+        %catch
+        %    disp('Could not calculate statistics or none specified.')
+        %end
     %%% Save structure
-        name = fullfile(paths.outputs_proc,['out_',sprintf('%05d',tri_no),'.mat']);
+        name = [append_no(p.O_,tr_num),'.mat'];
         save(name,'-struct', 'results', '-v7.3')
-        disp(['Successfully Saved Structure for Trial: ',sprintf('%05d',tri_no)])
+        disp(['Successfully Saved Structure for Trial: ',sprintf('%05d',tr_num)])
     
 end

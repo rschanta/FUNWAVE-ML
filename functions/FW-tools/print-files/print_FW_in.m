@@ -10,7 +10,7 @@ function print_FW_in(FWS,path)
     - path: path to print to, including file name
 %}
 
-%% Open the file
+%%# Open the file
     fid = fopen(path, 'w');
 
 %% Loop through all fields in structure
@@ -28,8 +28,9 @@ function print_FW_in(FWS,path)
     end
 end
 
-%% Close the file
+%%# Close the file
     fclose(fid);
+%%%
     %% Helper Function
     %{
     valid_Double
