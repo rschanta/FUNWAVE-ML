@@ -6,12 +6,10 @@
 #########################################################
 function get_input_dir {
 ## Arguments
-	super_path=$1
-	run_name=$2
-	slurm_array_number=$3
+	slurm_array_number=$1
 	
 ## Construct path to input directory
-	in_dir="${super_path}${run_name}/inputs/"
+	in_dir="${SP}${RN}/inputs/"
 ## Fix trial number from slurm array number
 	tri_no=$(printf "%05d" $slurm_array_number)
 ## Construct and echo input_file name
@@ -26,15 +24,36 @@ function get_input_dir {
 #########################################################
 function rm_raw_out_i {
 ## Arguments
-	super_path=$1
-	run_name=$2
-	slurm_array_number=$3
+	slurm_array_number=$1
 ## Construct path to output directory
-	in_dir="${super_path}${run_name}/inputs/"
+	in_dir="${SP}${RN}/inputs/"
 ## Fix trial number from slurm array number
 	tri_no=$(printf "%05d" $slurm_array_number)
 ## Construct name of ouput directory
-	out_i_dir="${super_path}${run_name}/outputs-raw/out_${tri_no}/"
+	out_i_dir="${SP}${RN}/outputs-raw/out_${tri_no}/"
 ## Delete Directory
 	rm -rf "$out_i_dir" 
 }
+
+#########################################################
+# export_env
+#	- export environment variables to shell for session
+#
+#########################################################
+function export_vars {
+## Arguments
+	## SUPER_PATH
+		SP=$1
+	## WORK_DIR
+		WD=$2
+	## RUN_NAME
+		RN=$3
+	## EMAIL ADDRESS
+		EM=$4
+	## Path to functions
+		FCP="${WD}functions"
+
+	export SP WD RN EM FCP
+
+}
+

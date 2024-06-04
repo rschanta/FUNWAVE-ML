@@ -1,5 +1,5 @@
  -------------- LOG FILE -----------------
- input_00003                                                                     
+ input_00004                                                                     
   --------------input start --------------
                                           
  -------------- PARALLEL -----------------
@@ -7,11 +7,11 @@
                                           
  -------------- GRID INFO -----------------
  Mglob=     500 Nglob=       3
- DX=        0.47 DY=        0.47
+ DX=        1.12 DY=        1.12
  DEPTH_TYPE:SLOPE                                             
 DEPTH_FLAT        8.00
  SLP=        0.10
- Xslp=      154.20
+ Xslp=      479.72
                                           
  -------------- TIME INFO -----------------
          PLOT_START_TIME Default:  0.0 s
@@ -30,9 +30,9 @@ DEPTH_FLAT        8.00
                        Yc_WK defalt: 0.0
                  Time_ramp Default:  0.0
                Ywidth_WK Default:  LARGE
- Xc_WK   =       26.63
+ Xc_WK   =      112.57
  Yc_WK   =        0.00
- Tperiod =        4.00
+ Tperiod =       12.00
  AMP_WK  =        0.50
  DEP_WK  =        8.00
  Theta_WK=        0.00
@@ -50,7 +50,7 @@ DEPTH_FLAT        8.00
  FRICTION_SPONGE CDsponge=        1.00
                  R_sponge Default:  0.85
                   A_sponge Default:  5.0
- Sponge_west_width =       12.59
+ Sponge_west_width =       53.21
  Sponge_east_width =        0.00
  Sponge_south_width=        0.00
  Sponge_north_width=        0.00
@@ -111,7 +111,7 @@ Beta_ref=        -0.53
                     nu_bkg Default:  0.0
                                           
  -------------- OUTPUT INFO -----------------
- RESULT_FOLDER:/work/thsu/rschanta/RTS/data/debug_67/outputs-raw/
+ RESULT_FOLDER:/work/thsu/rschanta/RTS/data/debug_68/outputs-raw/
  FIELD_IO_TYPE = BINARY                                                                          
          OUTPUT_RES NOT FOUND, OUTPUT_RES=1: full resolution
      OUTPUT_RES         1
@@ -157,333 +157,333 @@ Beta_ref=        -0.53
   TIME        DT
   0.0000E+00  0.0000E+00
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
-  0.0000E+00  0.7984E+05  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+  0.0000E+00  0.5338E+06  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
   MaxTotalU   PhaseS      Froude      WetDryMass
   0.0000E+00  0.9905E+00  0.0000E+00  0.0000E+00
    PRINTING FILE NO.     0  TIME/TOTAL:        0.000 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.1004E+01  0.2636E-01
+  0.1011E+01  0.6318E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.9513E+01  0.7911E+05  0.7480E-03 -0.4254E+00  0.8384E-01  0.1071E-04
+ -0.2235E+02  0.5320E+06  0.1646E-05 -0.1082E+00  0.8615E-02  0.4328E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.8384E-01  0.8859E+01  0.9464E-02  0.0000E+00
-   PRINTING FILE NO.     1  TIME/TOTAL:        1.004 /      40.000
+  0.8615E-02  0.8859E+01  0.9725E-03  0.0000E+00
+   PRINTING FILE NO.     1  TIME/TOTAL:        1.011 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.2025E+01  0.2601E-01
+  0.2022E+01  0.6316E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.1801E+02  0.7847E+05  0.4190E-02 -0.4525E+00  0.3395E+00  0.1034E-04
+ -0.8067E+02  0.5276E+06  0.1487E-05 -0.3785E+00  0.6094E-01  0.8706E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.3395E+00  0.8859E+01  0.3832E-01  0.0000E+00
-   PRINTING FILE NO.     2  TIME/TOTAL:        2.025 /      40.000
+  0.6094E-01  0.8859E+01  0.6879E-02  0.0000E+00
+   PRINTING FILE NO.     2  TIME/TOTAL:        2.022 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.3008E+01  0.2562E-01
+  0.3031E+01  0.6302E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.6422E+01  0.7938E+05  0.5036E+00 -0.3379E+00  0.3301E+00  0.1186E-04
+ -0.1588E+03  0.5217E+06  0.1653E-05 -0.7062E+00  0.1779E+00  0.6869E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.3301E+00  0.8859E+01  0.3726E-01  0.0000E+00
-   PRINTING FILE NO.     3  TIME/TOTAL:        3.008 /      40.000
+  0.1779E+00  0.8859E+01  0.2008E-01  0.0000E+00
+   PRINTING FILE NO.     3  TIME/TOTAL:        3.031 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.4015E+01  0.2478E-01
+  0.4037E+01  0.6263E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
-  0.6261E+01  0.8039E+05  0.5578E+00 -0.2854E+00  0.3143E+00  0.1258E-04
+ -0.2351E+03  0.5162E+06  0.2073E-05 -0.9625E+00  0.3479E+00  0.5292E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.3143E+00  0.9141E+01  0.3438E-01  0.0000E+00
-   PRINTING FILE NO.     4  TIME/TOTAL:        4.015 /      40.000
+  0.3479E+00  0.8859E+01  0.3927E-01  0.0000E+00
+   PRINTING FILE NO.     4  TIME/TOTAL:        4.037 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.5002E+01  0.2472E-01
+  0.5034E+01  0.6201E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.2541E-01  0.7990E+05  0.5741E+00 -0.4662E+00  0.3605E+00  0.1538E-04
+ -0.2884E+03  0.5124E+06  0.1630E-05 -0.1038E+01  0.5308E+00  0.9029E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.3605E+00  0.9168E+01  0.3932E-01  0.0000E+00
-   PRINTING FILE NO.     5  TIME/TOTAL:        5.002 /      40.000
+  0.5308E+00  0.8859E+01  0.5992E-01  0.0000E+00
+   PRINTING FILE NO.     5  TIME/TOTAL:        5.034 /      40.000
   PRINTING MEAN FILE     1
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.6021E+01  0.2495E-01
+  0.6020E+01  0.6130E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.9490E+01  0.7917E+05  0.4442E+00 -0.5336E+00  0.4331E+00  0.9786E-05
+ -0.3047E+03  0.5113E+06  0.1818E-05 -0.8765E+00  0.6751E+00  0.4530E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.4331E+00  0.9101E+01  0.4759E-01  0.0000E+00
-   PRINTING FILE NO.     6  TIME/TOTAL:        6.021 /      40.000
+  0.6751E+00  0.8859E+01  0.7621E-01  0.0000E+00
+   PRINTING FILE NO.     6  TIME/TOTAL:        6.020 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.7021E+01  0.2506E-01
+  0.7056E+01  0.6069E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.3164E+01  0.7967E+05  0.6590E+00 -0.4356E+00  0.3961E+00  0.6592E-05
+ -0.2771E+03  0.5133E+06  0.2662E-05 -0.6695E+00  0.7427E+00  0.5381E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.3961E+00  0.9071E+01  0.4366E-01  0.0000E+00
-   PRINTING FILE NO.     7  TIME/TOTAL:        7.021 /      40.000
+  0.7427E+00  0.8859E+01  0.8384E-01  0.0000E+00
+   PRINTING FILE NO.     7  TIME/TOTAL:        7.056 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.8009E+01  0.2433E-01
+  0.8025E+01  0.6048E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
-  0.5214E+01  0.8035E+05  0.6948E+00 -0.4738E+00  0.4057E+00  0.1541E-04
+ -0.2153E+03  0.5179E+06  0.4161E-01 -0.6027E+00  0.7251E+00  0.9513E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.4057E+00  0.9219E+01  0.4400E-01  0.0000E+00
-   PRINTING FILE NO.     8  TIME/TOTAL:        8.009 /      40.000
+  0.7251E+00  0.8859E+01  0.8185E-01  0.0000E+00
+   PRINTING FILE NO.     8  TIME/TOTAL:        8.025 /      40.000
   PRINTING MEAN FILE     2
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.9001E+01  0.2423E-01
+  0.9054E+01  0.6071E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.1165E+01  0.7983E+05  0.6369E+00 -0.5304E+00  0.4617E+00  0.8914E-05
+ -0.1275E+03  0.5248E+06  0.5606E+00 -0.5961E+00  0.6767E+00  0.5968E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.4617E+00  0.9199E+01  0.5020E-01  0.0000E+00
-   PRINTING FILE NO.     9  TIME/TOTAL:        9.001 /      40.000
+  0.6767E+00  0.8859E+01  0.7638E-01  0.0000E+00
+   PRINTING FILE NO.     9  TIME/TOTAL:        9.054 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.1002E+02  0.2445E-01
+  0.1002E+02  0.5968E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.9329E+01  0.7922E+05  0.6255E+00 -0.6987E+00  0.3803E+00  0.1297E-04
+ -0.4432E+02  0.5315E+06  0.8881E+00 -0.6150E+00  0.6455E+00  0.7596E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.3803E+00  0.9199E+01  0.4134E-01  0.0000E+00
-   PRINTING FILE NO.    10  TIME/TOTAL:       10.024 /      40.000
+  0.6455E+00  0.9251E+01  0.6978E-01  0.0000E+00
+   PRINTING FILE NO.    10  TIME/TOTAL:       10.020 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.1100E+02  0.2455E-01
+  0.1102E+02  0.5812E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.3084E+01  0.7969E+05  0.5855E+00 -0.5094E+00  0.4369E+00  0.1308E-04
+  0.2250E+02  0.5370E+06  0.9828E+00 -0.5926E+00  0.6299E+00  0.5060E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.4369E+00  0.9177E+01  0.4760E-01  0.0000E+00
-   PRINTING FILE NO.    11  TIME/TOTAL:       11.004 /      40.000
+  0.6299E+00  0.9260E+01  0.6802E-01  0.0000E+00
+   PRINTING FILE NO.    11  TIME/TOTAL:       11.020 /      40.000
   PRINTING MEAN FILE     3
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.1201E+02  0.2464E-01
+  0.1206E+02  0.5712E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
-  0.4962E+01  0.8035E+05  0.6919E+00 -0.5202E+00  0.3579E+00  0.1330E-04
+  0.5492E+02  0.5395E+06  0.8097E+00 -0.5653E+00  0.6219E+00  0.8539E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.3579E+00  0.9150E+01  0.3911E-01  0.0000E+00
-   PRINTING FILE NO.    12  TIME/TOTAL:       12.012 /      40.000
+  0.6219E+00  0.9240E+01  0.6731E-01  0.0000E+00
+   PRINTING FILE NO.    12  TIME/TOTAL:       12.055 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.1302E+02  0.2457E-01
+  0.1302E+02  0.5683E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.1662E+01  0.7981E+05  0.5316E+00 -0.5169E+00  0.4355E+00  0.1037E-04
+  0.4576E+02  0.5386E+06  0.6142E+00 -0.5611E+00  0.6782E+00  0.6239E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.4355E+00  0.9138E+01  0.4766E-01  0.0000E+00
-   PRINTING FILE NO.    13  TIME/TOTAL:       13.020 /      40.000
+  0.6782E+00  0.9192E+01  0.7378E-01  0.0000E+00
+   PRINTING FILE NO.    13  TIME/TOTAL:       13.023 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.1401E+02  0.2474E-01
+  0.1405E+02  0.5696E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.9470E+01  0.7924E+05  0.5743E+00 -0.7279E+00  0.3636E+00  0.1051E-04
+ -0.1413E+00  0.5348E+06  0.5644E+00 -0.5565E+00  0.6907E+00  0.1026E-04
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.3636E+00  0.9163E+01  0.3968E-01  0.0000E+00
-   PRINTING FILE NO.    14  TIME/TOTAL:       14.007 /      40.000
+  0.6907E+00  0.9161E+01  0.7540E-01  0.0000E+00
+   PRINTING FILE NO.    14  TIME/TOTAL:       14.047 /      40.000
   PRINTING MEAN FILE     4
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.1502E+02  0.2474E-01
+  0.1502E+02  0.5727E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.3128E+01  0.7972E+05  0.5446E+00 -0.5056E+00  0.4351E+00  0.1716E-04
+ -0.6457E+02  0.5298E+06  0.5712E+00 -0.5518E+00  0.6142E+00  0.8971E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.4351E+00  0.9155E+01  0.4753E-01  0.0000E+00
-   PRINTING FILE NO.    15  TIME/TOTAL:       15.021 /      40.000
+  0.6142E+00  0.9162E+01  0.6704E-01  0.0000E+00
+   PRINTING FILE NO.    15  TIME/TOTAL:       15.018 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.1601E+02  0.2471E-01
+  0.1605E+02  0.5732E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
-  0.4682E+01  0.8038E+05  0.7016E+00 -0.5245E+00  0.3507E+00  0.8059E-05
+ -0.1357E+03  0.5245E+06  0.6534E+00 -0.8930E+00  0.6012E+00  0.4741E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.3507E+00  0.9159E+01  0.3829E-01  0.0000E+00
-   PRINTING FILE NO.    16  TIME/TOTAL:       16.010 /      40.000
+  0.6012E+00  0.9202E+01  0.6533E-01  0.0000E+00
+   PRINTING FILE NO.    16  TIME/TOTAL:       16.050 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.1702E+02  0.2459E-01
+  0.1702E+02  0.5726E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.1874E+01  0.7986E+05  0.5622E+00 -0.4746E+00  0.4393E+00  0.9104E-05
+ -0.1881E+03  0.5207E+06  0.6319E+00 -0.1036E+01  0.5958E+00  0.6429E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.4393E+00  0.9165E+01  0.4794E-01  0.0000E+00
-   PRINTING FILE NO.    17  TIME/TOTAL:       17.018 /      40.000
+  0.5958E+00  0.9201E+01  0.6475E-01  0.0000E+00
+   PRINTING FILE NO.    17  TIME/TOTAL:       17.023 /      40.000
   PRINTING MEAN FILE     5
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.1800E+02  0.2467E-01
+  0.1805E+02  0.5715E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.9689E+01  0.7932E+05  0.5768E+00 -0.7339E+00  0.3279E+00  0.1652E-04
+ -0.2142E+03  0.5187E+06  0.6105E+00 -0.9098E+00  0.6050E+00  0.9767E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.3279E+00  0.9167E+01  0.3576E-01  0.0000E+00
-   PRINTING FILE NO.    18  TIME/TOTAL:       18.004 /      40.000
+  0.6050E+00  0.9189E+01  0.6584E-01  0.0000E+00
+   PRINTING FILE NO.    18  TIME/TOTAL:       18.053 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.1902E+02  0.2468E-01
+  0.1902E+02  0.5704E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.3426E+01  0.7982E+05  0.5592E+00 -0.4653E+00  0.4380E+00  0.1178E-04
+ -0.2051E+03  0.5192E+06  0.6250E+00 -0.6257E+00  0.6854E+00  0.5993E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.4380E+00  0.9163E+01  0.4779E-01  0.0000E+00
-   PRINTING FILE NO.    19  TIME/TOTAL:       19.015 /      40.000
+  0.6854E+00  0.9198E+01  0.7451E-01  0.0000E+00
+   PRINTING FILE NO.    19  TIME/TOTAL:       19.024 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.2000E+02  0.2470E-01
+  0.2005E+02  0.5692E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
-  0.4441E+01  0.8049E+05  0.7104E+00 -0.5270E+00  0.3243E+00  0.1296E-04
+ -0.1607E+03  0.5225E+06  0.6411E+00 -0.5261E+00  0.7333E+00  0.1008E-04
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.3243E+00  0.9158E+01  0.3541E-01  0.0000E+00
-   PRINTING FILE NO.    20  TIME/TOTAL:       20.003 /      40.000
+  0.7333E+00  0.9206E+01  0.7965E-01  0.0000E+00
+   PRINTING FILE NO.    20  TIME/TOTAL:       20.049 /      40.000
   PRINTING MEAN FILE     6
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.2101E+02  0.2458E-01
+  0.2102E+02  0.5681E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.2021E+01  0.7996E+05  0.5329E+00 -0.4812E+00  0.4417E+00  0.1175E-04
+ -0.9598E+02  0.5275E+06  0.6548E+00 -0.5212E+00  0.6596E+00  0.1040E-04
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.4417E+00  0.9116E+01  0.4846E-01  0.0000E+00
-   PRINTING FILE NO.    21  TIME/TOTAL:       21.011 /      40.000
+  0.6596E+00  0.9214E+01  0.7159E-01  0.0000E+00
+   PRINTING FILE NO.    21  TIME/TOTAL:       21.016 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.2202E+02  0.2479E-01
+  0.2204E+02  0.5670E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.9932E+01  0.7937E+05  0.5702E+00 -0.7234E+00  0.3279E+00  0.1395E-04
+ -0.2254E+02  0.5335E+06  0.9306E+00 -0.5159E+00  0.6497E+00  0.5634E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.3279E+00  0.9164E+01  0.3578E-01  0.0000E+00
-   PRINTING FILE NO.    22  TIME/TOTAL:       22.024 /      40.000
+  0.6497E+00  0.9220E+01  0.7047E-01  0.0000E+00
+   PRINTING FILE NO.    22  TIME/TOTAL:       22.037 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.2302E+02  0.2486E-01
+  0.2300E+02  0.5661E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.3618E+01  0.7983E+05  0.5033E+00 -0.4854E+00  0.4377E+00  0.8773E-05
+  0.3222E+02  0.5381E+06  0.1062E+01 -0.5365E+00  0.6598E+00  0.5707E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.4377E+00  0.9131E+01  0.4794E-01  0.0000E+00
-   PRINTING FILE NO.    23  TIME/TOTAL:       23.017 /      40.000
+  0.6598E+00  0.9308E+01  0.7088E-01  0.0000E+00
+   PRINTING FILE NO.    23  TIME/TOTAL:       23.000 /      40.000
   PRINTING MEAN FILE     7
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.2401E+02  0.2475E-01
+  0.2402E+02  0.5652E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
-  0.4229E+01  0.8045E+05  0.7058E+00 -0.5252E+00  0.3235E+00  0.6041E-05
+  0.5906E+02  0.5403E+06  0.9212E+00 -0.5057E+00  0.6691E+00  0.8039E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.3235E+00  0.9158E+01  0.3532E-01  0.0000E+00
-   PRINTING FILE NO.    24  TIME/TOTAL:       24.011 /      40.000
+  0.6691E+00  0.9261E+01  0.7226E-01  0.0000E+00
+   PRINTING FILE NO.    24  TIME/TOTAL:       24.018 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.2502E+02  0.2459E-01
+  0.2503E+02  0.5644E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.2332E+01  0.7990E+05  0.5188E+00 -0.4771E+00  0.4394E+00  0.1364E-04
+  0.4698E+02  0.5392E+06  0.7034E+00 -0.5005E+00  0.6893E+00  0.5554E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.4394E+00  0.9141E+01  0.4807E-01  0.0000E+00
-   PRINTING FILE NO.    25  TIME/TOTAL:       25.019 /      40.000
+  0.6893E+00  0.9240E+01  0.7460E-01  0.0000E+00
+   PRINTING FILE NO.    25  TIME/TOTAL:       25.035 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.2601E+02  0.2478E-01
+  0.2605E+02  0.5636E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.1013E+02  0.7931E+05  0.5749E+00 -0.7342E+00  0.3127E+00  0.1113E-04
+ -0.6453E-01  0.5352E+06  0.7133E+00 -0.4953E+00  0.7354E+00  0.1058E-04
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.3127E+00  0.9165E+01  0.3411E-01  0.0000E+00
-   PRINTING FILE NO.    26  TIME/TOTAL:       26.008 /      40.000
+  0.7354E+00  0.9245E+01  0.7954E-01  0.0000E+00
+   PRINTING FILE NO.    26  TIME/TOTAL:       26.050 /      40.000
   PRINTING MEAN FILE     8
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.2702E+02  0.2478E-01
+  0.2701E+02  0.5630E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.3763E+01  0.7977E+05  0.5231E+00 -0.4506E+00  0.4362E+00  0.4932E-05
+ -0.6417E+02  0.5302E+06  0.7210E+00 -0.4904E+00  0.6922E+00  0.1053E-04
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.4362E+00  0.9144E+01  0.4770E-01  0.0000E+00
-   PRINTING FILE NO.    27  TIME/TOTAL:       27.024 /      40.000
+  0.6922E+00  0.9249E+01  0.7484E-01  0.0000E+00
+   PRINTING FILE NO.    27  TIME/TOTAL:       27.008 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.2802E+02  0.2475E-01
+  0.2802E+02  0.5624E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
-  0.4021E+01  0.8039E+05  0.7017E+00 -0.5246E+00  0.4250E+00  0.7163E-05
+ -0.1346E+03  0.5249E+06  0.7289E+00 -0.8639E+00  0.6983E+00  0.8289E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.4250E+00  0.9158E+01  0.4640E-01  0.0000E+00
-   PRINTING FILE NO.    28  TIME/TOTAL:       28.015 /      40.000
+  0.6983E+00  0.9253E+01  0.7547E-01  0.0000E+00
+   PRINTING FILE NO.    28  TIME/TOTAL:       28.021 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.2902E+02  0.2459E-01
+  0.2903E+02  0.5619E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.2570E+01  0.7983E+05  0.5161E+00 -0.4690E+00  0.5343E+00  0.6801E-05
+ -0.1894E+03  0.5209E+06  0.7348E+00 -0.1050E+01  0.7041E+00  0.5787E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.5343E+00  0.9140E+01  0.5846E-01  0.0000E+00
-   PRINTING FILE NO.    29  TIME/TOTAL:       29.023 /      40.000
+  0.7041E+00  0.9257E+01  0.7606E-01  0.0000E+00
+   PRINTING FILE NO.    29  TIME/TOTAL:       29.032 /      40.000
   PRINTING MEAN FILE     9
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.3001E+02  0.2483E-01
+  0.3004E+02  0.5615E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.1026E+02  0.7926E+05  0.5717E+00 -0.7332E+00  0.6883E+00  0.7472E-05
+ -0.2150E+03  0.5190E+06  0.7408E+00 -0.9518E+00  0.7080E+00  0.7651E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.6883E+00  0.9164E+01  0.7511E-01  0.0000E+00
-   PRINTING FILE NO.    30  TIME/TOTAL:       30.013 /      40.000
+  0.7080E+00  0.9259E+01  0.7647E-01  0.0000E+00
+   PRINTING FILE NO.    30  TIME/TOTAL:       30.044 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.3101E+02  0.2488E-01
+  0.3105E+02  0.5611E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.3834E+01  0.7971E+05  0.4832E+00 -0.4668E+00  0.8546E+00  0.6477E-05
+ -0.2049E+03  0.5196E+06  0.7448E+00 -0.6188E+00  0.7129E+00  0.4002E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.8546E+00  0.9122E+01  0.9368E-01  0.0000E+00
-   PRINTING FILE NO.    31  TIME/TOTAL:       31.008 /      40.000
+  0.7129E+00  0.9262E+01  0.7697E-01  0.0000E+00
+   PRINTING FILE NO.    31  TIME/TOTAL:       31.054 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.3200E+02  0.2477E-01
+  0.3201E+02  0.5608E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
-  0.4460E+01  0.8034E+05  0.7063E+00 -0.5294E+00  0.9157E+00  0.6513E-05
+ -0.1635E+03  0.5226E+06  0.7486E+00 -0.4659E+00  0.7172E+00  0.8554E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.9157E+00  0.9156E+01  0.1000E+00  0.0000E+00
-   PRINTING FILE NO.    32  TIME/TOTAL:       32.003 /      40.000
+  0.7172E+00  0.9264E+01  0.7742E-01  0.0000E+00
+   PRINTING FILE NO.    32  TIME/TOTAL:       32.007 /      40.000
   PRINTING MEAN FILE    10
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.3301E+02  0.2460E-01
+  0.3302E+02  0.5606E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.1968E+01  0.7979E+05  0.4993E+00 -0.4628E+00  0.2281E+01  0.1637E-04
+ -0.9625E+02  0.5278E+06  0.7520E+00 -0.4611E+00  0.7186E+00  0.1253E-04
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.2281E+01  0.9130E+01  0.2499E+00  0.0000E+00
-   PRINTING FILE NO.    33  TIME/TOTAL:       33.012 /      40.000
+  0.7186E+00  0.9266E+01  0.7755E-01  0.0000E+00
+   PRINTING FILE NO.    33  TIME/TOTAL:       33.017 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.3400E+02  0.2485E-01
+  0.3403E+02  0.5604E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.1037E+02  0.7920E+05  0.5727E+00 -0.7428E+00  0.3400E+01  0.7157E-05
+ -0.2361E+02  0.5338E+06  0.9036E+00 -0.4968E+00  0.7209E+00  0.9979E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.3400E+01  0.9163E+01  0.3710E+00  0.0000E+00
-   PRINTING FILE NO.    34  TIME/TOTAL:       34.003 /      40.000
+  0.7209E+00  0.9267E+01  0.7779E-01  0.0000E+00
+   PRINTING FILE NO.    34  TIME/TOTAL:       34.026 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.3502E+02  0.2485E-01
+  0.3503E+02  0.5602E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.3925E+01  0.7968E+05  0.6435E+00 -0.4418E+00  0.1744E+01  0.4363E-05
+  0.3348E+02  0.5385E+06  0.1048E+01 -0.5349E+00  0.7229E+00  0.5765E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.1744E+01  0.9133E+01  0.1909E+00  0.0000E+00
-   PRINTING FILE NO.    35  TIME/TOTAL:       35.022 /      40.000
+  0.7229E+00  0.9307E+01  0.7767E-01  0.0000E+00
+   PRINTING FILE NO.    35  TIME/TOTAL:       35.034 /      40.000
   PRINTING MEAN FILE    11
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.3602E+02  0.2477E-01
+  0.3604E+02  0.5601E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
-  0.3967E+01  0.8032E+05  0.6995E+00 -0.5273E+00  0.7077E+00  0.4544E-05
+  0.5908E+02  0.5406E+06  0.9040E+00 -0.4825E+00  0.7235E+00  0.3555E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.7077E+00  0.9156E+01  0.7729E-01  0.0000E+00
-   PRINTING FILE NO.    36  TIME/TOTAL:       36.015 /      40.000
+  0.7235E+00  0.9268E+01  0.7807E-01  0.0000E+00
+   PRINTING FILE NO.    36  TIME/TOTAL:       36.042 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.3702E+02  0.2461E-01
+  0.3705E+02  0.5600E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.2567E+01  0.7976E+05  0.4985E+00 -0.4684E+00  0.9828E+00  0.3902E-05
+  0.4636E+02  0.5394E+06  0.7583E+00 -0.4425E+00  0.7251E+00  0.4118E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.9828E+00  0.9131E+01  0.1076E+00  0.0000E+00
-   PRINTING FILE NO.    37  TIME/TOTAL:       37.024 /      40.000
+  0.7251E+00  0.9269E+01  0.7823E-01  0.0000E+00
+   PRINTING FILE NO.    37  TIME/TOTAL:       37.050 /      40.000
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.3802E+02  0.2487E-01
+  0.3800E+02  0.5600E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.1018E+02  0.7919E+05  0.5714E+00 -0.7286E+00  0.1133E+01  0.4887E-05
+  0.2588E+01  0.5358E+06  0.7583E+00 -0.4383E+00  0.7367E+00  0.6081E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.1133E+01  0.9163E+01  0.1236E+00  0.0000E+00
-   PRINTING FILE NO.    38  TIME/TOTAL:       38.015 /      40.000
+  0.7367E+00  0.9269E+01  0.7947E-01  0.0000E+00
+   PRINTING FILE NO.    38  TIME/TOTAL:       38.002 /      40.000
   PRINTING MEAN FILE    12
  ----------------- STATISTICS ----------------
   TIME        DT
-  0.3901E+02  0.2490E-01
+  0.3901E+02  0.5600E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.3811E+01  0.7967E+05  0.4760E+00 -0.4563E+00  0.1119E+01  0.7353E-05
+ -0.6459E+02  0.5305E+06  0.7585E+00 -0.4616E+00  0.7254E+00  0.1036E-04
   MaxTotalU   PhaseS      Froude      WetDryMass
-  0.1119E+01  0.9119E+01  0.1228E+00  0.0000E+00
-   PRINTING FILE NO.    39  TIME/TOTAL:       39.011 /      40.000
- Simulation takes   24.0000000     seconds
+  0.7254E+00  0.9269E+01  0.7826E-01  0.0000E+00
+   PRINTING FILE NO.    39  TIME/TOTAL:       39.010 /      40.000
+ Simulation takes   16.0000000     seconds
  Normal Termination!

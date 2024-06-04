@@ -16,7 +16,6 @@
 	vs="3.6"
 # Module of FUNWAVE
 	mod="REG"
-
 # List of analysis functions (enter "{}" for no functions)
 	f_list="{'new_ska'}"
 
@@ -92,5 +91,3 @@ EOF
 EOF
 ## Run the script and get Job ID
 	IDP=$(run_batch "$file_name")
-
-

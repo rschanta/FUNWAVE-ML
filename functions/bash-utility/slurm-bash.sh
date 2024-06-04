@@ -5,11 +5,10 @@
 #########################################################
 function create_batch_folders {
 ## Arguments
-	run_name=$1
 
 ## Make directories
-	mkdir -p "./${run_name}/slurm_logs/"
-	mkdir -p "./${run_name}/batch-scripts/"
+	mkdir -p "${WD}funwave-runs/${RN}/slurm_logs/"
+	mkdir -p "${WD}funwave-runs/${RN}/batch-scripts/"
 
 }
 
@@ -20,9 +19,8 @@ function create_batch_folders {
 #########################################################
 function get_slurm_dir {
 ## Arguments
-	run_name=$1
 ## Return the directory name
-    local slurm_dir=".\/${run_name}\/slurm_logs\/"
+    local slurm_dir="${WD}funwave-runs/${RN}/slurm_logs/"
     echo "$slurm_dir"
 }
 
@@ -33,9 +31,8 @@ function get_slurm_dir {
 #########################################################
 function get_batch_dir {
 ## Arguments
-	run_name=$1
 ## Return the directory name
-    local batch_dir="./${run_name}/batch-scripts/"
+    local batch_dir="${WD}funwave-runs/${RN}/batch-scripts/"
     echo "$batch_dir"
 }
 
@@ -248,8 +245,10 @@ function set_slurm {
 	setting=$1
 	value=$2
 	batch_file=$3
+
+	local valuee=$(echo "$value" | sed 's/[\/%]/\\&/g')
 ## Define new parameter line and swap out.
-	NEW_LINE="#SBATCH --"$setting"="$value""
+	NEW_LINE="#SBATCH --"$setting"="$valuee""
 	sed -i "s/.*"$setting".*/$NEW_LINE/" "$batch_file"
 }
 
@@ -283,12 +282,12 @@ function set_slurm_names {
 		fileName=$1
 		fileID=$2
 		slurm_dir=$3
-		run_name=$4
-		email=$5
+
+		local slurm_dire=$(echo "$slurm_dir" | sed 's/[\/%]/\\&/g')
 	# Change the slurm settings
 		set_slurm "job-name" "${fileID}_${run_name}" $1
-		set_slurm "output" "${slurm_dir}${fileID}_out.out" $1
-		set_slurm "error" "${slurm_dir}${fileID}_err.out" $1
-		set_slurm "mail-user" "$email" $1
+		set_slurm "output" "${slurm_dire}${fileID}_out.out" $1
+		set_slurm "error" "${slurm_dire}${fileID}_err.out" $1
+		set_slurm "mail-user" "$EM" $1
 
 } 

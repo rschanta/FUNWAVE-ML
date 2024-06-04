@@ -6,10 +6,9 @@
 function run_MATLAB_script {
 ## Arguments
     path=$1
-	w=$2
 	
 # Runs a MATLAB script specified 'file_name.mat' in Caviness
-	matlab -nodisplay -nosplash -nodesktop -r "addpath(genpath('"$2"'));run('"$1"');exit;"
+	matlab -nodisplay -nosplash -nodesktop -r "addpath(genpath('"$FCP"'));run('"$1"');exit;"
 }
 
 
@@ -30,9 +29,8 @@ function run_MATLAB_function {
 ## Arguments
 	func=$1
 	args=$2
-	w=$3
 ## cd to path where function is, execute function under arguments
-	matlab -nodisplay -nosplash -r "addpath(genpath('"$4"')); "$func"("$args");exit"
+	matlab -nodisplay -nosplash -r "addpath(genpath('"$FCP"')); "$func"("$args");exit"
 }
 
 #########################################################
@@ -43,18 +41,15 @@ function run_MATLAB_function {
 #########################################################
 function run_compress_out {
 ## Arguments
-	super_path=$1
-	run_name=$2
-	w=$3
 	
 ## Path to and name of function
 	func="compress_out"
 	
 ## Construct arguments
-	args="'${super_path}','${run_name}'"
+	args="'${SP}','${RN}'"
 	
 ## Run function
-	matlab -nodisplay -nosplash -r "addpath(genpath('"$w"')); "$func"("$args");exit"
+	matlab -nodisplay -nosplash -r "addpath(genpath('"$FCP"')); "$func"("$args");exit"
 }
 
 
@@ -67,19 +62,16 @@ function run_compress_out {
 function run_comp_i {
 
 ## Arguments
-	super_path=$1
-	run_name=$2
-	slurm_array_number=$3
-	f_list=$4
-	w=$5
+	slurm_array_number=$1
+	f_list=$2
 ## Name of function
 	func="comp_i_stat"
 	
 ## Construct Trial Number
 	tri_no=$(printf "%05d" $slurm_array_number)
 ## Construct arguments to matlab function
-	args="'${super_path}','${run_name}',${tri_no},${f_list}"
+	args="'${SP}','${RN}',${tri_no},${f_list}"
 
 ## Run function
-	matlab -nodisplay -nosplash -r "addpath(genpath('"$w"')); "$func"("$args");exit"
+	matlab -nodisplay -nosplash -r "addpath(genpath('"$FCP"')); "$func"("$args");exit"
 }
