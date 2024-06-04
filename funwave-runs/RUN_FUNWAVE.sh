@@ -2,9 +2,9 @@
 # INPUTS
 ###################################################
 # Basic Info
-	super_path="/lustre/scratch/rschanta/"
+	super_path="/work/thsu/rschanta/RTS/data/"
 	work_dir="/work/thsu/rschanta/RTS/"
-	run_name="debug_run_66"
+	run_name="debug_67"
 	count="4"
 # Partition
 	par="standard"

@@ -1,5 +1,5 @@
  -------------- LOG FILE -----------------
- input_00004                                                                     
+ input_00003                                                                     
   --------------input start --------------
                                           
  -------------- PARALLEL -----------------
@@ -7,11 +7,11 @@
                                           
  -------------- GRID INFO -----------------
  Mglob=     500 Nglob=       3
- DX=        1.12 DY=        1.12
+ DX=        0.47 DY=        0.47
  DEPTH_TYPE:SLOPE                                             
 DEPTH_FLAT        8.00
  SLP=        0.10
- Xslp=      479.72
+ Xslp=      154.20
                                           
  -------------- TIME INFO -----------------
          PLOT_START_TIME Default:  0.0 s
@@ -30,9 +30,9 @@ DEPTH_FLAT        8.00
                        Yc_WK defalt: 0.0
                  Time_ramp Default:  0.0
                Ywidth_WK Default:  LARGE
- Xc_WK   =      112.57
+ Xc_WK   =       26.63
  Yc_WK   =        0.00
- Tperiod =       12.00
+ Tperiod =        4.00
  AMP_WK  =        0.50
  DEP_WK  =        8.00
  Theta_WK=        0.00
@@ -50,7 +50,7 @@ DEPTH_FLAT        8.00
  FRICTION_SPONGE CDsponge=        1.00
                  R_sponge Default:  0.85
                   A_sponge Default:  5.0
- Sponge_west_width =       53.21
+ Sponge_west_width =       12.59
  Sponge_east_width =        0.00
  Sponge_south_width=        0.00
  Sponge_north_width=        0.00
@@ -111,7 +111,7 @@ Beta_ref=        -0.53
                     nu_bkg Default:  0.0
                                           
  -------------- OUTPUT INFO -----------------
- RESULT_FOLDER:/lustre/scratch/rschanta/debug_run_66/outputs-raw/
+ RESULT_FOLDER:/work/thsu/rschanta/RTS/data/debug_67/outputs-raw/
  FIELD_IO_TYPE = BINARY                                                                          
          OUTPUT_RES NOT FOUND, OUTPUT_RES=1: full resolution
      OUTPUT_RES         1
@@ -381,7 +381,7 @@ Beta_ref=        -0.53
   TIME        DT
   0.2702E+02  0.2478E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.3763E+01  0.7977E+05  0.5231E+00 -0.4506E+00  0.4362E+00  0.4962E-05
+ -0.3763E+01  0.7977E+05  0.5231E+00 -0.4506E+00  0.4362E+00  0.4932E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
   0.4362E+00  0.9144E+01  0.4770E-01  0.0000E+00
    PRINTING FILE NO.    27  TIME/TOTAL:       27.024 /      40.000
@@ -389,7 +389,7 @@ Beta_ref=        -0.53
   TIME        DT
   0.2802E+02  0.2475E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
-  0.4021E+01  0.8039E+05  0.7017E+00 -0.5246E+00  0.4250E+00  0.7149E-05
+  0.4021E+01  0.8039E+05  0.7017E+00 -0.5246E+00  0.4250E+00  0.7163E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
   0.4250E+00  0.9158E+01  0.4640E-01  0.0000E+00
    PRINTING FILE NO.    28  TIME/TOTAL:       28.015 /      40.000
@@ -397,7 +397,7 @@ Beta_ref=        -0.53
   TIME        DT
   0.2902E+02  0.2459E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.2570E+01  0.7983E+05  0.5161E+00 -0.4690E+00  0.5343E+00  0.6807E-05
+ -0.2570E+01  0.7983E+05  0.5161E+00 -0.4690E+00  0.5343E+00  0.6801E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
   0.5343E+00  0.9140E+01  0.5846E-01  0.0000E+00
    PRINTING FILE NO.    29  TIME/TOTAL:       29.023 /      40.000
@@ -406,7 +406,7 @@ Beta_ref=        -0.53
   TIME        DT
   0.3001E+02  0.2483E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.1026E+02  0.7926E+05  0.5717E+00 -0.7332E+00  0.6883E+00  0.7340E-05
+ -0.1026E+02  0.7926E+05  0.5717E+00 -0.7332E+00  0.6883E+00  0.7472E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
   0.6883E+00  0.9164E+01  0.7511E-01  0.0000E+00
    PRINTING FILE NO.    30  TIME/TOTAL:       30.013 /      40.000
@@ -414,7 +414,7 @@ Beta_ref=        -0.53
   TIME        DT
   0.3101E+02  0.2488E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.3834E+01  0.7971E+05  0.4832E+00 -0.4668E+00  0.8546E+00  0.6374E-05
+ -0.3834E+01  0.7971E+05  0.4832E+00 -0.4668E+00  0.8546E+00  0.6477E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
   0.8546E+00  0.9122E+01  0.9368E-01  0.0000E+00
    PRINTING FILE NO.    31  TIME/TOTAL:       31.008 /      40.000
@@ -422,7 +422,7 @@ Beta_ref=        -0.53
   TIME        DT
   0.3200E+02  0.2477E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
-  0.4460E+01  0.8034E+05  0.7063E+00 -0.5294E+00  0.9157E+00  0.6343E-05
+  0.4460E+01  0.8034E+05  0.7063E+00 -0.5294E+00  0.9157E+00  0.6513E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
   0.9157E+00  0.9156E+01  0.1000E+00  0.0000E+00
    PRINTING FILE NO.    32  TIME/TOTAL:       32.003 /      40.000
@@ -431,7 +431,7 @@ Beta_ref=        -0.53
   TIME        DT
   0.3301E+02  0.2460E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.1968E+01  0.7979E+05  0.4993E+00 -0.4628E+00  0.2281E+01  0.1544E-04
+ -0.1968E+01  0.7979E+05  0.4993E+00 -0.4628E+00  0.2281E+01  0.1637E-04
   MaxTotalU   PhaseS      Froude      WetDryMass
   0.2281E+01  0.9130E+01  0.2499E+00  0.0000E+00
    PRINTING FILE NO.    33  TIME/TOTAL:       33.012 /      40.000
@@ -439,7 +439,7 @@ Beta_ref=        -0.53
   TIME        DT
   0.3400E+02  0.2485E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.1037E+02  0.7920E+05  0.5727E+00 -0.7428E+00  0.3400E+01  0.7315E-05
+ -0.1037E+02  0.7920E+05  0.5727E+00 -0.7428E+00  0.3400E+01  0.7157E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
   0.3400E+01  0.9163E+01  0.3710E+00  0.0000E+00
    PRINTING FILE NO.    34  TIME/TOTAL:       34.003 /      40.000
@@ -447,7 +447,7 @@ Beta_ref=        -0.53
   TIME        DT
   0.3502E+02  0.2485E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.3925E+01  0.7968E+05  0.6435E+00 -0.4418E+00  0.1744E+01  0.3848E-05
+ -0.3925E+01  0.7968E+05  0.6435E+00 -0.4418E+00  0.1744E+01  0.4363E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
   0.1744E+01  0.9133E+01  0.1909E+00  0.0000E+00
    PRINTING FILE NO.    35  TIME/TOTAL:       35.022 /      40.000
@@ -456,7 +456,7 @@ Beta_ref=        -0.53
   TIME        DT
   0.3602E+02  0.2477E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
-  0.3967E+01  0.8032E+05  0.6995E+00 -0.5273E+00  0.7077E+00  0.4351E-05
+  0.3967E+01  0.8032E+05  0.6995E+00 -0.5273E+00  0.7077E+00  0.4544E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
   0.7077E+00  0.9156E+01  0.7729E-01  0.0000E+00
    PRINTING FILE NO.    36  TIME/TOTAL:       36.015 /      40.000
@@ -464,7 +464,7 @@ Beta_ref=        -0.53
   TIME        DT
   0.3702E+02  0.2461E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.2567E+01  0.7976E+05  0.4985E+00 -0.4684E+00  0.9828E+00  0.4087E-05
+ -0.2567E+01  0.7976E+05  0.4985E+00 -0.4684E+00  0.9828E+00  0.3902E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
   0.9828E+00  0.9131E+01  0.1076E+00  0.0000E+00
    PRINTING FILE NO.    37  TIME/TOTAL:       37.024 /      40.000
@@ -472,7 +472,7 @@ Beta_ref=        -0.53
   TIME        DT
   0.3802E+02  0.2487E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.1018E+02  0.7919E+05  0.5714E+00 -0.7286E+00  0.1133E+01  0.4961E-05
+ -0.1018E+02  0.7919E+05  0.5714E+00 -0.7286E+00  0.1133E+01  0.4887E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
   0.1133E+01  0.9163E+01  0.1236E+00  0.0000E+00
    PRINTING FILE NO.    38  TIME/TOTAL:       38.015 /      40.000
@@ -481,9 +481,9 @@ Beta_ref=        -0.53
   TIME        DT
   0.3901E+02  0.2490E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.3811E+01  0.7967E+05  0.4760E+00 -0.4563E+00  0.1119E+01  0.8505E-05
+ -0.3811E+01  0.7967E+05  0.4760E+00 -0.4563E+00  0.1119E+01  0.7353E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
   0.1119E+01  0.9119E+01  0.1228E+00  0.0000E+00
    PRINTING FILE NO.    39  TIME/TOTAL:       39.011 /      40.000
- Simulation takes   4.00000000     seconds
+ Simulation takes   24.0000000     seconds
  Normal Termination!
