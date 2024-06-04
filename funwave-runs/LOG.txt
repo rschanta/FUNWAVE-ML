@@ -111,7 +111,7 @@ Beta_ref=        -0.53
                     nu_bkg Default:  0.0
                                           
  -------------- OUTPUT INFO -----------------
- RESULT_FOLDER:/lustre/scratch/rschanta/debug_run_63/outputs-raw/
+ RESULT_FOLDER:/lustre/scratch/rschanta/debug_run_66/outputs-raw/
  FIELD_IO_TYPE = BINARY                                                                          
          OUTPUT_RES NOT FOUND, OUTPUT_RES=1: full resolution
      OUTPUT_RES         1
@@ -447,7 +447,7 @@ Beta_ref=        -0.53
   TIME        DT
   0.3502E+02  0.2485E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.3925E+01  0.7968E+05  0.6435E+00 -0.4418E+00  0.1744E+01  0.3861E-05
+ -0.3925E+01  0.7968E+05  0.6435E+00 -0.4418E+00  0.1744E+01  0.3848E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
   0.1744E+01  0.9133E+01  0.1909E+00  0.0000E+00
    PRINTING FILE NO.    35  TIME/TOTAL:       35.022 /      40.000
@@ -456,7 +456,7 @@ Beta_ref=        -0.53
   TIME        DT
   0.3602E+02  0.2477E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
-  0.3967E+01  0.8032E+05  0.6995E+00 -0.5273E+00  0.7077E+00  0.4106E-05
+  0.3967E+01  0.8032E+05  0.6995E+00 -0.5273E+00  0.7077E+00  0.4351E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
   0.7077E+00  0.9156E+01  0.7729E-01  0.0000E+00
    PRINTING FILE NO.    36  TIME/TOTAL:       36.015 /      40.000
@@ -464,7 +464,7 @@ Beta_ref=        -0.53
   TIME        DT
   0.3702E+02  0.2461E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.2567E+01  0.7976E+05  0.4985E+00 -0.4684E+00  0.9828E+00  0.4268E-05
+ -0.2567E+01  0.7976E+05  0.4985E+00 -0.4684E+00  0.9828E+00  0.4087E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
   0.9828E+00  0.9131E+01  0.1076E+00  0.0000E+00
    PRINTING FILE NO.    37  TIME/TOTAL:       37.024 /      40.000
@@ -472,7 +472,7 @@ Beta_ref=        -0.53
   TIME        DT
   0.3802E+02  0.2487E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.1018E+02  0.7919E+05  0.5714E+00 -0.7286E+00  0.1133E+01  0.4876E-05
+ -0.1018E+02  0.7919E+05  0.5714E+00 -0.7286E+00  0.1133E+01  0.4961E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
   0.1133E+01  0.9163E+01  0.1236E+00  0.0000E+00
    PRINTING FILE NO.    38  TIME/TOTAL:       38.015 /      40.000
@@ -481,7 +481,7 @@ Beta_ref=        -0.53
   TIME        DT
   0.3901E+02  0.2490E-01
   MassVolume  Energy      MaxEta      MinEta      Max U       Max V 
- -0.3811E+01  0.7967E+05  0.4760E+00 -0.4563E+00  0.1119E+01  0.8379E-05
+ -0.3811E+01  0.7967E+05  0.4760E+00 -0.4563E+00  0.1119E+01  0.8505E-05
   MaxTotalU   PhaseS      Froude      WetDryMass
   0.1119E+01  0.9119E+01  0.1228E+00  0.0000E+00
    PRINTING FILE NO.    39  TIME/TOTAL:       39.011 /      40.000
