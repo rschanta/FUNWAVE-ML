@@ -5,7 +5,7 @@
 #########################################################
 function create_batch_folders {
 ## Arguments
-	run_name=$1
+	run_name=$run_name
 
 ## Make directories
 	mkdir -p "./${run_name}/slurm_logs/"
@@ -20,7 +20,7 @@ function create_batch_folders {
 #########################################################
 function get_slurm_dir {
 ## Arguments
-	run_name=$1
+	run_name=$run_name
 ## Return the directory name
     local slurm_dir=".\/${run_name}\/slurm_logs\/"
     echo "$slurm_dir"
@@ -33,10 +33,25 @@ function get_slurm_dir {
 #########################################################
 function get_batch_dir {
 ## Arguments
-	run_name=$1
+	run_name=$run_name
 ## Return the directory name
     local batch_dir="./${run_name}/batch-scripts/"
     echo "$batch_dir"
+}
+
+#########################################################
+# get_batch_dir
+#	- gets the name of the directory with all the batch
+#	  scripts associated with a run.
+#########################################################
+function get_batch_name {
+## Arguments
+	fileID=$1
+	run_name=$run_name
+	batch_dir=$batch_dir
+## Return the directory name
+    local batch_name="${batch_dir}${fileID}_${run_name}.qs"
+    echo "$batch_name"
 }
 
 #########################################################
@@ -282,9 +297,10 @@ function set_slurm_names {
 	# Parameters
 		fileName=$1
 		fileID=$2
-		slurm_dir=$3
-		run_name=$4
-		email=$5
+		slurm_dir=$slurm_dir
+		run_name=$run_name
+		email=$email
+		
 	# Change the slurm settings
 		set_slurm "job-name" "${fileID}_${run_name}" $1
 		set_slurm "output" "${slurm_dir}${fileID}_out.out" $1

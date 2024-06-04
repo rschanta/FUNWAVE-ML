@@ -6,7 +6,7 @@
 function run_MATLAB_script {
 ## Arguments
     path=$1
-	w=$2
+	w=$2 
 	
 # Runs a MATLAB script specified 'file_name.mat' in Caviness
 	matlab -nodisplay -nosplash -nodesktop -r "addpath(genpath('"$2"'));run('"$1"');exit;"
@@ -72,6 +72,7 @@ function run_comp_i {
 	slurm_array_number=$3
 	f_list=$4
 	w=$5
+	
 ## Name of function
 	func="comp_i_stat"
 	

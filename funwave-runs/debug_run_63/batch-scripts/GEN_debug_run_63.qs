@@ -24,4 +24,4 @@
 		. "/work/thsu/rschanta/RTS/functions/bash-utility/get_bash.sh"
 		vpkg_require matlab
 	## Run Generation Script
-		run_MATLAB_script "./debug_run_63/debug_run_63.m" "/work/thsu/rschanta/RTS/functions"
+		run_MATLAB_script "./debug_run_63/debug_run_63.m" /work/thsu/rschanta/RTS/

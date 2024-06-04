@@ -11,7 +11,7 @@
 #SBATCH --mail-user=rschanta@udel.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --export=ALL
-#SBATCH --dependency=afterany:27809564
+#SBATCH --dependency=afterany:27815218
 #SBATCH --array=1-4
 #
 #UD_QUIET_JOB_SETUP=YES
@@ -31,6 +31,6 @@
 		## Run FUNWAVE
 			${UD_MPIRUN} "/work/thsu/rschanta/RTS/funwave/v3.6/exec/FW-REG" "$input_file"
 		## Compress outputs from run to single structure, calculate skew and asymmetry too
-			run_comp_i /lustre/scratch/rschanta/ debug_run_63 "$SLURM_ARRAY_TASK_ID" "{'new_ska'}" "/work/thsu/rschanta/RTS/functions"
+			run_comp_i /lustre/scratch/rschanta/ debug_run_63 "$SLURM_ARRAY_TASK_ID" "{'new_ska'}" "/work/thsu/rschanta/RTS/"
 		## Delete raw files from run
-			# rm_raw_out_i /lustre/scratch/rschanta/ debug_run_63 "$SLURM_ARRAY_TASK_ID"
+			# rm_raw_out_i "/lustre/scratch/rschanta/" "debug_run_63" "$SLURM_ARRAY_TASK_ID"
