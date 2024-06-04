@@ -1,5 +1,5 @@
 %{
-comp_i
+comp_i_stat
     - compresses all the outputs from a given FUNWAVE run from the series
       of time-stepping files to a single structure with fields for the 
       following variables:
@@ -10,7 +10,7 @@ comp_i
     
         more variables can be added in the 'Vars' cell array structure
 %}
-function comp_i(super_path,run_name,tri_no)
+function comp_i_stat(super_path,run_name,tri_no,f_list)
     %%% Get paths, trial number as string, and path of input/output
         paths = list_FW_dirs(super_path,run_name);
         tri_no_str = ['input_',sprintf('%05d',tri_no)];
@@ -38,9 +38,11 @@ function comp_i(super_path,run_name,tri_no)
             end
         % Error handling if variable not found
         catch
-            disp(['Warning: ', Vars{j} ' files not found!']);
+         %   disp(['Warning: ', Vars{j} ' files not found!']);
         end
         end
+    %%% Calculate any statistics and save out
+        calc_stats(results,f_list,tri_no,super_path,run_name)
     %%% Save structure
         name = fullfile(paths.outputs_proc,['out_',sprintf('%05d',tri_no),'.mat']);
         save(name,'-struct', 'results', '-v7.3')

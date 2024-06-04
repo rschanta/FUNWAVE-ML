@@ -16,6 +16,8 @@
 	mod="REG"
 # Mail-User (for Slurm)
 	email="rschanta@udel.edu"
+# List of analysis functions (enter "{}" for no functions)
+	f_list="{new_ska}"
 
 ###################################################
 # SETUP
@@ -78,7 +80,7 @@ EOF
 		## Run FUNWAVE
 			\${UD_MPIRUN} "$fun_ex" "\$input_file"
 		## Compress outputs from run to single structure, calculate skew and asymmetry too
-			run_comp_i ${super_path} ${run_name} "\$SLURM_ARRAY_TASK_ID" "$w"
+			run_comp_i ${super_path} ${run_name} "\$SLURM_ARRAY_TASK_ID" "$f_list" "$w"
 		## Delete raw files from run
 			# rm_raw_out_i ${super_path} ${run_name} "\$SLURM_ARRAY_TASK_ID"
 EOF
@@ -101,7 +103,7 @@ EOF
 			. "${work_dir}functions/bash-utility/get_bash.sh"
 			vpkg_require matlab
 		## Compress skew and asymmetry
-			run_compress_ska ${super_path} ${run_name} $w
+			run_compress_ska ${super_path} ${run_name} "$w"
 EOF
 ## Run the script and get Job ID
 	IDS=$(run_batch "$file_name")

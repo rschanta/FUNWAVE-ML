@@ -172,14 +172,15 @@ function run_comp_i {
 	super_path=$1
 	run_name=$2
 	slurm_array_number=$3
-	w=$4
+	f_list=$4
+	w=$5
 ## Name of function
-	func="comp_i"
+	func="comp_i_stat"
 	
 ## Construct Trial Number
 	tri_no=$(printf "%05d" $slurm_array_number)
 ## Construct arguments to matlab function
-	args="'${super_path}','${run_name}',${tri_no}"
+	args="'${super_path}','${run_name}',${tri_no},${f_list}"
 
 ## Run function
 	matlab -nodisplay -nosplash -r "addpath(genpath('"$w"')); "$func"("$args");exit"

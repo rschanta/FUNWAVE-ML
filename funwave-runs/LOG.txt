@@ -1,5 +1,5 @@
  -------------- LOG FILE -----------------
- input_00002                                                                     
+ input_00004                                                                     
   --------------input start --------------
                                           
  -------------- PARALLEL -----------------
@@ -10,8 +10,8 @@
  DX=        1.12 DY=        1.12
  DEPTH_TYPE:SLOPE                                             
 DEPTH_FLAT        8.00
- SLP=        0.04
- Xslp=      359.72
+ SLP=        0.10
+ Xslp=      479.72
                                           
  -------------- TIME INFO -----------------
          PLOT_START_TIME Default:  0.0 s

@@ -11,7 +11,7 @@
 #SBATCH --mail-user=rschanta@udel.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --export=ALL
-#SBATCH --dependency=afterany:27806280
+#SBATCH --dependency=afterany:27809565
 #
 #UD_QUIET_JOB_SETUP=YES
 #UD_USE_SRUN_LAUNCHER=YES
@@ -25,4 +25,4 @@
 			. "/work/thsu/rschanta/RTS/functions/bash-utility/get_bash.sh"
 			vpkg_require matlab
 		## Compress skew and asymmetry
-			run_compress_ska /lustre/scratch/rschanta/ debug_run_63 /work/thsu/rschanta/RTS/functions
+			run_compress_ska /lustre/scratch/rschanta/ debug_run_63 "/work/thsu/rschanta/RTS/functions"
