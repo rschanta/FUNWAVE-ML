@@ -35,7 +35,7 @@ FUNWAVE runs, from input generation to output file compression/management.
 * [**Using Coupling Files**](doc/coupling/make_coupling.md): Instructions on how to pass through coupling data for this workflow.
 
 ## Other Helpful Tools
-* [**Hydrodynamics Tools**](doc/running.md): Helper functions and tools for FUNWAVE and hydrodynamics that may generally be useful, in this workflow and beyond.
+* [**Hydrodynamics Tools**](/doc/functions/funwave_tools.md): Helper functions and tools for FUNWAVE and hydrodynamics that may generally be useful, in this workflow and beyond.
 * [**Caviness Specific Functionality**](doc/running.md): Explanation of how this workflow interacts with the Caviness HPC system at the University of Delaware working with the *Caviness* HPC system at the University of Delaware
 
 ## Basic Organization

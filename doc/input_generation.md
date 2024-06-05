@@ -59,4 +59,3 @@ templates include:
 |FW_in_DATA | [input_DATA.txt](input_templates/FWS_in_SLP.md) |[`FWS_in_DATA()`](../functions/FW-tools/input-templates/FW_in_DATA.m) |  A run using input bathymetry and a regular wavemaker|
 |FW_in_COUPLE | [input_COUPLE.txt](input_templates/FWS_in_SLP.md) | [`FWS_in_COUPLE()`](../functions/FW-tools/input-templates/FW_in_COUPLE.m) |  A run using a coupling file and input bathymetry|
 
-[functions documentation](doc/functions.md)

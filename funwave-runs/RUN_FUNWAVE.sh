@@ -4,12 +4,12 @@
 ## DIRECTORY SETUP AND NAME
 	SUPER_PATH="/work/thsu/rschanta/RTS/data/"
 	WORK_DIR="/work/thsu/rschanta/RTS/"
-	RUN_NAME="debug_68"
-	count="4"
+	RUN_NAME="model_run_6"
+	count="4374"
 	# Mail-User (for Slurm)
 	EMAIL_ADD="rschanta@udel.edu"
 # Partition
-	par="standard"
+	par="thsu"
 # Tasks per Node
 	tpn="32"
 # Version of FUNWAVE
