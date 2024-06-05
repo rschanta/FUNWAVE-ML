@@ -3,6 +3,9 @@ compress_var
     - compresses all the time steps from a 1D simulation to an array for a
       given variable, where each row is a time step and each column is a 
       position in Mglob
+    
+    - NOTE: this currently assumes single precision Binary values, but
+      this can be changed by changing `single`
 %}
 function out_array = compress_var(path,var,Mglob,Nglob)
 %% Arguments

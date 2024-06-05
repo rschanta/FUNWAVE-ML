@@ -10,7 +10,8 @@ WORK/
 ├── functions
 ├── funwave
 ├── funwave-runs
-└── README.md
+├── README.md
+└── scripts
 ```
 
 The contents of each directory are as follows:
@@ -66,13 +67,13 @@ SUPER_PATH/
     │   ├── In_s.mat
     │   └── In_t.mat
     ├── other-FW-out/
-    │   ├── input_00001.txt
-    │   ├── input_00002.txt
-    │   └── input_XXXXX.txt
+    │   ├── time_dt.txt
+    │   ├── dep.out
+    │   └── breakwater.out
     ├── outputs-proc/
-    │   ├── input_00001.txt
-    │   ├── input_00002.txt
-    │   └── input_XXXXX.txt
+    │   ├── Out_00001.mat
+    │   ├── Out_00002.mat
+    │   └── Out_XXXXX.mat
     ├── outputs-raw/
     │   ├── out_00001/
     │   │   ├── eta_00001
@@ -87,9 +88,9 @@ SUPER_PATH/
     │       ├── eta_00002
     │       └── eta_XXXXX
     └── stats/
-        ├── input_00001.txt
-        ├── input_00002.txt
-        └── input_XXXXX.txt
+        ├── skew_00001.mat
+        ├── skew_00002.mat
+        └── skew_XXXXX.mat
 ```
 
 ## Path Helper Function

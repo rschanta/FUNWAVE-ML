@@ -1,5 +1,5 @@
 %{
-comp_i_stat
+compress_i
     - compresses all the outputs from a given FUNWAVE run from the series
       of time-stepping files to a single structure with fields for the 
       following variables:
@@ -9,6 +9,10 @@ comp_i_stat
         - V
     
         more variables can be added in the 'Vars' cell array structure
+    
+    - additionally, applies any statistics functions in `f_list` specified
+      as a string. For example, {'skew','asymmetry'} would apply the skew()
+      and asymmetry() functions to each output.
 %}
 function compress_i(super_path,run_name,tr_num,f_list)
     disp('COMPRESSION OF TIME SERIES OUTPUTS')

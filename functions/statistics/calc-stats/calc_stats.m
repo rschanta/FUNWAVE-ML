@@ -3,11 +3,14 @@ calc_stats
     - Loop through the cell array of function names
     defined by f_list to apply all the functions to the 
     structure st
+
+    For example, {'skew','asymmetry'} would apply the skew()
+    and asymmetry() functions to the output structure
 %}
 
 function calc_stats(st,f_list,no,sp,rn)
     % Loop through functions of flist and apply to structure
-    %try
+    try
         if length(f_list)>0
             for f = f_list
                 disp(['Applying function: ', f])
@@ -17,7 +20,7 @@ function calc_stats(st,f_list,no,sp,rn)
         else
             disp("No statistics functions defined")
         end
-    %catch
-    %    disp("Issue with statistics calculation!")
-    %end
+    catch
+        disp("Issue with statistics calculation!")
+    end
 end

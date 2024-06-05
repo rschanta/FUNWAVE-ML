@@ -4,7 +4,7 @@
 #SBATCH --nodes=1
 #SBATCH --tasks-per-node=32
 #SBATCH --job-name=RUN_
-#SBATCH --partition=thsu
+#SBATCH --partition=standard
 #SBATCH --time=7-00:00:00
 #SBATCH --output=/work/thsu/rschanta/RTS/funwave-runs/model_run_6/slurm_logs/RUN_out_%a.out
 #SBATCH --error=/work/thsu/rschanta/RTS/funwave-runs/model_run_6/slurm_logs/RUN_err_%a.out
@@ -12,7 +12,7 @@
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --export=ALL
 #SBATCH --dependency=afterany:27851438
-#SBATCH --array=1-4374
+#SBATCH --array=1000-4374
 #
 #UD_QUIET_JOB_SETUP=YES
 #UD_USE_SRUN_LAUNCHER=YES

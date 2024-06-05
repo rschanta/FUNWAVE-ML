@@ -1,1 +1,0 @@
-mk_FW_dir('/lustre/scratch/rschanta/','/debug_run_64')
