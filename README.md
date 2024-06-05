@@ -20,22 +20,23 @@ To get familiar with the general workflow, the following should be read in order
 code organization
 * [**Generating Inputs**](doc/input_generation.md): How to generate valid input.txt files for FUNWAVE, including
 options for bathymetry, coupling, and general scenarios.
-* [**FUNWAVE Executables**](doc/FW_exec.md): Overview of the different versions of FUNWAVE, which each have a 
-different executable.
+* [**FUNWAVE Executables**](doc/FW_exec.md): Overview of the different versions of FUNWAVE, which each have a different executable.
 * [**Creating SLURM Scripts**](doc/slurm/slurm_preambles.md): An introduction to using the SLURM workload manager,
 with a focus on use in the University of Delaware HPC system.
 * [**Executing all the Trials of a Run**](doc/running.md): Overview of the process used to automatically run
 FUNWAVE runs, from input generation to output file compression/management.
 
-## Other Workflows
+## Other Guides
+* [**Inventory of Helper Functions**](/functions/README.md): list of all helper functions used throughout this script, organized by use case and general functionality.
+* [**Summary of FUNWAVE Source Code Organization**](/doc/FW_organization.md): brief outline of how the FUNWAVE source code is structure, from the `Makefile` through Fortran compilation up to the executable.
+
+## Module-Specific Functionality
 * [**Using Bathymetry**](doc/bathy/make_bathy.md): Instructions on how to pass through bathymetry data for this workflow.
 * [**Using Coupling Files**](doc/coupling/make_coupling.md): Instructions on how to pass through coupling data for this workflow.
 
-## Useful Functions and Scripts
-* [**FUNWAVE Tools**](doc/running.md): Helper functions for creating FUNWAVE inputs and processing outputs. May be useful
-outside of the context of this project.
-* [**Caviness Specific Functionality**](doc/running.md): Explanation of various helper functions constructed to assist in 
-working with the *Caviness* HPC system at the University of Delaware
+## Other Helpful Tools
+* [**Hydrodynamics Tools**](doc/running.md): Helper functions and tools for FUNWAVE and hydrodynamics that may generally be useful, in this workflow and beyond.
+* [**Caviness Specific Functionality**](doc/running.md): Explanation of how this workflow interacts with the Caviness HPC system at the University of Delaware working with the *Caviness* HPC system at the University of Delaware
 
 ## Basic Organization
 

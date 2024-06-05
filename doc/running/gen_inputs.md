@@ -6,29 +6,26 @@ The following code snippet as part of ***run-fw.sh*** is used to generate the in
 ###################################################
 # GENERATE INPUT FILES
 ###################################################
-# Batch script name
+## Batch script name
 	fileID="GEN" #identifier for script
-	file_name="${batch_dir}${fileID}_${run_name}.qs"
-# Create a basic batch script
+	file_name="${batch_dir}${fileID}_${RN}.qs"
+## Create a basic batch script
 	create_batch_basic $file_name $par $tpn
 # Set names in batch script
-	set_slurm_names $file_name $fileID $slurm_dir $run_name $email
-
-
-
-cat <<EOF >> $file_name
-## Load in utilities and VALET
-. "${work_dir}functions/bash-utility/slurm-bash.sh"
-. "${work_dir}functions/bash-utility/matlab-bash.sh"
-. "${work_dir}functions/bash-utility/misc-bash.sh"
-	vpkg_require matlab
-
-## Run Generation Script
-	run_MATLAB_script "./${run_name}/${run_name}.m" "$w"
+	set_slurm_names $file_name $fileID $slurm_dir $email
+## Add onto template
+	cat <<EOF >> $file_name
+	## Load in bash functions and VALET packages
+		export WORK_DIR=${WORK_DIR}
+		. "${WORK_DIR}functions/bash-utility/get_bash.sh"
+		export_vars "$SUPER_PATH" "$WORK_DIR" "$RUN_NAME" "$EMAIL_ADD"
+		vpkg_require matlab
+	## Run Generation Script
+		run_MATLAB_script "${WD}funwave-runs/${RN}/${RN}.m"
 EOF
-
-# Run the script
-IDG=$(run_batch "$file_name")
+## Run the script and get Job ID
+	IDG=$(run_batch "$file_name")
+    echo "Generation script successfully created!"
 ```
 
 Here, the name of the file is generated and a default batch script is generated using the basic 
