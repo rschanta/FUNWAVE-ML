@@ -34,6 +34,9 @@ p.SP= super_path;
         %%% COUPLING FILES
             p.c = fullfile(p.RN,'coupling');
                 p.c_ = fullfile(p.c,'coupling_');
+        %%% SPECTRA FILES
+            p.s = fullfile(p.RN,'spectra');
+                p.s_ = fullfile(p.c,'spectra_');
         %%% OTHER FUNWAVE OUTPUTS
             p.F = fullfile(p.RN,'other-FW-out');
                 p.Fd = fullfile(p.F,'dep.mat');

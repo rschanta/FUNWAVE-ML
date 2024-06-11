@@ -2,21 +2,20 @@
 # INPUTS
 ###################################################
 ## DIRECTORY SETUP AND NAME
-	SUPER_PATH="/work/thsu/rschanta/RTS/data/"
+	SUPER_PATH="/lustre/scratch/rschanta/"
 	WORK_DIR="/work/thsu/rschanta/RTS/"
-	RUN_NAME="model_run_6"
-	count="1"
+	RUN_NAME="Spectra_D3_3"
+	count="2"
 	# Mail-User (for Slurm)
 	EMAIL_ADD="rschanta@udel.edu"
 # Partition
-	par="thsu"
+	par="standard"
 # Tasks per Node
 	tpn="32"
 # Version of FUNWAVE
 	vs="3.6"
 # Module of FUNWAVE
-	mod="COUP"
-
+	mod="REG"
 # List of analysis functions (enter "{}" for no functions)
 	f_list="{'new_ska'}"
 
@@ -35,6 +34,7 @@
 	create_batch_folders $RN
 	slurm_dir=$(get_slurm_dir "$RN")
 	batch_dir=$(get_batch_dir "$RN")
+    echo "File Setup Successful!"
 
 ###################################################
 # GENERATE INPUT FILES
@@ -54,11 +54,11 @@
 		export_vars "$SUPER_PATH" "$WORK_DIR" "$RUN_NAME" "$EMAIL_ADD"
 		vpkg_require matlab
 	## Run Generation Script
-		run_MATLAB_script "${WD}funwave-runs/${RN}/${RN}.m"
+		run_gen 
 EOF
 ## Run the script and get Job ID
 	IDG=$(run_batch "$file_name")
-
+    echo "Generation script successfully created!"
 ###################################################
 # RUN FUNWAVE INPUTS IN PARALLEL, CALCULATE 
 # STATISTICS, AND COMPRESS
@@ -92,5 +92,7 @@ EOF
 EOF
 ## Run the script and get Job ID
 	IDP=$(run_batch "$file_name")
-
-
+    echo "Run script successfully created!"
+## Display Success
+    echo "Job submitted!"
+	echo "Check batch logs/outputs to see if job was successful!"

@@ -1,14 +1,14 @@
 #-----------BEGIN MAKEFILE---------------------------
 FUNWAVE_DIR = .
-WORK_DIR    = exec
+WORK_DIR    = funwave-work
 COMPILER    = gnu
 PARALLEL    = true
-EXEC        = FW-COUP
+EXEC        = funwave
 PRECISION   = single
 
 #-----------DEFINE FLAGS-----------------------------
 #         uncomment to choose the model
-  FLAG_1  = -DCOUPLING
+#  FLAG_1  = -DCOUPLING
 # FLAG_2  = -DZALPHA
 # FLAG_3  = -DMANNING
 #  FLAG_4  = -DVESSEL

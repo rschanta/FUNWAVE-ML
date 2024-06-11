@@ -7,6 +7,7 @@ function create_batch_folders {
 ## Arguments
 
 ## Make directories
+	mkdir -p "${WD}funwave-runs/${RN}"
 	mkdir -p "${WD}funwave-runs/${RN}/slurm_logs/"
 	mkdir -p "${WD}funwave-runs/${RN}/batch-scripts/"
 

@@ -23,4 +23,6 @@ function ptr = list_FW_tri_dirs(tri_num,p)
             ptr.b_file = [append_no(p.b_,tri_num),'.txt'];
         % Path to coupling_XXXXX.txt file
             ptr.c_file = [append_no(p.c_,tri_num),'.txt'];
+        % Path to spectra_XXXXX.txt file
+            ptr.s_file = [append_no(p.s_,tri_num),'.txt'];
 end

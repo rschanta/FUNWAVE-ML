@@ -28,6 +28,8 @@ function p = mk_FW_dir(super_path,run_name)
             make_dir(p.b) 
         %%% COUPLING FILES
             make_dir(p.c) 
+        %%% SPECTRA FILES
+            make_dir(p.s) 
         %%% OTHER FUNWAVE OUTPUTS
             make_dir(p.F) 
         %%% OTHER STATITISTICS OF INTEREST

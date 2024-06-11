@@ -39,6 +39,26 @@ function run_MATLAB_function {
 #	  to compress the outputs of all FUNWAVE runs from a
 #	  given run to a single structure, memory permitting
 #########################################################
+function run_gen {
+## Arguments
+	
+
+	
+## Construct arguments
+	args="'${SP}','${RN}'"
+## Path to generation folder
+	GDIR="${WD}/input_definitions/"
+	
+## Run function
+	matlab -nodisplay -nosplash -r "addpath(genpath('"$FCP"')); cd('${GDIR}'); "$RN"("$args");exit"
+}
+
+#########################################################
+# run_compress_out
+#	- the 'compress_out' function to compress the outputs
+#	  to compress the outputs of all FUNWAVE runs from a
+#	  given run to a single structure, memory permitting
+#########################################################
 function run_compress_out {
 ## Arguments
 	

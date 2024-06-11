@@ -65,7 +65,7 @@ SUBROUTINE INDEX
 # if defined (PARALLEL)
 
     ALLOCATE(ProcessorID(PX,PY)) 
-
+    ! Number of processes
     NumberProcessor = px*py
     dims(1) = px
     dims(2) = py

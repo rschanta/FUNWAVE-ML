@@ -4,8 +4,8 @@
 ## DIRECTORY SETUP AND NAME
 	SUPER_PATH="/lustre/scratch/rschanta/"
 	WORK_DIR="/work/thsu/rschanta/RTS/"
-	RUN_NAME="model_run_6"
-	count="4374"
+	RUN_NAME="D3_X0U0V0"
+	count="1"
 	# Mail-User (for Slurm)
 	EMAIL_ADD="rschanta@udel.edu"
 # Partition
@@ -15,7 +15,7 @@
 # Version of FUNWAVE
 	vs="3.6"
 # Module of FUNWAVE
-	mod="REG"
+	mod="COUP"
 # List of analysis functions (enter "{}" for no functions)
 	f_list="{'new_ska'}"
 
@@ -94,3 +94,4 @@ EOF
     echo "Run script successfully created!"
 ## Display Success
     echo "Job submitted!"
+	echo "Check batch logs/outputs to see if job was successful!"

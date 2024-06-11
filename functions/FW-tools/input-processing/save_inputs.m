@@ -14,7 +14,6 @@ function save_inputs(p,input_struct)
     - input_struct (structure): structure containing structures of FWS 
       structure of the form 'input_XXXXX'
 %}
-   
     %% Convert to table
         % Initialize table
             FWS_tab = table();
@@ -23,7 +22,6 @@ function save_inputs(p,input_struct)
             % Construct trial name and get structure, remove 'Files' field
                 tri_name= append_no('tri_',k);
                 FWS = input_struct.(tri_name);
-                FWS = rmfield(FWS,'Files');
             % Convert to table and append onto
                 FWS_ti = struct2table(FWS);
                 FWS_tab = [FWS_tab; FWS_ti];
@@ -34,6 +32,18 @@ function save_inputs(p,input_struct)
             save(p.Is,'-struct', 'input_struct', '-v7.3')
             disp('Successfully saved input structure!')
         % Table .mat
+
+        % Remove the files tab if necessary
+        try
+            FWS_tab = removevars(FWS_tab, 'Files');
+        catch
+        end
+        try
+            FWS_tab = removevars(FWS_tab, 'files');
+        catch
+        end
+
+
            writetable(FWS_tab,p.It)
            disp('Successfully saved input table!')
         % Parquet .parquet
