@@ -4,15 +4,15 @@
 #SBATCH --nodes=1
 #SBATCH --tasks-per-node=32
 #SBATCH --job-name=RUN_
-#SBATCH --partition=thsu
+#SBATCH --partition=standard
 #SBATCH --time=7-00:00:00
-#SBATCH --output=/work/thsu/rschanta/RTS/funwave-runs/test_gen_1/slurm_logs/RUN_out_%a.out
-#SBATCH --error=/work/thsu/rschanta/RTS/funwave-runs/test_gen_1/slurm_logs/RUN_err_%a.out
+#SBATCH --output=/work/thsu/rschanta/RTS/funwave-runs/spectra_left/slurm_logs/RUN_out_%a.out
+#SBATCH --error=/work/thsu/rschanta/RTS/funwave-runs/spectra_left/slurm_logs/RUN_err_%a.out
 #SBATCH --mail-user=rschanta@udel.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --export=ALL
-#SBATCH --dependency=afterany:27887332
-#SBATCH --array=1-4
+#SBATCH --dependency=afterany:27918555
+#SBATCH --array=1-20
 #
 #UD_QUIET_JOB_SETUP=YES
 #UD_USE_SRUN_LAUNCHER=YES
@@ -25,9 +25,9 @@
 		## Load in bash functions and VALET packages
 			export WORK_DIR=/work/thsu/rschanta/RTS/
 			. "/work/thsu/rschanta/RTS/functions/bash-utility/get_bash.sh"
-			export_vars "/lustre/scratch/rschanta/" "/work/thsu/rschanta/RTS/" "test_gen_1" "rschanta@udel.edu"
+			export_vars "/lustre/scratch/rschanta/" "/work/thsu/rschanta/RTS/" "spectra_left" "rschanta@udel.edu"
 			vpkg_require openmpi
-			vpkg_require matlab
+			vpkg_require matlab/r2023b
 		## Get input file name
 			input_file=$(get_input_dir "$SLURM_ARRAY_TASK_ID")
 		## Run FUNWAVE

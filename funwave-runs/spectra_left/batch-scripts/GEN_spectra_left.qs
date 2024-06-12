@@ -3,11 +3,11 @@
 #
 #SBATCH --nodes=1
 #SBATCH --tasks-per-node=32
-#SBATCH --job-name=GEN_Run5_28
+#SBATCH --job-name=GEN_
 #SBATCH --partition=standard
 #SBATCH --time=7-00:00:00
-#SBATCH --output=./Run5_28/slurm_logs/GEN_out.out
-#SBATCH --error=./Run5_28/slurm_logs/GEN_err.out
+#SBATCH --output=\/work\/thsu\/rschanta\/RTS\/funwave-runs\/spectra_left\/slurm_logs\/GEN_out.out
+#SBATCH --error=\/work\/thsu\/rschanta\/RTS\/funwave-runs\/spectra_left\/slurm_logs\/GEN_err.out
 #SBATCH --mail-user=rschanta@udel.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --export=ALL
@@ -21,7 +21,9 @@
 #
 #
 	## Load in bash functions and VALET packages
+		export WORK_DIR=/work/thsu/rschanta/RTS/
 		. "/work/thsu/rschanta/RTS/functions/bash-utility/get_bash.sh"
-		vpkg_require matlab
+		export_vars "/lustre/scratch/rschanta/" "/work/thsu/rschanta/RTS/" "spectra_left" "rschanta@udel.edu"
+		vpkg_require matlab/r2023b
 	## Run Generation Script
-		run_MATLAB_script "./Run5_28/Run5_28.m" "/work/thsu/rschanta/RTS/functions"
+		run_gen 

@@ -31,12 +31,18 @@ p.SP= super_path;
         %%% BATHYMETRY FILES
             p.b = fullfile(p.RN,'bathy');
                 p.b_ = fullfile(p.b,'bathy_');
+         %%% BATHYMETRY FIGURES
+            p.bF = fullfile(p.RN,'bathy_fig');
+                p.bF_ = fullfile(p.bF,'bathy_fig_');
         %%% COUPLING FILES
             p.c = fullfile(p.RN,'coupling');
                 p.c_ = fullfile(p.c,'coupling_');
         %%% SPECTRA FILES
             p.sp = fullfile(p.RN,'spectra');
                 p.sp_ = fullfile(p.sp,'spectra_');
+        %%% SPECTRA FIGURES
+            p.spF = fullfile(p.RN,'spectra_fig');
+                p.spF_ = fullfile(p.spF,'spectra_fig');
         %%% OTHER FUNWAVE OUTPUTS
             p.F = fullfile(p.RN,'other-FW-out');
                 p.Fd = fullfile(p.F,'dep.mat');

@@ -26,10 +26,14 @@ function p = mk_FW_dir(super_path,run_name)
             make_dir(p.O); 
         %%% BATHYMETRY FILES
             make_dir(p.b); 
+        %%% BATHYMETRY FIGURES
+            make_dir(p.bF); 
         %%% COUPLING FILES
             make_dir(p.c); 
         %%% SPECTRA FILES
             make_dir(p.sp); 
+        %%% SPECTRA FIGURES
+            make_dir(p.spF); 
         %%% OTHER FUNWAVE OUTPUTS
             make_dir(p.F); 
         %%% OTHER STATITISTICS OF INTEREST

@@ -19,9 +19,11 @@ function save_inputs(p,input_struct)
             FWS_tab = table();
         % Loop through structure to add trial data
         for k = 1:length(fieldnames(input_struct))
-            % Construct trial name and get structure, remove 'Files' field
+            % Construct trial name and get structure, remove 'files' field
                 tri_name= append_no('tri_',k);
                 FWS = input_struct.(tri_name);
+                FWS = rmfield(FWS, 'files');
+
             % Convert to table and append onto
                 FWS_ti = struct2table(FWS);
                 FWS_tab = [FWS_tab; FWS_ti];
@@ -32,18 +34,6 @@ function save_inputs(p,input_struct)
             save(p.Is,'-struct', 'input_struct', '-v7.3');
             disp('Successfully saved input structure!');
         % Table .mat
-
-        % Remove the files tab if necessary
-        try
-            FWS_tab = removevars(FWS_tab, 'Files');
-        catch
-        end
-        try
-            FWS_tab = removevars(FWS_tab, 'files');
-        catch
-        end
-
-
            writetable(FWS_tab,p.It);
            disp('Successfully saved input table!');
         % Parquet .parquet

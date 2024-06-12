@@ -4,8 +4,8 @@
 ## DIRECTORY SETUP AND NAME
 	SUPER_PATH="/lustre/scratch/rschanta/"
 	WORK_DIR="/work/thsu/rschanta/RTS/"
-	RUN_NAME="test_37"
-	count="2"
+	RUN_NAME="spectra_left"
+	count="20"
 	# Mail-User (for Slurm)
 	EMAIL_ADD="rschanta@udel.edu"
 # Partition
@@ -13,7 +13,7 @@
 # Tasks per Node
 	tpn="32"
 # Version of FUNWAVE
-	vs="3.7"
+	vs="3.6"
 # Module of FUNWAVE
 	mod="REG"
 # List of analysis functions (enter "{}" for no functions)
@@ -52,7 +52,7 @@
 		export WORK_DIR=${WORK_DIR}
 		. "${WORK_DIR}functions/bash-utility/get_bash.sh"
 		export_vars "$SUPER_PATH" "$WORK_DIR" "$RUN_NAME" "$EMAIL_ADD"
-		vpkg_require matlab
+		vpkg_require matlab/r2023b
 	## Run Generation Script
 		run_gen 
 EOF
@@ -80,7 +80,7 @@ EOF
 			. "${WORK_DIR}functions/bash-utility/get_bash.sh"
 			export_vars "$SUPER_PATH" "$WORK_DIR" "$RUN_NAME" "$EMAIL_ADD"
 			vpkg_require openmpi
-			vpkg_require matlab
+			vpkg_require matlab/r2023b
 		## Get input file name
 			input_file=\$(get_input_dir "\$SLURM_ARRAY_TASK_ID")
 		## Run FUNWAVE
@@ -88,7 +88,7 @@ EOF
 		## Compress outputs from run to single structure, calculate skew and asymmetry too
 			run_comp_i "\$SLURM_ARRAY_TASK_ID" "$f_list"
 		## Delete raw files from run
-			#rm_raw_out_i "\$SLURM_ARRAY_TASK_ID"
+			rm_raw_out_i "\$SLURM_ARRAY_TASK_ID"
 EOF
 ## Run the script and get Job ID
 	IDP=$(run_batch "$file_name")

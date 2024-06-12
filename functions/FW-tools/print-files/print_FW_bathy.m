@@ -9,6 +9,11 @@ function print_FW_bathy(data,path)
     - path: (string) path to print to, including file name
 %}
     disp('Started printing bathymetry file')
-    writematrix(data,path)
+    try
+    writematrix(data,path);
+    catch
+    writematrix(data.bathy_file,path);
+    end
+
     disp('Finished printing bathymetry file')
 end

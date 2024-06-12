@@ -32,12 +32,20 @@ function compress_i(super_path,run_name,tr_num,f_list)
     %%% Load in Time
         disp(['Searching for: ', 'time_dt']);
         ptr = list_FW_tri_dirs(tr_num,p);
+    try
         results.time_dt = load(ptr.time_dt_file);
         disp(['Successfully got: ', 'time_dt']);
+    catch
+        disp(['Did not find: ', 'time_dt']);
+    end
     %%% Get Dep File
         disp(['Searching for: ', 'dep']);
-        results.dep = compress_var(p.o_X,'dep',Mglob,Nglob);
-        disp(['Successfully got: ', 'dep']);
+        try
+            results.dep = compress_var(p.o_X,'dep',Mglob,Nglob);
+            disp(['Successfully got: ', 'dep']);
+        catch
+            disp(['Did not find: ', 'dep']);
+        end
     %%% Loop through all variables to extract
         for j = 1:length(Vars)
         % Get name of variable in capitals and lowercase

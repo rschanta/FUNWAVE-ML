@@ -71,5 +71,5 @@ function FWS = FW_in_SLP()
         FWS.RESULT_FOLDER = 'RESULT_FOLDER';
     %%% Associated Files
         files = struct();
-        FWS.Files= files;
+        FWS.files= files;
     disp('Created FW_in_SLP template file')

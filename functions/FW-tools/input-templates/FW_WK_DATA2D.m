@@ -1,9 +1,9 @@
 %{
-FW_LEFT_BC_IRR
+FW_WK_DATA2D
     - creates a default FWS structure the FW_LEFT_BC_IRR() type 
     of wavemaker, also assuming some input bathymetry
 %}
-function FWS = FW_LEFT_BC_IRR()
+function FWS = FW_WK_DATA2D()
     FWS = struct();
     %%% Title Info
         FWS.TITLE = 'input_DATA.txt';
@@ -16,7 +16,7 @@ function FWS = FW_LEFT_BC_IRR()
         FWS.SLP = 0.1;
         FWS.Xslp = 800; 
     %%% Spectral/Wavemaker Info
-        FWS.WAVEMAKER = 'LEFT_BC_IRR';
+        FWS.WAVEMAKER = 'WK_DATA2D';
         FWS.WAVE_DATA_TYPE = 'DATA';
         FWS.WaveCompFile = 'spectra_DATA.txt';
         FWS.PeakPeriod = 2;
@@ -40,7 +40,7 @@ function FWS = FW_LEFT_BC_IRR()
     %%% Sponge
         FWS.DIFFUSION_SPONGE = 'F'; 
         FWS.FRICTION_SPONGE = 'F'; 
-        FWS.DIRECT_SPONGE = 'F'; 
+        FWS.DIRECT_SPONGE = 'T'; 
         FWS.Csp = '0.0'; 
         FWS.CDsponge = 1.0; 
         FWS.Sponge_west_width = 0; 
@@ -71,4 +71,4 @@ function FWS = FW_LEFT_BC_IRR()
     %%% Associated Files
         files = struct();
         FWS.files= files;
-        disp('Created FW_in_DATA template file')
+        disp('Created FW_WK_DATA2D template file')

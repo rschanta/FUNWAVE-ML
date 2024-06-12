@@ -34,10 +34,10 @@ function run_MATLAB_function {
 }
 
 #########################################################
-# run_compress_out
-#	- the 'compress_out' function to compress the outputs
-#	  to compress the outputs of all FUNWAVE runs from a
-#	  given run to a single structure, memory permitting
+# run_gen
+#	- the 'run_gen' function runs the function defined
+#     by the run_name stored in run_name.m to generate
+#     the input files for the run.
 #########################################################
 function run_gen {
 ## Arguments
@@ -50,7 +50,7 @@ function run_gen {
 	GDIR="${WD}/input_definitions/"
 	
 ## Run function
-	matlab -nodisplay -nosplash -r "addpath(genpath('"$FCP"')); cd('${GDIR}'); "$RN"("$args");exit"
+	matlab -nodisplay -nosplash -r "addpath(genpath('"$GDIR"'));addpath(genpath('"$FCP"')); "$RN"("$args");exit"
 }
 
 #########################################################

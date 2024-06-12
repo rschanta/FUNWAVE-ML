@@ -6,13 +6,13 @@
 #SBATCH --job-name=RUN_
 #SBATCH --partition=standard
 #SBATCH --time=7-00:00:00
-#SBATCH --output=/work/thsu/rschanta/RTS/funwave-runs/Goal_1/slurm_logs/RUN_out_%a.out
-#SBATCH --error=/work/thsu/rschanta/RTS/funwave-runs/Goal_1/slurm_logs/RUN_err_%a.out
+#SBATCH --output=/work/thsu/rschanta/RTS/funwave-runs/spectra_at_21b/slurm_logs/RUN_out_%a.out
+#SBATCH --error=/work/thsu/rschanta/RTS/funwave-runs/spectra_at_21b/slurm_logs/RUN_err_%a.out
 #SBATCH --mail-user=rschanta@udel.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --export=ALL
-#SBATCH --dependency=afterany:27890206
-#SBATCH --array=1-20
+#SBATCH --dependency=afterany:27913984
+#SBATCH --array=1-10
 #
 #UD_QUIET_JOB_SETUP=YES
 #UD_USE_SRUN_LAUNCHER=YES
@@ -25,13 +25,13 @@
 		## Load in bash functions and VALET packages
 			export WORK_DIR=/work/thsu/rschanta/RTS/
 			. "/work/thsu/rschanta/RTS/functions/bash-utility/get_bash.sh"
-			export_vars "/lustre/scratch/rschanta/" "/work/thsu/rschanta/RTS/" "Goal_1" "rschanta@udel.edu"
+			export_vars "/lustre/scratch/rschanta/" "/work/thsu/rschanta/RTS/" "spectra_at_21b" "rschanta@udel.edu"
 			vpkg_require openmpi
 			vpkg_require matlab
 		## Get input file name
 			input_file=$(get_input_dir "$SLURM_ARRAY_TASK_ID")
 		## Run FUNWAVE
-			${UD_MPIRUN} "/work/thsu/rschanta/RTS/funwave/v3.6/exec/FW-COUP" "$input_file"
+			${UD_MPIRUN} "/work/thsu/rschanta/RTS/funwave/v3.6/exec/FW-REG" "$input_file"
 		## Compress outputs from run to single structure, calculate skew and asymmetry too
 			run_comp_i "$SLURM_ARRAY_TASK_ID" "{'new_ska'}"
 		## Delete raw files from run

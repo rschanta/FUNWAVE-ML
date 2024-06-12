@@ -13,6 +13,8 @@ function ptr = list_FW_tri_dirs(tri_num,p)
     %% Input naming
         % Trial number
             ptr.num_str = tri_no(tri_num);
+        % Run Name
+            ptr.RN = p.RN;
         % Input Name/Title
             ptr.input_name = append_no('input_',tri_num);
         % Path to the input_XXXXX.txt file
@@ -29,5 +31,10 @@ function ptr = list_FW_tri_dirs(tri_num,p)
             ptr.dep_file = fullfile(ptr.RESULT_FOLDER,'dep.out');
         % Path to time_dt.out
             ptr.time_dt_file = fullfile(ptr.RESULT_FOLDER,'time_dt.out');
+        % Path to bathymetry figure
+            ptr.b_fig = [append_no(p.bF_,tri_num),'.png'];
+        % Path to spectra figure
+            ptr.sp_fig = [append_no(p.spF_,tri_num),'.png'];
+
 
 end
