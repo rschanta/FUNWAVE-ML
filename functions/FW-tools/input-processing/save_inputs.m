@@ -29,8 +29,8 @@ function save_inputs(p,input_struct)
 
     %% Save all files
         % Structure .mat
-            save(p.Is,'-struct', 'input_struct', '-v7.3')
-            disp('Successfully saved input structure!')
+            save(p.Is,'-struct', 'input_struct', '-v7.3');
+            disp('Successfully saved input structure!');
         % Table .mat
 
         % Remove the files tab if necessary
@@ -44,10 +44,10 @@ function save_inputs(p,input_struct)
         end
 
 
-           writetable(FWS_tab,p.It)
-           disp('Successfully saved input table!')
+           writetable(FWS_tab,p.It);
+           disp('Successfully saved input table!');
         % Parquet .parquet
-            parquetwrite(p.Ip,FWS_tab)
-            disp('Successfully saved input parquet!')
+            parquetwrite(p.Ip,FWS_tab);
+            disp('Successfully saved input parquet!');
 
 end

@@ -4,7 +4,7 @@
 ## DIRECTORY SETUP AND NAME
 	SUPER_PATH="/lustre/scratch/rschanta/"
 	WORK_DIR="/work/thsu/rschanta/RTS/"
-	RUN_NAME="Spectra_D3_3"
+	RUN_NAME="test_37"
 	count="2"
 	# Mail-User (for Slurm)
 	EMAIL_ADD="rschanta@udel.edu"
@@ -13,7 +13,7 @@
 # Tasks per Node
 	tpn="32"
 # Version of FUNWAVE
-	vs="3.6"
+	vs="3.7"
 # Module of FUNWAVE
 	mod="REG"
 # List of analysis functions (enter "{}" for no functions)
@@ -88,7 +88,7 @@ EOF
 		## Compress outputs from run to single structure, calculate skew and asymmetry too
 			run_comp_i "\$SLURM_ARRAY_TASK_ID" "$f_list"
 		## Delete raw files from run
-			rm_raw_out_i "\$SLURM_ARRAY_TASK_ID"
+			#rm_raw_out_i "\$SLURM_ARRAY_TASK_ID"
 EOF
 ## Run the script and get Job ID
 	IDP=$(run_batch "$file_name")

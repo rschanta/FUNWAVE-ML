@@ -29,6 +29,13 @@ function compress_i(super_path,run_name,tr_num,f_list)
     %%% Initialize variables and desired outputs
         results = struct();
         Vars = {'ETA','MASK','U', 'V'};
+    %%% Load in Time
+        ptr = list_FW_tri_dirs(tr_num,p);
+        results.time_dt = load(ptr.time_dt_file);
+        disp("Successfully got time_dt file!");
+    %%% Get Dep File
+        results.dep = compress_var(p.o_X,'dep',Mglob,Nglob);
+        disp("Successfully got dep file!");
     %%% Loop through all variables to extract
         for j = 1:length(Vars)
         % Get name of variable in capitals and lowercase
@@ -38,13 +45,13 @@ function compress_i(super_path,run_name,tr_num,f_list)
         try
             if FW_in.(VAR)
                 results.(var) = compress_var(p.o_X,[var,'_'],Mglob,Nglob);
-                disp(['Successfully Compressed Trial: ',num_str])
+                disp(['Successfully Compressed Trial: ',num_str]);
             else
-                disp(['Note: ', Vars{j}, ' not set as output'])
+                disp(['Note: ', Vars{j}, ' not set as output']);
             end
         % Error handling if variable not found
         catch
-           disp(['Warning: ', Vars{j} ' files not found!']);
+           disp(['Warning: ', Vars{j} ' files not found!']);;
         end
         end
 
