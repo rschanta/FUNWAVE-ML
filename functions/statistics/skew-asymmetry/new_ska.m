@@ -5,7 +5,7 @@ function new_ska(st,no,sp,rn)
         - run_name
     %}
     %% Get paths
-    p = list_FW_dirs(sp,rn)
+    p = list_FW_dirs(sp,rn);
 
     %% Get eta field from structure
         eta_field = st.eta;

@@ -54,9 +54,9 @@ function test_37(super_path,run_name)
                 input.DEP_WK = bathy(1,1);
                 input.files.bathy = bathy;
                 %% NEW
-                FreqPeak = 0.253;
-                FreqMin = 0.01;
-                FreqMax = 0.9;
+                input.FreqPeak = 0.253;
+                input.FreqMin = 0.01;
+                input.FreqMax = 0.9;
                 input.EqualEnergy='F';
                 input.GammaTMA = 3.3;
                 input.ThetaPeak = 0.0;

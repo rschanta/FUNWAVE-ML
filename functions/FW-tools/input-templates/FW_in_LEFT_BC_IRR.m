@@ -16,9 +16,9 @@ function FWS = FW_LEFT_BC_IRR()
         FWS.SLP = 0.1;
         FWS.Xslp = 800; 
     %%% Spectral/Wavemaker Info
-        FWS.WAVEMAKER = 'LEFT_BC_IRR'
-        FWS.WAVE_DATA_TYPE = 'DATA'
-        FWS.WaveCompFile = 'spectra_DATA.txt'
+        FWS.WAVEMAKER = 'LEFT_BC_IRR';
+        FWS.WAVE_DATA_TYPE = 'DATA';
+        FWS.WaveCompFile = 'spectra_DATA.txt';
         FWS.PeakPeriod = 2;
         FWS.DEP_WK = 5;
 
