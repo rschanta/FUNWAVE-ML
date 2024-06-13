@@ -38,6 +38,13 @@ function p = mk_FW_dir(super_path,run_name)
             make_dir(p.F); 
         %%% OTHER STATITISTICS OF INTEREST
             make_dir(p.S); 
+        %%% ANIMATIONS
+            make_dir(p.ani);
+                make_dir(p.aniE)
+                make_dir(p.aniU)
+                make_dir(p.aniV)
+                make_dir(p.aniUU)
+                make_dir(p.aniVU)
     disp('Directories successfully created!')
         
     end

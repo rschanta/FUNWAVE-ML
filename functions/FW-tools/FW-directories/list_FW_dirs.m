@@ -14,6 +14,7 @@ function p = list_FW_dirs(super_path,run_name)
 p.SP= super_path;
     %%% RUN_NAME
     p.RN = fullfile(p.SP,run_name);
+    p.RN_str = run_name;
         %%% INPUTS: `input.txt` TEXT FILES 
         p.i = fullfile(p.RN,'inputs');
             p.i_ = fullfile(p.i,'input_'); 
@@ -47,6 +48,18 @@ p.SP= super_path;
             p.F = fullfile(p.RN,'other-FW-out');
                 p.Fd = fullfile(p.F,'dep.mat');
                 p.Ft = fullfile(p.F,'time_dt.txt');
+        %%% ANIMATIONS
+            p.ani = fullfile(p.RN,'animations');
+                p.aniE = fullfile(p.ani,'eta-animations');
+                    p.aniE_ = fullfile(p.aniE,'eta_');
+                p.aniU = fullfile(p.ani,'u-animations');
+                    p.aniU_ = fullfile(p.aniU,'u_');
+                p.aniV = fullfile(p.ani,'v-animations');
+                    p.aniV_ = fullfile(p.aniV,'v_');
+                p.aniUU = fullfile(p.ani,'U_undertow-animations');
+                    p.aniUU_ = fullfile(p.aniUU,'U_undertow_');
+                p.aniVU = fullfile(p.ani,'v_undertow-animations');
+                    p.aniVU_ = fullfile(p.aniVU,'V_undertow_');
         %%% OTHER STATITISTICS OF INTEREST
             p.S = fullfile(p.RN,'stats');        
     end

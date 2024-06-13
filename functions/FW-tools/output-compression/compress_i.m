@@ -28,7 +28,7 @@ function compress_i(super_path,run_name,tr_num,f_list)
         Nglob = double(FW_in.Nglob);
     %%% Initialize variables and desired outputs
         results = struct();
-        Vars = {'ETA','MASK','U', 'V'};
+        
     %%% Load in Time
         disp(['Searching for: ', 'time_dt']);
         ptr = list_FW_tri_dirs(tr_num,p);
@@ -46,23 +46,36 @@ function compress_i(super_path,run_name,tr_num,f_list)
         catch
             disp(['Did not find: ', 'dep']);
         end
+    %%% As defined by case in input.txt (be careful with uppercase)
+        Vars = {'ETA','MASK','U', 'V','U_undertow','V_undertow','ROLLER'};
+    %%% Deal with undertow separately
+    if any(ismember(Vars, {'U_undertow'}))
+        Vars(ismember(Vars, {'U_undertow'})) = [];
+        results.('U_undertow') = compress_var(p.o_X,['U_undertow','_'],Mglob,Nglob);
+        disp(['Successfully Compressed: ', 'U_undertow']);
+    end
+    if any(ismember(Vars, {'V_undertow'}))
+        Vars(ismember(Vars, {'V_undertow'})) = [];
+        results.('V_undertow') = compress_var(p.o_X,['V_undertow','_'],Mglob,Nglob);
+        disp(['Successfully Compressed: ', 'V_undertow']);
+    end
     %%% Loop through all variables to extract
         for j = 1:length(Vars)
-        % Get name of variable in capitals and lowercase
+            % Get name of variable in capitals and lowercase, undertow is weird
             VAR = Vars{j};
             var = lower(VAR);
-        % Use `compress_var` to get variables into structure
-        try
-            if FW_in.(VAR)
-                results.(var) = compress_var(p.o_X,[var,'_'],Mglob,Nglob);
-                disp(['Successfully Compressed: ', var]);
-            else
-                disp(['Note: ', Vars{j}, ' not set as output']);
+            % Use `compress_var` to get variables into structure
+            try
+                if FW_in.(VAR)
+                    results.(var) = compress_var(p.o_X,[var,'_'],Mglob,Nglob);
+                    disp(['Successfully Compressed: ', var]);
+                else
+                    disp(['Note: ', Vars{j}, ' not set as output']);
+                end
+            % Error handling if variable not found
+            catch
+            disp(['Warning: ', Vars{j} ' files not found!']);
             end
-        % Error handling if variable not found
-        catch
-           disp(['Warning: ', Vars{j} ' files not found!']);
-        end
         end
 
 

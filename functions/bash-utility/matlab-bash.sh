@@ -54,6 +54,68 @@ function run_gen {
 }
 
 #########################################################
+# run_animate_eta
+#	- the 'animate_eta' function makes an AVI video for
+#     the output
+#########################################################
+function run_animate_eta {
+
+## Arguments
+	slurm_array_number=$1
+## Name of function
+	func="animate_eta"
+	
+## Construct Trial Number
+	tri_no=$(printf "%05d" $slurm_array_number)
+## Construct arguments to matlab function
+	args="'${SP}','${RN}',${tri_no}"
+
+## Run function
+	matlab -nodisplay -nosplash -r "addpath(genpath('"$FCP"')); "$func"("$args");exit"
+}
+
+#########################################################
+# run_animate_velocity
+#	- the 'animate_velocity' function makes an AVI video for
+#     the output
+#########################################################
+function run_animate_velocity {
+
+## Arguments
+	slurm_array_number=$1
+## Name of function
+	func="animate_velocity"
+	
+## Construct Trial Number
+	tri_no=$(printf "%05d" $slurm_array_number)
+## Construct arguments to matlab function
+	args="'${SP}','${RN}',${tri_no}"
+
+## Run function
+	matlab -nodisplay -nosplash -r "addpath(genpath('"$FCP"')); "$func"("$args");exit"
+}
+
+#########################################################
+# run_animate_velocity
+#	- the 'animate_velocity' function makes an AVI video for
+#     the output
+#########################################################
+function run_animate_undertow {
+
+## Arguments
+	slurm_array_number=$1
+## Name of function
+	func="animate_undertow"
+	
+## Construct Trial Number
+	tri_no=$(printf "%05d" $slurm_array_number)
+## Construct arguments to matlab function
+	args="'${SP}','${RN}',${tri_no}"
+
+## Run function
+	matlab -nodisplay -nosplash -r "addpath(genpath('"$FCP"')); "$func"("$args");exit"
+}
+#########################################################
 # run_compress_out
 #	- the 'compress_out' function to compress the outputs
 #	  to compress the outputs of all FUNWAVE runs from a
