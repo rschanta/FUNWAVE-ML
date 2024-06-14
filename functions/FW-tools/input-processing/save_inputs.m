@@ -24,20 +24,29 @@ function save_inputs(p,input_struct)
                 FWS = input_struct.(tri_name);
                 FWS = rmfield(FWS, 'files');
 
+            try
             % Convert to table and append onto
                 FWS_ti = struct2table(FWS);
                 FWS_tab = [FWS_tab; FWS_ti];
+            catch
+                disp('Could not concenate into single table')
+            end
+
         end
 
     %% Save all files
         % Structure .mat
             save(p.Is,'-struct', 'input_struct', '-v7.3');
             disp('Successfully saved input structure!');
+            try
         % Table .mat
            writetable(FWS_tab,p.It);
            disp('Successfully saved input table!');
         % Parquet .parquet
             parquetwrite(p.Ip,FWS_tab);
             disp('Successfully saved input parquet!');
+            catch
+                disp('Could not concenate into single table')
+            end
 
 end

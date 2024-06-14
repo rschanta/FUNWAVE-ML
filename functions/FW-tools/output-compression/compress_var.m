@@ -7,7 +7,7 @@ compress_var
     - NOTE: this currently assumes single precision Binary values, but
       this can be changed by changing `single`
 %}
-function out_array = compress_var(path,var,Mglob,Nglob)
+function out_array = compress_var(path,var,Mglob,Nglob,no_steps)
 %% Arguments
 %{
     - path: path to out_XXXXX directory
@@ -23,7 +23,9 @@ function out_array = compress_var(path,var,Mglob,Nglob)
         disp(['Searching for: ', var])
         %% Loop through all files
         out_array = zeros(length(output_files),Mglob);
+        upper_bound = min(length(output_files),no_steps);
         for j = 1:length(output_files)
+        %for j = 1:length(output_files)
             file = fullfile(path, output_files{j});
             fileID = fopen(file);
                     output = fread(fileID,[Mglob,Nglob],'single');

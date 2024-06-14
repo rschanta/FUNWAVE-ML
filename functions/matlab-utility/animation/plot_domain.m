@@ -18,8 +18,13 @@ function plot_domain(df,ptr)
         SWW = df.Sponge_west_width;
         if strcmp(df.WAVEMAKER,'LEFT_BC_IRR')
             Xc_WK = 0;
+
         else
-            Xc_WK = df.Xc_WK;
+            if strcmp(df.WAVEMAKER,'COUPLING')
+                Xc_WK = 0;
+            else
+                Xc_WK = df.Xc_WK;
+            end
         end
     %% Plot 
     close all
@@ -34,7 +39,12 @@ function plot_domain(df,ptr)
         if strcmp(df.WAVEMAKER,'LEFT_BC_IRR')
             wkL = 'WK as Left BC';
         else
-            wkL = ['WK at x = ', num2str(Xc_WK)];
+            if strcmp(df.WAVEMAKER,'COUPLING')
+                wkL = 'No Wavemaker: Coupling';
+            else
+                wkL = ['WK at x = ', num2str(Xc_WK)];
+            end
+            
         end
     %%% Spongelayer
         if strcmp(df.DIRECT_SPONGE,'T')

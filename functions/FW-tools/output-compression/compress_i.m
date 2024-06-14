@@ -34,14 +34,17 @@ function compress_i(super_path,run_name,tr_num,f_list)
         ptr = list_FW_tri_dirs(tr_num,p);
     try
         results.time_dt = load(ptr.time_dt_file);
+        no_steps = length(results.time_dt);
         disp(['Successfully got: ', 'time_dt']);
+        disp([num2str(no_steps), ' time steps in simulation']);
     catch
         disp(['Did not find: ', 'time_dt']);
     end
+        
     %%% Get Dep File
         disp(['Searching for: ', 'dep']);
         try
-            results.dep = compress_var(p.o_X,'dep',Mglob,Nglob);
+            results.dep = compress_var(p.o_X,'dep',Mglob,Nglob,no_steps);
             disp(['Successfully got: ', 'dep']);
         catch
             disp(['Did not find: ', 'dep']);
@@ -51,12 +54,12 @@ function compress_i(super_path,run_name,tr_num,f_list)
     %%% Deal with undertow separately
     if any(ismember(Vars, {'U_undertow'}))
         Vars(ismember(Vars, {'U_undertow'})) = [];
-        results.('U_undertow') = compress_var(p.o_X,['U_undertow','_'],Mglob,Nglob);
+        results.('U_undertow') = compress_var(p.o_X,['U_undertow','_'],Mglob,Nglob,no_steps);
         disp(['Successfully Compressed: ', 'U_undertow']);
     end
     if any(ismember(Vars, {'V_undertow'}))
         Vars(ismember(Vars, {'V_undertow'})) = [];
-        results.('V_undertow') = compress_var(p.o_X,['V_undertow','_'],Mglob,Nglob);
+        results.('V_undertow') = compress_var(p.o_X,['V_undertow','_'],Mglob,Nglob,no_steps);
         disp(['Successfully Compressed: ', 'V_undertow']);
     end
     %%% Loop through all variables to extract
@@ -67,7 +70,7 @@ function compress_i(super_path,run_name,tr_num,f_list)
             % Use `compress_var` to get variables into structure
             try
                 if FW_in.(VAR)
-                    results.(var) = compress_var(p.o_X,[var,'_'],Mglob,Nglob);
+                    results.(var) = compress_var(p.o_X,[var,'_'],Mglob,Nglob,no_steps);
                     disp(['Successfully Compressed: ', var]);
                 else
                     disp(['Note: ', Vars{j}, ' not set as output']);

@@ -3,7 +3,7 @@ FW_LEFT_BC_IRR
     - creates a default FWS structure the FW_LEFT_BC_IRR() type 
     of wavemaker, also assuming some input bathymetry
 %}
-function FWS = FW_LEFT_BC_IRR()
+function FWS = FW_in_LEFT_BC_IRR()
     FWS = struct();
     %%% Title Info
         FWS.TITLE = 'input_DATA.txt';
@@ -66,6 +66,9 @@ function FWS = FW_LEFT_BC_IRR()
         FWS.MASK = 'T'; 
         FWS.U = 'T'; 
         FWS.V = 'T'; 
+		FWS.ROLLER = 'T';
+        FWS.UNDERTOW = 'T';
+        FWS.ROLLER_EFFECT = 'T';
         FWS.FIELD_IO_TYPE = 'BINARY';
         FWS.RESULT_FOLDER = 'RESULT_FOLDER';
     %%% Associated Files

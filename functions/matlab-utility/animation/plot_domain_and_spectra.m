@@ -17,7 +17,7 @@ function plot_domain_and_spectra(df,ptr)
     %% Get bathymetry/wavemaker/sponge
         bathy = files.bathy;
         SWW = df.Sponge_west_width;
-        if strcmp(df.WAVEMAKER,'LEFT_BC_IRR')
+        if strcmp(df.WAVEMAKER,'COUPLING')
             Xc_WK = 0;
         else
             Xc_WK = df.Xc_WK;

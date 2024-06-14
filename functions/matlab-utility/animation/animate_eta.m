@@ -35,7 +35,7 @@ function animate_results(super_path,run_name,tri_no)
         time = output.time_dt(:,1);
     %%% Pull out wavemaker and sponge
         % Wavemaker
-        if strcmp(input.WAVEMAKER,'LEFT_BC_IRR')
+        if strcmp(input.WAVEMAKER,'COUPLING')
             Xc_WK = 0;
             wkL = 'WK as Left BC';
         else
@@ -54,7 +54,7 @@ function animate_results(super_path,run_name,tri_no)
         hold on
         bathy_plot = plot(bathy_X,-bathy_Z,'LineWidth',2);
         eta_plot = plot(bathy_X,eta(1,:),'LineWidth',2);
-        ylim([min(min(-bathy_Z)), max(max(eta))]);
+        ylim([min(min(-bathy_Z)), max(max(eta))+0.01]);
     %%% Plot wavemaker and sponge
         xline(Xc_WK,'LineWidth',2,'LineStyle','--','Color','r');
         xline(SWW,'LineWidth',2,'LineStyle','--','Color','g');
@@ -66,7 +66,7 @@ function animate_results(super_path,run_name,tri_no)
         xlabel('Cross-shore position (x)');
         ylabel('Elevation (m)')
     %%% Loop through
-        for k = 1:step:size(eta,1)
+        for k = 1:step:size(time,1)
             % Update eta
                 set(eta_plot,'YData',eta(k,:));
             % Update timestep

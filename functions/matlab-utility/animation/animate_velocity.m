@@ -36,7 +36,7 @@ function animate_velocity(super_path,run_name,tri_no)
         time = output.time_dt(:,1);
     %%% Pull out wavemaker and sponge
         % Wavemaker
-        if strcmp(input.WAVEMAKER,'LEFT_BC_IRR')
+        if strcmp(input.WAVEMAKER,'COUPLING')
             Xc_WK = 0;
             wkL = 'WK as Left BC';
         else
@@ -55,7 +55,7 @@ function animate_velocity(super_path,run_name,tri_no)
     plot_title = sgtitle(['Velocities ', RN, ': ', trial_name],'Interpreter','none');
         subplot(1,2,1)
             u_plot = plot(bathy_X,u(1,:),'LineWidth',2);
-            ylim([min(min(u)), max(max(u))]);
+            ylim([min(min(u)), max(max(u))+0.01]);
             xline(Xc_WK,'LineWidth',2,'LineStyle','--','Color','r');
             xline(SWW,'LineWidth',2,'LineStyle','--','Color','g');
             legend('',wkL,spL,'Location','southoutside');
@@ -66,7 +66,7 @@ function animate_velocity(super_path,run_name,tri_no)
             u_subtitle = subtitle(['Timestep = ', num2str(0)],'Interpreter','none');
         subplot(1,2,2)
             v_plot = plot(bathy_X,v(1,:),'LineWidth',2);
-            ylim([min(min(v)), max(max(v))]);
+            ylim([min(min(v)), max(max(v))+0.01]);
             xline(Xc_WK,'LineWidth',2,'LineStyle','--','Color','r');
             xline(SWW,'LineWidth',2,'LineStyle','--','Color','g');
             title('v velocity');
@@ -77,7 +77,7 @@ function animate_velocity(super_path,run_name,tri_no)
             v_subtitle = subtitle(['Time = ', num2str(0)],'Interpreter','none');
         
     %%% Loop through
-        for k = 1:step:min(size(u,1),size(v,1))
+        for k = 1:step:size(time,1)
             % Update eta
                 set(u_plot,'YData',u(k,:));
                 set(v_plot,'YData',v(k,:));

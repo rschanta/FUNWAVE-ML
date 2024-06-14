@@ -67,9 +67,9 @@ function FWS = FW_in_SLP()
         FWS.MASK = 'T'; 
         FWS.U = 'T'; 
         FWS.V = 'T'; 
-        FWS.ROLLER = 'T'
-        FWS.UNDERTOW = 'T'
-        FWS.ROLLER_EFFECT = 'T'
+        FWS.ROLLER = 'T';
+        FWS.UNDERTOW = 'T';
+        FWS.ROLLER_EFFECT = 'T';
         FWS.FIELD_IO_TYPE = 'BINARY';
         FWS.RESULT_FOLDER = 'RESULT_FOLDER';
     %%% Associated Files

@@ -4,8 +4,8 @@
 ## DIRECTORY SETUP AND NAME
 	SUPER_PATH="/lustre/scratch/rschanta/"
 	WORK_DIR="/work/thsu/rschanta/RTS/"
-	RUN_NAME="model_run_6_v2"
-	count="729"
+	RUN_NAME="debug_test"
+	count="8"
 	# Mail-User (for Slurm)
 	EMAIL_ADD="rschanta@udel.edu"
 # Partition
@@ -13,7 +13,7 @@
 # Tasks per Node
 	tpn="32"
 # Version of FUNWAVE
-	vs="3.6b"
+	vs="3.6F"
 # Module of FUNWAVE
 	mod="REG"
 # List of analysis functions (enter "{}" for no functions)

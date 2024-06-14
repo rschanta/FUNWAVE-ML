@@ -36,7 +36,7 @@ function animate_undertow(super_path,run_name,tri_no)
         time = output.time_dt(:,1);
     %%% Pull out wavemaker and sponge
         % Wavemaker
-        if strcmp(input.WAVEMAKER,'LEFT_BC_IRR')
+        if strcmp(input.WAVEMAKER,'COUPLING')
             Xc_WK = 0;
             wkL = 'WK as Left BC';
         else
@@ -55,7 +55,9 @@ function animate_undertow(super_path,run_name,tri_no)
     plot_title = sgtitle(['Undertow ', RN, ': ', trial_name],'Interpreter','none');
         subplot(1,2,1)
             UU_plot = plot(bathy_X,UU(1,:),'LineWidth',2);
-            ylim([min(min(UU)), max(max(UU))]);
+            disp(min(min(UU)));
+            disp(max(max(UU)));
+            ylim([min(min(UU)), max(max(UU))+0.01]);
             xline(Xc_WK,'LineWidth',2,'LineStyle','--','Color','r');
             xline(SWW,'LineWidth',2,'LineStyle','--','Color','g');
             legend('',wkL,spL,'Location','southoutside');
@@ -66,7 +68,9 @@ function animate_undertow(super_path,run_name,tri_no)
             u_subtitle = subtitle(['Timestep = ', num2str(0)],'Interpreter','none');
         subplot(1,2,2)
             VU_plot = plot(bathy_X,VU(1,:),'LineWidth',2);
-            ylim([min(min(VU)), max(max(VU))]);
+            disp(min(min(VU)));
+            disp(max(max(VU)));
+            ylim([min(min(VU)), max(max(VU))+0.01]);
             xline(Xc_WK,'LineWidth',2,'LineStyle','--','Color','r');
             xline(SWW,'LineWidth',2,'LineStyle','--','Color','g');
             title('Undertow v');
@@ -77,7 +81,7 @@ function animate_undertow(super_path,run_name,tri_no)
             v_subtitle = subtitle(['Time = ', num2str(0)],'Interpreter','none');
         
     %%% Loop through
-        for k = 1:step:min(size(UU,1),size(VU,1))
+        for k = 1:step:size(time,1)
             % Update eta
                 set(UU_plot,'YData',UU(k,:));
                 set(VU_plot,'YData',VU(k,:));
