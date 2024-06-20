@@ -4,8 +4,8 @@
 ## DIRECTORY SETUP AND NAME
 	SUPER_PATH="/lustre/scratch/rschanta/"
 	WORK_DIR="/work/thsu/rschanta/RTS/"
-	RUN_NAME="debug_test"
-	count="8"
+	RUN_NAME="coupling_19a"
+	count="2"
 	# Mail-User (for Slurm)
 	EMAIL_ADD="rschanta@udel.edu"
 # Partition
@@ -92,7 +92,7 @@ EOF
 			run_animate_velocity "\$SLURM_ARRAY_TASK_ID" 
 			run_animate_undertow "\$SLURM_ARRAY_TASK_ID" 
 		## Delete raw files from run
-			#rm_raw_out_i "\$SLURM_ARRAY_TASK_ID"
+			rm_raw_out_i "\$SLURM_ARRAY_TASK_ID"
 EOF
 ## Run the script and get Job ID
 	IDP=$(run_batch "$file_name")

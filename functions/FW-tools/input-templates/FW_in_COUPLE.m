@@ -26,6 +26,7 @@ function FWS = FW_in_COUPLE()
         FWS.DY = 1;
     %%% Coupling (instead of wavemaker)
         FWS.WAVEMAKER = 'NONE'; 
+        FWS.Xc_WK = 0; % NEW 6/19
         FWS.COUPLING_FILE = 'COUPLING_FILE';
     %%% Periodic
         FWS.PERIODIC = 'F';
@@ -37,6 +38,10 @@ function FWS = FW_in_COUPLE()
         FWS.DIRECT_SPONGE = 'F'; 
         FWS.Csp = '0.0'; 
         FWS.CDsponge = 1.0; 
+        FWS.Sponge_west_width = 0; % NEW 6/19
+        FWS.Sponge_east_width = 0; % NEW 6/19
+        FWS.Sponge_south_width = 0; % NEW 6/19
+        FWS.Sponge_north_width = 0; % NEW 6/19
     %%% Numerics
         FWS.CFL = 0.4; 
         FWS.FroudeCap = 3;
