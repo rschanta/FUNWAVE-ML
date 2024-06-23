@@ -16,8 +16,8 @@ function animate_undertow(super_path,run_name,tri_no)
         % Output
             output = load(ptr.out_file);
         % Run name
-            RN = p.RN_str
-            trial_name = ptr.input_name
+            RN = p.RN_str;
+            trial_name = ptr.input_name;
             file_name = ptr.aniUU;
         figure(1)
         set(gcf,'Visible','off')
@@ -68,8 +68,6 @@ function animate_undertow(super_path,run_name,tri_no)
             u_subtitle = subtitle(['Timestep = ', num2str(0)],'Interpreter','none');
         subplot(1,2,2)
             VU_plot = plot(bathy_X,VU(1,:),'LineWidth',2);
-            disp(min(min(VU)));
-            disp(max(max(VU)));
             ylim([min(min(VU)), max(max(VU))+0.01]);
             xline(Xc_WK,'LineWidth',2,'LineStyle','--','Color','r');
             xline(SWW,'LineWidth',2,'LineStyle','--','Color','g');

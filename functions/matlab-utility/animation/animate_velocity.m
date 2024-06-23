@@ -16,8 +16,8 @@ function animate_velocity(super_path,run_name,tri_no)
         % Output
             output = load(ptr.out_file);
         % Run name
-            RN = p.RN_str
-            trial_name = ptr.input_name
+            RN = p.RN_str;
+            trial_name = ptr.input_name;
             file_name = ptr.aniU;
         figure(1)
         set(gcf,'Visible','off')

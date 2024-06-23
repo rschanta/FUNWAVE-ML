@@ -4,7 +4,7 @@
 ## DIRECTORY SETUP AND NAME
 	SUPER_PATH="/lustre/scratch/rschanta/"
 	WORK_DIR="/work/thsu/rschanta/RTS/"
-	RUN_NAME="coupling_19a"
+	RUN_NAME="dep_flat_2c"
 	count="2"
 	# Mail-User (for Slurm)
 	EMAIL_ADD="rschanta@udel.edu"
@@ -13,7 +13,7 @@
 # Tasks per Node
 	tpn="32"
 # Version of FUNWAVE
-	vs="3.6F"
+	vs="3.6G"
 # Module of FUNWAVE
 	mod="REG"
 # List of analysis functions (enter "{}" for no functions)

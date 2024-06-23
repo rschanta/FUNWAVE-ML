@@ -16,11 +16,11 @@ function animate_results(super_path,run_name,tri_no)
         % Output
             output = load(ptr.out_file);
         % Run name
-            RN = p.RN_str
-            trial_name = ptr.input_name
+            RN = p.RN_str;
+            trial_name = ptr.input_name;
             file_name = ptr.aniE;
         figure(1)
-        set(gcf,'Visible','off')
+        set(gcf,'Visible','off');
     %%% Set up video writer
         VO = VideoWriter(file_name, 'Motion JPEG AVI');
         VO.FrameRate = 12;
@@ -29,6 +29,9 @@ function animate_results(super_path,run_name,tri_no)
         bathy_X = input.files.bathy.array(:,1);
         bathy_Z = input.files.bathy.array(:,2);
         eta = output.eta;
+    %%% EDIT JUNE 22: ADD MASK FEATURE
+        mask = output.mask;
+        eta(mask == 0) = NaN;
     %%% Timing
         dt = input.PLOT_INTV;
         step = round(1/dt);
