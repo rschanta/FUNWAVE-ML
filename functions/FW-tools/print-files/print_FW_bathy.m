@@ -8,12 +8,12 @@ function print_FW_bathy(data,path)
     - data: (array) array Nglob x Mglob for bathymetry depths
     - path: (string) path to print to, including file name
 %}
-    disp('Started printing bathymetry file')
+disp('Started printing Bathymetry file...')
     try
     writematrix(data,path);
     catch
     writematrix(data.bathy_file,path);
     end
 
-    disp('Finished printing bathymetry file')
+disp(['Bathymetry file successfully saved to: ',path]); 
 end

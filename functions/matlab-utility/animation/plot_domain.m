@@ -3,6 +3,7 @@ plot_domain
     - saves diagrams of the domain for a DEPTH_FLAT case
 %}
 function plot_domain(df,ptr)
+disp('Started plotting domain...');
     %% Get Common Parameters
         TITLE = df.TITLE;
         Mglob = double(df.Mglob);
@@ -64,6 +65,8 @@ function plot_domain(df,ptr)
     %%% Save Out
         disp(['Saving bathymetry plot to... ',ptr.b_fig])
         exportgraphics(gcf,ptr.b_fig,'Resolution',300) 
+
+    disp('Domain plotted succesfully!');
 
     end
     

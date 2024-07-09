@@ -53,6 +53,8 @@ for s = r_S; for t = r_T; for a = r_A; for h = r_H
             input.Xc_WK = cv.WK;
             input.DEP_WK = h;
             input.DEPTH_FLAT = h;
+            bathy = bathy_from_dep_flat(500,input);
+            input.files.bathy = bathy;
 
     %%% PRINT INPUT AND STORE TO STRUCTURE
         % Print input file

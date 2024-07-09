@@ -6,6 +6,7 @@ prep_D3_bathy_6_21
 
 %}
 function bathy = prep_D3_bathy_6_21(Trial,DX)
+disp('Started processing bathymetry...')
     %%% Get Inputs
          bathy_raw = Trial.filtered_data.bed_num_before;
          WGx_raw = Trial.raw_data.WG_loc_x;
@@ -41,4 +42,6 @@ function bathy = prep_D3_bathy_6_21(Trial,DX)
             bathy.array = bathy_array;
             bathy.WGx_raw = WGx_raw;
             bathy.WGx_filt = WGx_filt;
+
+    disp('Sucessfully processed bathymetry...')
     end

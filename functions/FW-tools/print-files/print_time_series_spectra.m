@@ -1,6 +1,8 @@
 %{
 print_time_series_spectra
     - prints a spectra file from a time series, processed by `get_TS_spectra.m`
+
+    - EDIT: add print statements
 %}
 
 function print_time_series_spectra(data,path,sc)
@@ -21,6 +23,7 @@ function print_time_series_spectra(data,path,sc)
         - sc == 0 : do not use scaling factor
         - sc == 1 : use scaling factor
 %}
+disp('Started printing WaveCompFile file...');
     fid = fopen(path, 'w');
         % Pull out data
             per = data.per;
@@ -36,5 +39,6 @@ function print_time_series_spectra(data,path,sc)
             fprintf(fid,'%12.8f %12.8f %12.8f\n',per(i),cnn(i),enn(i));
         end
     fclose(fid);
+disp(['WaveCompFile successfully saved to: ',path]); 
 
 end

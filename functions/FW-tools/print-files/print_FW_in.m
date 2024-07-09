@@ -9,7 +9,7 @@ function print_FW_in(FWS,path)
     - FWS: FWS structure to print out
     - path: path to print to, including file name
 %}
-
+disp('Started printing input.txt file...')
 %%# Open the file
     fid = fopen(path, 'w');
 
@@ -30,6 +30,7 @@ end
 
 %%# Close the file
     fclose(fid);
+disp(['input.txt file successfully saved to: ',path]); 
 %%%
     %% Helper Function
     %{

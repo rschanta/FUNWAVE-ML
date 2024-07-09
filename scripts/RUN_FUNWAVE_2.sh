@@ -4,8 +4,8 @@
 ## DIRECTORY SETUP AND NAME
 	SUPER_PATH="/lustre/scratch/rschanta/"
 	WORK_DIR="/work/thsu/rschanta/RTS/"
-	RUN_NAME="dep_flat_2c"
-	count="2"
+	RUN_NAME="ValAll"
+	count="20"
 	# Mail-User (for Slurm)
 	EMAIL_ADD="rschanta@udel.edu"
 # Partition
@@ -13,7 +13,7 @@
 # Tasks per Node
 	tpn="32"
 # Version of FUNWAVE
-	vs="3.6G"
+	vs="3.6H"
 # Module of FUNWAVE
 	mod="REG"
 # List of analysis functions (enter "{}" for no functions)
@@ -92,7 +92,7 @@ EOF
 			run_animate_velocity "\$SLURM_ARRAY_TASK_ID" 
 			run_animate_undertow "\$SLURM_ARRAY_TASK_ID" 
 		## Delete raw files from run
-			rm_raw_out_i "\$SLURM_ARRAY_TASK_ID"
+			#rm_raw_out_i "\$SLURM_ARRAY_TASK_ID"
 EOF
 ## Run the script and get Job ID
 	IDP=$(run_batch "$file_name")

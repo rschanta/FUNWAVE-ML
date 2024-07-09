@@ -157,3 +157,24 @@ function run_comp_i {
 ## Run function
 	matlab -nodisplay -nosplash -r "addpath(genpath('"$FCP"')); "$func"("$args");exit"
 }
+
+
+#########################################################
+# run_comp_D3_FW_mov
+#	- the 'run_comp_D3_FW_mov' function compares FUNWAVE
+#     outputs to the Dune3 data
+#########################################################
+function run_comp_D3_FW_mov {
+
+## Arguments
+	slurm_array_number=$1
+## Name of function
+	func="comp_D3_FW_mov"
+## Construct Trial Number
+	tri_no=$slurm_array_number
+## Construct arguments to matlab function
+	args="${tri_no},'${SP}','${RN}'"
+
+## Run function
+	matlab -nodisplay -nosplash -r "addpath(genpath('"$FCP"')); "$func"("$args");exit"
+}

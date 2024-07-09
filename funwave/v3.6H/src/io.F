@@ -3965,6 +3965,7 @@ SUBROUTINE PREVIEW
       TMP_NAME = TRIM(FDIR)//'dep.out'
       call PutFile(TMP_NAME,DEPTH)
       ! RTS ADD-ON TO GET X AND Y
+      ! RTS ADD-ON TO GET X AND Y
       TMP_NAME = TRIM(FDIR)//'dep_Xco.out'
       open(unit=256, file=TMP_NAME, status='replace', action='write', form='unformatted')
       write(256) Xco
@@ -3973,6 +3974,7 @@ SUBROUTINE PREVIEW
       open(unit=257, file=TMP_NAME, status='replace', action='write', form='unformatted')
       write(257) Yco
       close(257)
+      ! RTS END
       ! RTS END
       TMP_NAME = TRIM(FDIR)//'cd_breakwater.out'
       call PutFile(TMP_NAME,CD_breakwater)

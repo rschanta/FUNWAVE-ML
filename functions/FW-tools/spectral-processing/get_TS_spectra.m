@@ -23,8 +23,10 @@ function spectra = get_TS_spectra(time_series,lo,hi,sc)
         - a0: (double)- first term
         - an: (n x 1 array) - cosine terms
         - bn: (n x 1 array) - sine terms
+    - NumWaveComp: (double)- number of components in the spectra file
+    - PeakPeriod: (double)- peak period in the spectra file
 %}
-
+disp('Started processing spectra...')
 %%% Get basic info
 % Get time series and eta series
     t = time_series(:,1);     % time series
@@ -68,12 +70,20 @@ for j=1:length(n)
     end
 end
 
+%%% Get peak period and length
+    NumWaveComp = length(per);
+    PeakPeriod = max(per);
+
 %%% Output to structure, include scale
     spectra.per = per;
     spectra.cnn = cnn;
     spectra.cnn_sc = sc*cnn;
     spectra.enn = enn;
-    spectra.fourier.a0 = a0;
-    spectra.fourier.an = an;
-    spectra.fourier.bn = bn;
+    spectra.NumWaveComp = int64(NumWaveComp);
+    spectra.PeakPeriod = PeakPeriod;
+        spectra.fourier.a0 = a0;
+        spectra.fourier.an = an;
+        spectra.fourier.bn = bn;
+
+disp('Sucessfully processed spectra...')
 end
